@@ -1,0 +1,37 @@
+name: Daily LP Optimization
+
+on:
+  schedule:
+    - cron: '0 15 * * *'  # 毎日0時JST（UTC 15:00）
+  workflow_dispatch:        # 手動実行も可能
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install @google-analytics/data @anthropic-ai/sdk
+
+      - name: Run LP Optimizer
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GA4_CREDENTIALS: ${{ secrets.GA4_CREDENTIALS }}
+          LP_TYPE: "B"
+        run: node optimizer.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "LP Auto Optimizer"
+          git config user.email "optimizer@trainers-gym.com"
+          git add index.html optimization-log.json
+          git diff --staged --quiet || git commit -m "🤖 Auto optimize LP-A $(date '+%Y-%m-%d')"
+          git push

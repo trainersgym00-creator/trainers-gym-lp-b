@@ -1,0 +1,10 @@
+{
+  "name": "trainers-gym-lp-b",
+  "version": "1.0.0",
+  "description": "TRAINER'S GYM LP-A Auto Optimizer",
+  "main": "optimizer.js",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@google-analytics/data": "^4.0.0"
+  }
+}
