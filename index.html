@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>TRAINER'S GYM｜3ヶ月で体を変えるパーソナルジム 東京7店舗</title>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GT-TWD7ZM5');</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Bebas+Neue&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:#08080f;color:#f0f0f8;line-height:1.7;-webkit-text-size-adjust:100%;max-width:480px;margin:0 auto;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+:root{
+  --orn:#ff6b00;--orn2:#e55a00;--yel:#ffcc00;--cyan:#00e5ff;--pink:#ff3cac;--grn:#39ff14;
+  --bg:#08080f;--bg2:#0f0f1e;--r:14px;--rf:999px;
+}
+
+.hdr{position:sticky;top:0;z-index:100;background:rgba(8,8,15,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,107,0,.18);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-bolt{width:38px;height:38px;background:linear-gradient(135deg,var(--orn),var(--yel));border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(255,107,0,.5);}
+.logo-en{font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;letter-spacing:1px;}
+.logo-ja{font-size:9px;color:rgba(255,255,255,.35);letter-spacing:1.5px;}
+.hdr-btn{background:linear-gradient(135deg,var(--orn),var(--orn2));color:#fff;padding:9px 16px;border-radius:var(--rf);font-size:12px;font-weight:700;display:flex;align-items:center;gap:5px;box-shadow:0 0 16px rgba(255,107,0,.4);}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;background:var(--bg);}
+.hero-bg-photo{position:absolute;inset:0;}
+.hero-bg-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.28);}
+/* ダイナミックオーバーレイ */
+.hero-fire{position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,107,0,.2) 0%,rgba(8,8,15,.6) 40%,rgba(0,229,255,.1) 100%);pointer-events:none;}
+/* スキャンライン */
+.scanlines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.03) 0px,rgba(0,0,0,.03) 1px,transparent 1px,transparent 2px);pointer-events:none;}
+/* グロー円 */
+.glow-orb{position:absolute;border-radius:50%;pointer-events:none;animation:orbpulse 4s ease-in-out infinite;}
+.orb1{width:300px;height:300px;background:radial-gradient(circle,rgba(255,107,0,.15),transparent 70%);top:-80px;right:-80px;}
+.orb2{width:220px;height:220px;background:radial-gradient(circle,rgba(0,229,255,.12),transparent 70%);bottom:20%;left:-60px;animation-delay:2s;}
+@keyframes orbpulse{0%,100%{transform:scale(1);}50%{transform:scale(1.15);}}
+.hero-content{position:relative;z-index:1;padding:36px 20px 0;flex:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,107,0,.15);border:1px solid rgba(255,107,0,.4);color:#ff9a50;padding:7px 14px;border-radius:var(--rf);font-size:11px;font-weight:700;letter-spacing:1.5px;margin-bottom:18px;animation:fadeUp .5s ease both;}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,14vw,78px);line-height:.9;color:#fff;margin-bottom:12px;letter-spacing:1px;text-shadow:0 0 40px rgba(255,107,0,.3);animation:fadeUp .5s .1s ease both;}
+.hero h1 .orn{color:var(--orn);}
+.hero h1 .sub{font-family:'Noto Sans JP',sans-serif;font-size:clamp(15px,4.5vw,22px);font-weight:900;letter-spacing:0;display:block;margin-top:8px;line-height:1.3;color:rgba(255,255,255,.9);}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.72);line-height:1.9;margin-bottom:22px;animation:fadeUp .5s .2s ease both;}
+.hero-sub strong{color:#fff;}
+/* スタッツバー */
+.stats-bar{display:flex;background:rgba(255,255,255,.07);backdrop-filter:blur(10px);border:1px solid rgba(255,107,0,.2);border-radius:var(--r);overflow:hidden;margin-bottom:0;animation:fadeUp .5s .3s ease both;}
+.stat{flex:1;padding:13px 8px;text-align:center;border-right:1px solid rgba(255,255,255,.06);}
+.stat:last-child{border-right:none;}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;margin-bottom:2px;}
+.s-orn{color:var(--orn);}
+.s-cyn{color:var(--cyan);}
+.s-yel{color:var(--yel);}
+.s-grn{color:var(--grn);}
+.stat-l{font-size:9px;color:rgba(255,255,255,.4);}
+.hero-cta{position:relative;z-index:1;padding:20px 20px 28px;background:linear-gradient(0deg,rgba(8,8,15,.97) 0%,rgba(8,8,15,.72) 100%);}
+.btn-explode{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--orn),var(--orn2));color:#fff;padding:18px 20px;border-radius:var(--rf);font-size:16px;font-weight:900;width:100%;margin-bottom:11px;box-shadow:0 0 40px rgba(255,107,0,.55);position:relative;overflow:hidden;}
+.btn-explode::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:translateX(-100%);animation:shimmer 2s infinite;}
+@keyframes shimmer{100%{transform:translateX(100%);}}
+.btn-ghost{display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);padding:14px 20px;border-radius:var(--rf);font-size:13.5px;font-weight:700;width:100%;}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.tag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:10.5px;font-weight:700;padding:4px 11px;border-radius:var(--rf);}
+
+/* STRIP */
+.strip{display:flex;gap:3px;height:150px;}
+.si{flex:1;overflow:hidden;position:relative;}
+.si img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.si:hover img{transform:scale(1.07);}
+.si-lbl{position:absolute;bottom:0;left:0;right:0;padding:20px 8px 8px;background:linear-gradient(0deg,rgba(8,8,15,.85),transparent);font-size:10px;font-weight:700;color:#fff;letter-spacing:.5px;}
+
+/* SEC BASE */
+.sec{padding:56px 20px;}
+.eyebrow{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:3px;margin-bottom:9px;}
+.eyebrow::before{content:'';width:22px;height:2px;border-radius:2px;}
+.ey-orn{color:var(--orn);}
+.ey-orn::before{background:linear-gradient(90deg,var(--orn),var(--yel));}
+.ey-cyn{color:var(--cyan);}
+.ey-cyn::before{background:linear-gradient(90deg,var(--cyan),#0099ff);}
+.ey-yel{color:var(--yel);}
+.ey-yel::before{background:linear-gradient(90deg,var(--yel),var(--orn));}
+.ey-pink{color:var(--pink);}
+.ey-pink::before{background:linear-gradient(90deg,var(--pink),#a855f7);}
+.sec-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,9vw,48px);line-height:1.0;margin-bottom:12px;color:#fff;letter-spacing:.5px;}
+.sec-p{font-size:13.5px;color:rgba(255,255,255,.5);line-height:2;}
+
+/* METHOD */
+.mth-sec{background:linear-gradient(180deg,#08080f,#0f0f1e);}
+.wide-card{border-radius:var(--r);overflow:hidden;margin-bottom:24px;position:relative;}
+.wide-card img{width:100%;height:220px;object-fit:cover;object-position:center 30%;filter:brightness(.65);}
+.wc-ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,107,0,.75) 0%,rgba(8,8,15,.3) 65%);}
+.wc-txt{position:absolute;bottom:18px;left:18px;right:18px;}
+.wc-badge{display:inline-block;background:#fff;color:#08080f;font-size:9px;font-weight:900;padding:3px 10px;border-radius:var(--rf);margin-bottom:8px;letter-spacing:1px;}
+.wc-txt h3{font-family:'Bebas Neue',sans-serif;font-size:24px;color:#fff;margin-bottom:4px;letter-spacing:.5px;}
+.wc-txt p{font-size:12px;color:rgba(255,255,255,.8);line-height:1.6;}
+.steps{display:flex;flex-direction:column;}
+.step{display:grid;grid-template-columns:52px 1fr;gap:14px;position:relative;padding-bottom:8px;}
+.step::after{content:'';position:absolute;left:24px;top:52px;width:2px;height:calc(100% - 28px);background:linear-gradient(180deg,rgba(255,107,0,.4),transparent);}
+.step:last-child::after{display:none;}
+.step-ic{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.si1{background:linear-gradient(135deg,rgba(255,107,0,.25),rgba(255,204,0,.12));color:var(--orn);}
+.si2{background:linear-gradient(135deg,rgba(0,229,255,.2),rgba(0,153,255,.1));color:var(--cyan);}
+.si3{background:linear-gradient(135deg,rgba(57,255,20,.18),rgba(0,229,255,.08));color:var(--grn);}
+.si4{background:linear-gradient(135deg,rgba(255,60,172,.18),rgba(168,85,247,.08));color:var(--pink);}
+.step-body{padding:6px 0 28px;}
+.step-body h3{font-size:14.5px;font-weight:900;color:#fff;margin-bottom:5px;}
+.step-body p{font-size:12.5px;color:rgba(255,255,255,.5);line-height:1.8;}
+.step-tag{display:inline-block;font-size:10px;font-weight:700;padding:3px 9px;border-radius:var(--rf);margin-top:6px;border:1px solid;}
+.st-orn{background:rgba(255,107,0,.12);color:var(--orn);border-color:rgba(255,107,0,.25);}
+.st-grn{background:rgba(57,255,20,.1);color:var(--grn);border-color:rgba(57,255,20,.2);}
+
+/* RESULTS */
+.res-sec{background:var(--bg);}
+.rc-list{display:flex;flex-direction:column;gap:14px;margin-top:24px;}
+.rc{border-radius:var(--r);overflow:hidden;}
+.rc-img{height:150px;overflow:hidden;position:relative;}
+.rc-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+.rc-ov{position:absolute;inset:0;}
+.rc1 .rc-ov{background:linear-gradient(135deg,rgba(255,107,0,.55),rgba(8,8,15,.25));}
+.rc2 .rc-ov{background:linear-gradient(135deg,rgba(0,229,255,.45),rgba(8,8,15,.25));}
+.rc3 .rc-ov{background:linear-gradient(135deg,rgba(255,204,0,.45),rgba(8,8,15,.25));}
+.rc-num-ov{position:absolute;top:12px;left:14px;display:flex;align-items:flex-end;gap:4px;}
+.rc-big{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);}
+.rc-unit{font-size:22px;font-weight:900;color:#fff;padding-bottom:8px;}
+.rc-body{padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-top:none;border-radius:0 0 var(--r) var(--r);}
+.rc-period{display:inline-block;font-size:10px;color:rgba(255,255,255,.35);background:rgba(255,255,255,.06);padding:3px 9px;border-radius:var(--rf);margin-bottom:5px;}
+.rc-who{font-size:11px;font-weight:700;color:rgba(255,255,255,.55);margin-bottom:7px;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.06);}
+.rc-voice{font-size:12.5px;color:rgba(255,255,255,.6);line-height:1.85;}
+.rc-voice::before{content:'"';}
+.rc-voice::after{content:'"';}
+
+/* TRAINER */
+.tr-sec{background:linear-gradient(160deg,#0f0f1e,#08080f);}
+.tr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px;}
+.tc{border-radius:var(--r);padding:16px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.07);}
+.tc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.tc1{background:rgba(255,107,0,.07);}
+.tc1::after{background:linear-gradient(90deg,var(--orn),var(--yel));}
+.tc2{background:rgba(0,229,255,.07);}
+.tc2::after{background:linear-gradient(90deg,var(--cyan),#0099ff);}
+.tc3{background:rgba(57,255,20,.06);}
+.tc3::after{background:linear-gradient(90deg,var(--grn),var(--cyan));}
+.tc4{background:rgba(255,60,172,.07);}
+.tc4::after{background:linear-gradient(90deg,var(--pink),#a855f7);}
+.tc-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:9px;font-size:19px;}
+.ti1{background:rgba(255,107,0,.2);color:var(--orn);}
+.ti2{background:rgba(0,229,255,.18);color:var(--cyan);}
+.ti3{background:rgba(57,255,20,.15);color:var(--grn);}
+.ti4{background:rgba(255,60,172,.18);color:var(--pink);}
+.tc-cert{font-size:8.5px;font-weight:700;letter-spacing:2px;margin-bottom:3px;}
+.tc1 .tc-cert{color:var(--orn);}
+.tc2 .tc-cert{color:var(--cyan);}
+.tc3 .tc-cert{color:var(--grn);}
+.tc4 .tc-cert{color:var(--pink);}
+.tc h3{font-size:12.5px;font-weight:900;color:#fff;margin-bottom:4px;}
+.tc p{font-size:11px;color:rgba(255,255,255,.4);line-height:1.7;}
+.photo-row{display:flex;gap:8px;margin-top:16px;}
+.ph{flex:1;border-radius:10px;overflow:hidden;position:relative;}
+.ph img{width:100%;height:115px;object-fit:cover;}
+.ph-lbl{position:absolute;bottom:0;left:0;right:0;padding:22px 10px 8px;background:linear-gradient(0deg,rgba(8,8,15,.9),transparent);font-size:11px;font-weight:700;color:#fff;}
+
+/* PRICE */
+.pr-sec{background:var(--bg);}
+.pr-note{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:22px;line-height:1.8;}
+.pr-note strong{color:var(--orn);}
+.pr-cards{display:flex;flex-direction:column;gap:14px;}
+.pc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:20px 18px;position:relative;}
+.pc.feat{background:linear-gradient(135deg,rgba(255,107,0,.13),rgba(255,204,0,.05));border-color:rgba(255,107,0,.4);}
+.pc-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--orn),var(--yel));color:#08080f;font-size:10px;font-weight:900;padding:3px 14px;border-radius:var(--rf);white-space:nowrap;}
+.pc-lbl{font-size:8.5px;font-weight:700;letter-spacing:2.5px;color:rgba(255,255,255,.25);margin-bottom:10px;}
+.pc.feat .pc-lbl{color:var(--orn);}
+.pc-price{display:flex;align-items:flex-end;gap:4px;margin-bottom:3px;}
+.pc-yen{font-family:'Bebas Neue',sans-serif;font-size:40px;color:#fff;line-height:1;}
+.pc-un{font-size:13px;color:rgba(255,255,255,.35);padding-bottom:6px;}
+.pc-tax{font-size:11px;color:rgba(255,255,255,.25);margin-bottom:4px;}
+.pc-freq{font-size:11.5px;color:rgba(255,255,255,.45);margin-bottom:14px;line-height:1.6;}
+.pc-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.pc-li{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:rgba(255,255,255,.65);}
+.pc-li i{font-size:11px;margin-top:3px;flex-shrink:0;color:var(--orn);}
+.btn-pc{display:block;text-align:center;padding:13px;background:linear-gradient(135deg,var(--orn),var(--orn2));color:#fff;font-size:13px;font-weight:900;border-radius:var(--rf);box-shadow:0 0 18px rgba(255,107,0,.3);}
+.pc:not(.feat) .btn-pc{background:rgba(255,255,255,.08);box-shadow:none;border:1px solid rgba(255,255,255,.12);}
+.pr-foot{font-size:11px;color:rgba(255,255,255,.2);text-align:center;margin-top:16px;line-height:1.9;}
+.pr-foot strong{color:rgba(255,255,255,.45);}
+
+/* VOICE */
+.vo-sec{background:var(--bg2);}
+.vc-list{display:flex;flex-direction:column;gap:12px;margin-top:24px;}
+.vc{border-radius:var(--r);padding:18px;border:1px solid rgba(255,255,255,.07);}
+.vc1{background:linear-gradient(135deg,rgba(255,107,0,.07),rgba(8,8,15,.5));}
+.vc2{background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(8,8,15,.5));}
+.vc3{background:linear-gradient(135deg,rgba(57,255,20,.05),rgba(8,8,15,.5));}
+.vc-stars{display:flex;gap:3px;margin-bottom:10px;}
+.vc-stars i{font-size:13px;color:var(--yel);}
+.vc-text{font-size:13px;color:rgba(255,255,255,.72);line-height:1.9;margin-bottom:12px;}
+.vc-user{display:flex;align-items:center;gap:10px;}
+.vc-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
+.va1{background:rgba(255,107,0,.22);color:var(--orn);}
+.va2{background:rgba(0,229,255,.18);color:var(--cyan);}
+.va3{background:rgba(57,255,20,.15);color:var(--grn);}
+.vc-name{font-size:13px;font-weight:700;color:#fff;}
+.vc-info{font-size:11px;color:rgba(255,255,255,.3);}
+
+/* STORE */
+.st-sec{background:var(--bg);}
+.st-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px;}
+.sc{border-radius:var(--r);padding:14px;position:relative;overflow:hidden;border:1px solid rgba(255,107,0,.12);}
+.sc:nth-child(odd){background:linear-gradient(135deg,rgba(255,107,0,.08),rgba(8,8,15,.6));}
+.sc:nth-child(even){background:linear-gradient(135deg,rgba(0,229,255,.07),rgba(8,8,15,.6));}
+.sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;}
+.sc:nth-child(odd)::after{background:linear-gradient(90deg,var(--orn),var(--yel));}
+.sc:nth-child(even)::after{background:linear-gradient(90deg,var(--cyan),#0099ff);}
+.sc-en{font-size:8.5px;font-weight:700;letter-spacing:1.5px;margin-bottom:3px;}
+.sc:nth-child(odd) .sc-en{color:var(--orn);}
+.sc:nth-child(even) .sc-en{color:var(--cyan);}
+.sc-ja{font-size:14px;font-weight:900;color:#fff;margin-bottom:5px;}
+.sc-wk{display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,.4);}
+.sc-wk i{font-size:10px;}
+.sc:nth-child(odd) .sc-wk i{color:var(--orn);}
+.sc:nth-child(even) .sc-wk i{color:var(--cyan);}
+
+/* FINAL CTA */
+.fin{position:relative;overflow:hidden;padding:56px 20px;text-align:center;}
+.fin-bg{position:absolute;inset:0;}
+.fin-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.18);}
+.fin-ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,107,0,.3),rgba(0,229,255,.15),rgba(8,8,15,.9));}
+.fin-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:280px;height:280px;background:radial-gradient(circle,rgba(255,107,0,.22),transparent 70%);border-radius:50%;pointer-events:none;}
+.fin-cnt{position:relative;z-index:1;}
+.fin-cnt .eyebrow{justify-content:center;}
+.fin-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,8vw,44px);color:#fff;line-height:1.05;letter-spacing:.5px;margin-bottom:12px;}
+.fin-p{font-size:13.5px;color:rgba(255,255,255,.6);margin-bottom:28px;line-height:1.9;}
+.btn-fin{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--orn),var(--orn2));color:#fff;padding:18px 20px;border-radius:var(--rf);font-size:16px;font-weight:900;width:100%;margin-bottom:12px;box-shadow:0 0 44px rgba(255,107,0,.6);position:relative;overflow:hidden;}
+.btn-fin::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:translateX(-100%);animation:shimmer 2s infinite;}
+.btn-fin2{display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);padding:14px 20px;border-radius:var(--rf);font-size:13.5px;font-weight:700;width:100%;}
+
+footer{background:#050508;padding:34px 20px 82px;border-top:1px solid rgba(255,107,0,.1);}
+.ft-logo{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--orn);margin-bottom:8px;letter-spacing:1px;}
+.ft-tag{font-size:11px;color:rgba(255,255,255,.2);line-height:1.9;margin-bottom:16px;}
+.ft-links{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:16px;}
+.ft-links a{font-size:11.5px;color:rgba(255,255,255,.25);}
+.ft-copy{font-size:10px;color:rgba(255,255,255,.12);text-align:center;}
+
+.stk{position:fixed;bottom:0;left:0;right:0;z-index:200;display:flex;transform:translateY(100%);transition:transform .3s;max-width:480px;margin:0 auto;box-shadow:0 -4px 28px rgba(255,107,0,.22);}
+.stk.show{transform:translateY(0);}
+.stk-line{flex:3;background:linear-gradient(135deg,var(--orn),var(--orn2));color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;padding:15px;font-size:14px;font-weight:900;border-right:1px solid rgba(255,255,255,.15);}
+.stk-tel{flex:2;background:#0f0f1e;color:#fff;display:flex;align-items:center;justify-content:center;gap:6px;padding:15px;font-size:12px;font-weight:700;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GT-TWD7ZM5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header class="hdr">
+  <div class="logo">
+    <div class="logo-bolt"><i class="fa-solid fa-bolt" style="color:#fff;font-size:19px;"></i></div>
+    <div><div class="logo-en">TRAINER'S GYM</div><div class="logo-ja">RESULT DRIVEN GYM</div></div>
+  </div>
+  <a href="https://lin.ee/2Z1Luhr" class="hdr-btn" onclick="gtag('event','click',{event_category:'LP-B',event_label:'header'});"><i class="fa-brands fa-line"></i>無料体験</a>
+</header>
+
+<div class="hero">
+  <div class="hero-bg-photo"><img src="https://images.pexels.com/photos/4853668/pexels-photo-4853668.jpeg?auto=compress&cs=tinysrgb&w=480&h=700&fit=crop" alt="トレーナー指導" loading="eager"></div>
+  <div class="hero-fire"></div>
+  <div class="scanlines"></div>
+  <div class="glow-orb orb1"></div>
+  <div class="glow-orb orb2"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fa-solid fa-fire"></i>3ヶ月で結果を出す</div>
+    <h1>CHANGE<span class="orn"> YOUR</span><span class="sub">BODY IN 3 MONTHS.</span></h1>
+    <p class="hero-sub"><strong>国際認定トレーナー</strong>が科学的プログラムで<strong>最短3ヶ月</strong>で体を変える。月額制で結果が出るまで続けられる。</p>
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-n s-orn">-8.4</div><div class="stat-l">kg / 3ヶ月</div></div>
+      <div class="stat"><div class="stat-n s-cyn">100%</div><div class="stat-l">国際認定率</div></div>
+      <div class="stat"><div class="stat-n s-yel">7店</div><div class="stat-l">東京直営</div></div>
+      <div class="stat"><div class="stat-n s-grn">30日</div><div class="stat-l">返金保証</div></div>
+    </div>
+  </div>
+  <div class="hero-cta">
+    <a href="https://lin.ee/2Z1Luhr" class="btn-explode" onclick="gtag('event','click',{event_category:'LP-B',event_label:'hero_line'});"><i class="fa-brands fa-line" style="font-size:19px;"></i>LINEで無料体験を予約する</a>
+    <a href="https://trainers-gym.com/contact/" class="btn-ghost" onclick="gtag('event','click',{event_category:'LP-B',event_label:'hero_form'});"><i class="fa-solid fa-envelope"></i>フォームで問い合わせる</a>
+    <div class="tags"><span class="tag">NSCA認定</span><span class="tag">NESTA認定</span><span class="tag">国際資格100%</span><span class="tag">完全個室</span><span class="tag">月額制</span></div>
+  </div>
+</div>
+
+<div class="strip">
+  <div class="si"><img src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=160&h=150&fit=crop" alt="ダンベル" loading="lazy"><div class="si-lbl">最新器具</div></div>
+  <div class="si"><img src="https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=160&h=150&fit=crop" alt="バーベル" loading="lazy"><div class="si-lbl">本格設備</div></div>
+  <div class="si"><img src="https://images.pexels.com/photos/4397833/pexels-photo-4397833.jpeg?auto=compress&cs=tinysrgb&w=160&h=150&fit=crop" alt="シューズ" loading="lazy"><div class="si-lbl">完全個室</div></div>
+</div>
+
+<section class="sec mth-sec reveal" id="method">
+  <div class="eyebrow ey-orn">METHOD</div>
+  <h2 class="sec-h">3ヶ月で変わる<br>科学的メソッド</h2>
+  <p class="sec-p">感覚ではなくデータで動く。毎回の測定と分析で最短ルートを走る。</p>
+  <div class="wide-card">
+    <img src="https://images.pexels.com/photos/4376663/pexels-photo-4376663.jpeg?auto=compress&cs=tinysrgb&w=480&h=240&fit=crop&fp-y=0.4" alt="ジムトレーニング" loading="lazy">
+    <div class="wc-ov"></div>
+    <div class="wc-txt"><div class="wc-badge">DATA DRIVEN</div><h3>毎回計測で最短ルート</h3><p>体重・体脂肪・筋肉量を毎回計測。プログラムをリアルタイム最適化。</p></div>
+  </div>
+  <div class="steps">
+    <div class="step reveal"><div class="step-ic si1"><i class="fa-solid fa-clipboard-list"></i></div><div class="step-body"><h3>完全個別カルテ作成</h3><p>体組成・姿勢・生活習慣・既往歴・目標を徹底分析。あなただけのプログラムを設計します。</p><span class="step-tag st-orn">初回無料</span></div></div>
+    <div class="step reveal"><div class="step-ic si2"><i class="fa-solid fa-chart-line"></i></div><div class="step-body"><h3>毎回データ計測＆最適化</h3><p>体重・体脂肪・筋肉量を毎回計測。数値に基づいてプログラムをリアルタイム更新。</p></div></div>
+    <div class="step reveal"><div class="step-ic si3"><i class="fa-solid fa-utensils"></i></div><div class="step-body"><h3>食事×運動の完全統合</h3><p>トレーニングだけでなく食事管理もセット。24時間LINEサポートで習慣化を支援。</p><span class="step-tag st-grn">LINE 24時間対応</span></div></div>
+    <div class="step reveal"><div class="step-ic si4"><i class="fa-solid fa-trophy"></i></div><div class="step-body"><h3>3ヶ月で体を変える</h3><p>月4〜8回のトレーニングで確実に結果を出す。変化が止まったら即プログラム変更。</p></div></div>
+  </div>
+</section>
+
+<section class="sec res-sec reveal" id="result">
+  <div class="eyebrow ey-cyn">RESULTS</div>
+  <h2 class="sec-h">REAL RESULTS</h2>
+  <p class="sec-p">数字が証明する。感覚ではなくデータで管理した結果です。</p>
+  <div class="rc-list">
+    <div class="rc rc1 reveal"><div class="rc-img"><img src="https://images.pexels.com/photos/4376663/pexels-photo-4376663.jpeg?auto=compress&cs=tinysrgb&w=480&h=150&fit=crop" alt="トレーニング" loading="lazy"><div class="rc-ov"></div><div class="rc-num-ov"><div class="rc-big">-8.4</div><div class="rc-unit">kg</div></div></div><div class="rc-body"><div class="rc-period">3ヶ月 / 月4回</div><div class="rc-who">40代女性・デスクワーク</div><div class="rc-voice">毎回データを取って最適化してくれるので、無駄な努力がゼロ。結果が見えるから続けられました。</div></div></div>
+    <div class="rc rc2 reveal"><div class="rc-img"><img src="https://images.pexels.com/photos/4853668/pexels-photo-4853668.jpeg?auto=compress&cs=tinysrgb&w=480&h=150&fit=crop&fp-y=0.2" alt="指導" loading="lazy"><div class="rc-ov"></div><div class="rc-num-ov"><div class="rc-big">-6.2</div><div class="rc-unit">kg</div></div></div><div class="rc-body"><div class="rc-period">2ヶ月 / 月8回</div><div class="rc-who">30代男性・会社員</div><div class="rc-voice">週2回通って2ヶ月。食事管理もセットでやってくれるので、トレーニングだけより圧倒的に早く変わりました。</div></div></div>
+    <div class="rc rc3 reveal"><div class="rc-img"><img src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=480&h=150&fit=crop" alt="ダンベル" loading="lazy"><div class="rc-ov"></div><div class="rc-num-ov"><div class="rc-big">+32</div><div class="rc-unit">%</div></div></div><div class="rc-body"><div class="rc-period">4ヶ月 / 月4回</div><div class="rc-who">60代女性・変形性膝関節症</div><div class="rc-voice">データで示してくれるので何が効いているかわかる。理学療法士監修で安全に筋力が上がりました。</div></div></div>
+  </div>
+</section>
+
+<section class="sec tr-sec reveal" id="trainer">
+  <div class="eyebrow ey-yel">TRAINERS</div>
+  <h2 class="sec-h">国際認定<br>トレーナー全員配置</h2>
+  <p class="sec-p">科学的根拠に基づく指導で最短ルートへ。</p>
+  <div class="tr-grid">
+    <div class="tc tc1"><div class="tc-icon ti1"><i class="fa-solid fa-dumbbell"></i></div><div class="tc-cert">NSCA-CPT</div><h3>ストレングス&コンディショニング</h3><p>体力・筋力・持久力を科学的に向上</p></div>
+    <div class="tc tc2"><div class="tc-icon ti2"><i class="fa-solid fa-heart-pulse"></i></div><div class="tc-cert">NESTA-PFT</div><h3>パーソナルフィットネス</h3><p>目標別の個別プログラム設計</p></div>
+    <div class="tc tc3"><div class="tc-icon ti3"><i class="fa-solid fa-apple-whole"></i></div><div class="tc-cert">栄養指導資格</div><h3>食事管理サポート</h3><p>運動×食事の相乗効果で加速</p></div>
+    <div class="tc tc4"><div class="tc-icon ti4"><i class="fa-solid fa-chart-bar"></i></div><div class="tc-cert">データ分析</div><h3>毎回測定&最適化</h3><p>数値で進捗管理し無駄をゼロに</p></div>
+  </div>
+  <div class="photo-row">
+    <div class="ph"><img src="https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg?auto=compress&cs=tinysrgb&w=240&h=115&fit=crop" alt="ジム器具" loading="lazy"><div class="ph-lbl">プロ仕様器具</div></div>
+    <div class="ph"><img src="https://images.pexels.com/photos/4397833/pexels-photo-4397833.jpeg?auto=compress&cs=tinysrgb&w=240&h=115&fit=crop" alt="シューズ" loading="lazy"><div class="ph-lbl">完全個室設備</div></div>
+  </div>
+</section>
+
+<section class="sec pr-sec reveal" id="price">
+  <div class="eyebrow ey-orn">PRICING</div>
+  <h2 class="sec-h">シンプルな料金</h2>
+  <p class="pr-note">入会金50,000円（税別）→ <strong>無料体験当日入会で全額無料</strong></p>
+  <div class="pr-cards">
+    <div class="pc reveal"><div class="pc-lbl">LIGHT PLAN</div><div class="pc-price"><div class="pc-yen">¥28,000</div><div class="pc-un">/月</div></div><div class="pc-tax">税込 30,800円</div><div class="pc-freq">月4回（週1回）／ 1回あたり7,000円（税込7,700円）</div><ul class="pc-list"><li class="pc-li"><i class="fa-solid fa-check"></i>マンツーマン指導</li><li class="pc-li"><i class="fa-solid fa-check"></i>毎回データ測定</li><li class="pc-li"><i class="fa-solid fa-check"></i>食事アドバイス</li><li class="pc-li"><i class="fa-solid fa-check"></i>アメニティ完備</li></ul><a href="https://lin.ee/2Z1Luhr" class="btn-pc" onclick="gtag('event','click',{event_category:'LP-B',event_label:'price_light'});">無料体験を予約する</a></div>
+    <div class="pc feat reveal"><div class="pc-badge">最速コース</div><div class="pc-lbl">STANDARD PLAN</div><div class="pc-price"><div class="pc-yen">¥54,000</div><div class="pc-un">/月</div></div><div class="pc-tax">税込 59,400円</div><div class="pc-freq">月8回（週2回）／ 1回あたり6,750円（税込7,425円）</div><ul class="pc-list"><li class="pc-li"><i class="fa-solid fa-check"></i>マンツーマン指導</li><li class="pc-li"><i class="fa-solid fa-check"></i>毎回データ測定&最適化</li><li class="pc-li"><i class="fa-solid fa-check"></i>食事管理サポート</li><li class="pc-li"><i class="fa-solid fa-check"></i>LINE 24時間相談</li><li class="pc-li"><i class="fa-solid fa-check"></i>体組成データ管理</li></ul><a href="https://lin.ee/2Z1Luhr" class="btn-pc" onclick="gtag('event','click',{event_category:'LP-B',event_label:'price_standard'});">無料体験を予約する</a></div>
+    <div class="pc reveal"><div class="pc-lbl">SINGLE SESSION</div><div class="pc-price"><div class="pc-yen">¥5,750</div><div class="pc-un">〜</div></div><div class="pc-tax">税込 6,325円〜</div><div class="pc-freq">まず1回体験したい方に。</div><ul class="pc-list"><li class="pc-li"><i class="fa-solid fa-check"></i>マンツーマン指導</li><li class="pc-li"><i class="fa-solid fa-check"></i>データ測定</li></ul><a href="https://lin.ee/2Z1Luhr" class="btn-pc" onclick="gtag('event','click',{event_category:'LP-B',event_label:'price_single'});">詳細はLINEで確認</a></div>
+  </div>
+  <p class="pr-foot">※入会金50,000円（税別）→ 無料体験当日入会で<strong>全額無料</strong><br>※30日間全額返金保証付き ※月途中入会は日割り対応</p>
+</section>
+
+<section class="sec vo-sec reveal" id="voice">
+  <div class="eyebrow ey-pink">VOICE</div>
+  <h2 class="sec-h">お客様の声</h2>
+  <div class="vc-list">
+    <div class="vc vc1 reveal"><div class="vc-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="vc-text">3ヶ月で-8kg。毎回データを取って最適化してくれるので、無駄な努力がゼロ。結果が見えるから続けられました。</p><div class="vc-user"><div class="vc-av va1"><i class="fa-solid fa-user"></i></div><div><div class="vc-name">30代男性・会社員</div><div class="vc-info">駒沢大学店 / 4ヶ月在籍</div></div></div></div>
+    <div class="vc vc2 reveal"><div class="vc-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="vc-text">週2回通って2ヶ月。食事管理もセットでやってくれるので、トレーニングだけより圧倒的に早く変わりました。</p><div class="vc-user"><div class="vc-av va2"><i class="fa-solid fa-user"></i></div><div><div class="vc-name">40代女性・パート勤務</div><div class="vc-info">高円寺店 / 5ヶ月在籍</div></div></div></div>
+    <div class="vc vc3 reveal"><div class="vc-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="vc-text">他のジムは結果が出ない理由を教えてくれなかった。ここはデータで示してくれるので、何が効いているかわかる。</p><div class="vc-user"><div class="vc-av va3"><i class="fa-solid fa-user"></i></div><div><div class="vc-name">50代男性・経営者</div><div class="vc-info">曙橋店 / 8ヶ月在籍</div></div></div></div>
+  </div>
+</section>
+
+<section class="sec st-sec reveal" id="store">
+  <div class="eyebrow ey-cyn">LOCATIONS</div>
+  <h2 class="sec-h">東京都内 7店舗</h2>
+  <p class="sec-p">駅徒歩1〜6分。仕事帰りに立ち寄れる立地展開中。</p>
+  <div class="st-grid">
+    <div class="sc"><div class="sc-en">KOMAZAWA</div><div class="sc-ja">駒沢大学店</div><div class="sc-wk"><i class="fa-solid fa-person-walking"></i>徒歩3分</div></div>
+    <div class="sc"><div class="sc-en">KOENJI</div><div class="sc-ja">高円寺店</div><div class="sc-wk"><i class="fa-solid fa-person-walking"></i>徒歩1分</div></div>
+    <div class="sc"><div class="sc-en">EKODA</div><div class="sc-ja">江古田店</div><div class="sc-wk"><i class="fa-solid fa-person-walking"></i>徒歩4分</div></div>
+    <div class="sc"><div class="sc-en">TORITSU</div><div class="sc-ja">都立大学店</div><div class="sc-wk"><i class="fa-solid fa-person-walking"></i>徒歩5分</div></div>
+    <div class="sc"><div class="sc-en">AKEBONOBASHI</div><div class="sc-ja">曙橋店</div><div class="sc-wk"><i class="fa-solid fa-person-walking"></i>徒歩3分</div></div>
+    <div class="sc"><div class="sc-en">NISHI-OGI</div><div class="sc-ja">西荻窪店</div><div class="sc-wk"><i class="fa-solid fa-person-walking"></i>徒歩4分</div></div>
+    <div class="sc"><div class="sc-en">HATAGAYA</div><div class="sc-ja">幡ヶ谷店</div><div class="sc-wk"><i class="fa-solid fa-person-walking"></i>徒歩6分</div></div>
+  </div>
+</section>
+
+<div class="fin reveal">
+  <div class="fin-bg"><img src="https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=480&h=420&fit=crop" alt="バーベル" loading="lazy"></div>
+  <div class="fin-ov"></div>
+  <div class="fin-glow"></div>
+  <div class="fin-cnt">
+    <div class="eyebrow ey-orn" style="justify-content:center;">FREE TRIAL</div>
+    <h2 class="fin-h">迷ってる時間が<br>一番もったいない。</h2>
+    <p class="fin-p">カウンセリング＋体験トレーニング完全無料。<br>当日入会で入会金50,000円が無料になります。</p>
+    <a href="https://lin.ee/2Z1Luhr" class="btn-fin" onclick="gtag('event','click',{event_category:'LP-B',event_label:'cta_final_line'});"><i class="fa-brands fa-line" style="font-size:19px;"></i>LINEで無料体験を予約する</a>
+    <a href="https://trainers-gym.com/contact/" class="btn-fin2" onclick="gtag('event','click',{event_category:'LP-B',event_label:'cta_final_form'});"><i class="fa-solid fa-envelope"></i>フォームで問い合わせる</a>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-logo">TRAINER'S GYM</div>
+  <p class="ft-tag">国際認定トレーナーが科学的プログラムで体を変えるパーソナルジム。東京都内7店舗展開中。</p>
+  <div class="ft-links"><a href="#method">メソッド</a><a href="#result">実績</a><a href="#price">料金</a><a href="#store">店舗</a><a href="https://trainers-gym.com/">公式サイト</a></div>
+  <p class="ft-copy">© 2026 TRAINER'S GYM All Rights Reserved.</p>
+</footer>
+
+<div class="stk" id="stkBar">
+  <a href="https://lin.ee/2Z1Luhr" class="stk-line" onclick="gtag('event','click',{event_category:'LP-B',event_label:'sticky_line'});"><i class="fa-brands fa-line"></i>無料体験を予約</a>
+  <a href="tel:0000000000" class="stk-tel"><i class="fa-solid fa-phone"></i>電話で問い合わせ</a>
+</div>
+
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-Z2KWB0NLZY');
+window.addEventListener('scroll',()=>{
+  document.getElementById('stkBar').classList.toggle('show',window.scrollY>300);
+},{passive:true});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2KWB0NLZY"></script>
+</body>
+</html>
