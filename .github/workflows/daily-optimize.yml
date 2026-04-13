@@ -2,11 +2,8 @@ name: 日々のLP最適化
 
 on:
   schedule:
-    - cron: '0 15 * * *'  # 毎日0時JST
+    - cron: '0 15 * * *'
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 jobs:
   optimize:
@@ -14,8 +11,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -34,9 +29,17 @@ jobs:
         run: node optimizer.js
 
       - name: Commit and push if changed
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git config user.name "LP Auto Optimizer"
           git config user.email "optimizer@trainers-gym.com"
+          git remote set-url origin "https://trainersgym00-creator:${PAT_TOKEN}@github.com/trainersgym00-creator/trainers-gym-lp-b.git"
           git add index.html optimization-log.json 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "🤖 Auto optimize LP-B $(date '+%Y-%m-%d')"
-          git diff HEAD~1 --quiet 2>/dev/null || git push
+          if ! git diff --staged --quiet; then
+            git commit -m "🤖 Auto optimize LP-B $(date '+%Y-%m-%d')"
+            git push origin master
+            echo "✅ LP改善をpushしました"
+          else
+            echo "ℹ️ 変更なし - pushスキップ"
+          fi
