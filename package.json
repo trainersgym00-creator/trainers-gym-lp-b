@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "TRAINER'S GYM LP-A Auto Optimizer",
   "main": "optimizer.js",
+  "scripts": {
+    "freee": "node freee-auto-journal.js",
+    "freee:token": "node freee-get-token.js"
+  },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0",
-    "@google-analytics/data": "^4.0.0"
+    "@anthropic-ai/sdk": "^0.110.0",
+    "@google-analytics/data": "^4.0.0",
+    "libsodium-wrappers": "^0.7.13"
   }
 }
