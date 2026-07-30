@@ -318,8 +318,10 @@ function writeSummary(registered, review, skippedCount) {
 
   const log = loadLog();
   const allTxns = await fetchUnprocessedTxns(freee);
-  const skipped = allTxns.filter(t => log.processed[t.id]);
-  const targets = allTxns.filter(t => !log.processed[t.id]).slice(0, MAX_TXNS);
+  // DRY RUNで記録されたものは実登録されていないので、処理済み扱いにしない
+  const isDone = (t) => log.processed[t.id] && !log.processed[t.id].dry_run;
+  const skipped = allTxns.filter(isDone);
+  const targets = allTxns.filter(t => !isDone(t)).slice(0, MAX_TXNS);
   console.log(`💳 未処理明細: ${allTxns.length}件（処理済みスキップ: ${skipped.length}件 / 今回対象: ${targets.length}件）`);
 
   const registered = [];
