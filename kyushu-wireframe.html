@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>【WF v1】トレーナーズラボ×九州医療スポーツ専門学校 スペシャリストコースLP ワイヤーフレーム</title>
+<style>
+/* ===== ワイヤーフレーム用スタイル(本番デザインではない) ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;background:#e9ecf1;color:#1c2b4a;line-height:1.7;}
+.frame{max-width:480px;margin:0 auto;background:#fff;box-shadow:0 0 24px rgba(0,0,0,.12);}
+/* 画像プレースホルダー */
+.ph{background:repeating-linear-gradient(45deg,#dfe4ec,#dfe4ec 12px,#e9edf3 12px,#e9edf3 24px);border:2px dashed #9aa7bd;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#5b6b88;font-size:11px;padding:10px;gap:4px;}
+.ph strong{font-size:12px;color:#33456b;}
+/* 注釈(制作メモ) */
+.note{background:#fff8dc;border-left:4px solid #e6b800;font-size:11px;color:#6b5900;padding:8px 12px;margin:0;}
+.note b{color:#8a6d00;}
+/* セクション共通 */
+section{padding:28px 18px;border-bottom:1px solid #dde3ec;position:relative;}
+.sec-tag{position:absolute;top:0;left:0;background:#1c2b4a;color:#fff;font-size:9px;padding:2px 8px;letter-spacing:1px;}
+h2{font-size:19px;font-weight:800;margin-bottom:6px;color:#1c2b4a;}
+.sub{font-size:11px;color:#c0392b;font-weight:700;letter-spacing:2px;margin-bottom:4px;}
+p{font-size:13px;color:#44506b;}
+.copy{background:#f2f5f9;border:1px solid #d8dfea;border-radius:6px;padding:10px 12px;font-size:12.5px;margin:8px 0;color:#33456b;}
+.copy small{display:block;color:#8b97ad;font-size:10px;margin-bottom:2px;}
+/* CTAボタン */
+.cta{display:block;background:#c0392b;color:#fff;text-align:center;font-weight:800;font-size:15px;padding:15px;border-radius:999px;margin:14px 0 4px;}
+.cta small{display:block;font-size:10px;font-weight:400;opacity:.9;}
+.cta-sub{display:block;border:2px solid #1c2b4a;color:#1c2b4a;text-align:center;font-weight:700;font-size:13px;padding:11px;border-radius:999px;margin-top:8px;}
+.micro{text-align:center;font-size:10px;color:#8b97ad;margin-top:6px;}
+/* カード類 */
+.cards{display:grid;gap:10px;margin-top:12px;}
+.card{border:1.5px solid #c9d2e0;border-radius:8px;padding:13px;background:#fbfcfe;}
+.card h3{font-size:13.5px;color:#1c2b4a;margin-bottom:4px;}
+.card p{font-size:11.5px;}
+.badge{display:inline-block;background:#1c2b4a;color:#fff;font-size:10px;padding:2px 10px;border-radius:999px;margin-bottom:6px;}
+.badge.red{background:#c0392b;}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:10px;}
+th,td{border:1px solid #c9d2e0;padding:8px;text-align:left;}
+th{background:#eef1f7;color:#1c2b4a;font-size:11px;white-space:nowrap;}
+.price-big{font-size:22px;font-weight:900;color:#c0392b;}
+.strike{text-decoration:line-through;color:#8b97ad;font-size:13px;}
+ol.flow{margin:10px 0 0 20px;font-size:12.5px;color:#33456b;}
+ol.flow li{margin-bottom:6px;}
+.faq-q{font-size:12.5px;font-weight:700;color:#1c2b4a;margin-top:10px;}
+.faq-a{font-size:11.5px;color:#5b6b88;}
+/* 追従CTA */
+.sticky-cta{position:sticky;bottom:0;background:rgba(255,255,255,.95);border-top:2px solid #c0392b;padding:10px 16px;z-index:50;}
+.sticky-cta .cta{margin:0;padding:12px;font-size:13.5px;}
+/* ヘッダー */
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:2px solid #1c2b4a;position:sticky;top:0;background:#fff;z-index:60;}
+.logo-ph{width:150px;height:30px;background:#dfe4ec;border:1px dashed #9aa7bd;display:flex;align-items:center;justify-content:center;font-size:10px;color:#5b6b88;}
+.hd-cta{background:#c0392b;color:#fff;font-size:11px;font-weight:700;padding:8px 12px;border-radius:999px;}
+.wf-banner{background:#1c2b4a;color:#fff;text-align:center;font-size:11px;padding:6px;letter-spacing:1px;}
+</style>
+</head>
+<body>
+<div class="frame">
+
+<div class="wf-banner">📐 WIREFRAME v1(2026-08-01)— 構成・訴求順の確認用。色/写真/装飾は本番で実装</div>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="logo-ph">ロゴ:トレーナーズラボ<br>(HPロゴ流用)</div>
+  <a class="hd-cta">無料説明会</a>
+</header>
+<div class="note"><b>[意図]</b> ヘッダーは常時追従。CTAは1種類「無料オンライン個別説明会」に絞る(迷わせない)。</div>
+
+<!-- ================= 01 HERO ================= -->
+<section>
+  <span class="sec-tag">01 HERO</span>
+  <div class="ph" style="height:300px;">
+    <strong>ヒーロー画像</strong>
+    HP掲載写真より「女性受講生が明るいスタジオで実技中」のカット<br>
+    (ネイビー×白基調+赤アクセント/明るいトーン)
+  </div>
+  <div class="copy"><small>メインコピー案</small>
+    <b>「医療×トレーニング」を、あなたの武器に。</b><br>
+    トレーナーズラボ スペシャリストコース、九州初上陸。
+  </div>
+  <div class="copy"><small>サブ要素(バッジ表示)</small>
+    ◉ 2026年10月5日 開講 ◉ 限定16名 ◉ 九州医療スポーツ専門学校 提携
+  </div>
+  <a class="cta">無料オンライン個別説明会に申し込む<small>毎日開催/オンライン30分/無理な勧誘なし</small></a>
+  <p class="micro">キャンペーンコード配布中:説明会参加で受講料 6万円OFF</p>
+</section>
+<div class="note"><b>[意図]</b> ファーストビューで「何が・いつ・何名・どこと」を3秒で伝える。CVは申込ではなく<b>説明会</b>に設定しハードルを下げる。6万円OFFコードをここで予告し説明会参加の実利を作る。<br><b>[要確認]</b> コードは「説明会参加者に配布」or「LP上に記載」どちらの運用か?(③では"LPに記載"とあるが、説明会参加のフックにする場合は参加者配布が強い)</div>
+
+<!-- ================= 02 告知バー ================= -->
+<section style="padding:14px 18px;background:#fbf3f2;">
+  <span class="sec-tag">02 NEWS</span>
+  <p style="font-size:12px;"><b style="color:#c0392b;">【8月3日(月)限定】</b>九州医療スポーツ専門学校にて現地オフライン説明会を開催 → <u>残席わずか・詳細はこちら(ページ内リンク)</u></p>
+</section>
+<div class="note"><b>[意図]</b> 8/3は公開直後に唯一の現地接点。期限が最も近い情報を上部に置き緊急性を演出。8/4以降はこのバーを「オンライン説明会 毎日開催中」に差し替え。</div>
+
+<!-- ================= 03 共感(ターゲット分岐) ================= -->
+<section>
+  <span class="sec-tag">03 EMPATHY</span>
+  <p class="sub">SUCH AS YOU</p>
+  <h2>こんな想い、ありませんか?</h2>
+  <div class="cards">
+    <div class="card">
+      <span class="badge">治療家の方へ</span>
+      <h3>「施術だけの売上に、限界を感じている」</h3>
+      <p>・保険診療の単価は上げられない<br>・リピートはあるのに客単価が伸びない<br>・パーソナル指導を導入したいが、正しい学び方がわからない</p>
+    </div>
+    <div class="card">
+      <span class="badge red">転職・キャリアチェンジの方へ</span>
+      <h3>「好きなことを、仕事にしたい」</h3>
+      <p>・未経験からトレーナーになれるか不安<br>・独学では現場で通用する自信がない<br>・働きながら学べるスクールが九州にない</p>
+    </div>
+  </div>
+  <div class="ph" style="height:120px;margin-top:12px;"><strong>共感画像</strong>HP写真より「受講生の真剣な表情/女性カット優先」</div>
+</section>
+<div class="note"><b>[意図]</b> ターゲットが2種いるため、冒頭で「自分ごと化」の分岐カードを提示。以降のセクションでも治療家/転職の2視点を並記し、どちらが読んでも自分の話として読める構造に。女性比率を上げたいので写真・事例は女性優先。</div>
+
+<!-- ================= 04 解決策の提示 ================= -->
+<section>
+  <span class="sec-tag">04 SOLUTION</span>
+  <p class="sub">WHY TRAINER'S LAB</p>
+  <h2>その答えが、トレーナーズラボ。</h2>
+  <div class="copy"><small>実績提示(数値はHPから転記・要確認)</small>
+    東京で多数の一流トレーナーを輩出してきた養成スクール。<br>
+    「卒業生数」「資格合格率」「就職率」など<b>HPに掲載済みの実績数値をここに3つ並べる</b>(スタッツバー形式)
+  </div>
+  <div class="ph" style="height:140px;"><strong>講義風景画像</strong>HP写真より「講師が指導しているシーン」</div>
+  <div class="copy"><small>提携の意味づけ</small>
+    九州医療スポーツ専門学校との提携により、<b>医療系専門学校の設備・環境で学べる</b>九州唯一のコースとして開講。
+  </div>
+</section>
+<div class="note"><b>[意図]</b> 共感の直後に「実績のある東京のスクールが九州に来る」という解決策を提示。ここは信頼形成が目的なので、HPの実測数値をそのまま使う(誇張しない)。<br><b>[要確認]</b> LPに使ってよい実績数値(卒業生数・合格率・就職率など)の確定値。</div>
+
+<!-- ================= 05 特徴(選ばれる理由) ================= -->
+<section>
+  <span class="sec-tag">05 FEATURES</span>
+  <p class="sub">FEATURES</p>
+  <h2>スペシャリストコース 6つの特徴</h2>
+  <div class="cards">
+    <div class="card"><h3>① 6ヶ月・現場主義カリキュラム</h3><p>解剖学から実技・接客まで(詳細はHPカリキュラムを転記)</p></div>
+    <div class="card"><h3>② 各分野トップランナーが直接指導</h3><p>医師・管理栄養士・トップトレーナー(HP講師陣を転記)</p></div>
+    <div class="card"><h3>③ 限定16名の少人数制</h3><p>在学生8名+外部8名。一人ひとりに実技指導が行き届く</p></div>
+    <div class="card"><h3>④ 医療系専門学校の設備で学べる</h3><p>九州医療スポーツ専門学校の実習環境を使用</p></div>
+    <div class="card"><h3>⑤ 治療家のための自費メニュー化支援</h3><p>施術×パーソナルの導入設計まで踏み込む(※提供可否 要確認)</p></div>
+    <div class="card"><h3>⑥ 卒業後のキャリアサポート</h3><p>就職支援・開業支援(※提供内容 要確認 → 質問⑥の回答参照)</p></div>
+  </div>
+</section>
+<div class="note"><b>[意図]</b> ⑤⑥は差別化の核。ここに入れる「武器」は返信で提案した候補から確定させる。特徴は6個以内、1カード1メッセージ。</div>
+
+<!-- ================= 06 カリキュラム ================= -->
+<section>
+  <span class="sec-tag">06 CURRICULUM</span>
+  <p class="sub">CURRICULUM</p>
+  <h2>6ヶ月で「現場に立てる」までのロードマップ</h2>
+  <div class="ph" style="height:180px;"><strong>カリキュラム図(タイムライン形式で新規作成)</strong><br>1〜2ヶ月目:基礎(解剖学・栄養学)/3〜4ヶ月目:実技・評価/5〜6ヶ月目:現場実習・卒業試験<br>※実際の区分けはHPカリキュラムから転記</div>
+  <p style="font-size:11px;color:#8b97ad;margin-top:8px;">詳細カリキュラムはアコーディオンで格納(読みたい人だけ開く)</p>
+</section>
+<div class="note"><b>[意図]</b> カリキュラム詳細はHP記載済みのため、LPでは「6ヶ月後の姿」が見えるロードマップ形式に要約。詳細を全部載せると説明会で話すことがなくなるので、あえて概要+「続きは説明会で」の情報設計にする。</div>
+
+<!-- ================= 07 卒業後の姿 ================= -->
+<section>
+  <span class="sec-tag">07 CAREER</span>
+  <p class="sub">AFTER GRADUATION</p>
+  <h2>卒業後、あなたはこう変わる</h2>
+  <div class="cards">
+    <div class="card">
+      <span class="badge">治療家</span>
+      <h3>施術+パーソナルで客単価アップ</h3>
+      <p>自費のパーソナルメニューを自院に導入し、保険に依存しない経営へ(モデルケースの数値例を入れる ※要相談)</p>
+    </div>
+    <div class="card">
+      <span class="badge red">転職</span>
+      <h3>未経験からプロのトレーナーへ</h3>
+      <p>就職サポートあり(提携先・就職実績を記載 ※要確認)</p>
+    </div>
+  </div>
+  <div class="ph" style="height:130px;margin-top:12px;"><strong>卒業生画像</strong>HP写真より「卒業生・修了生の活躍カット(女性優先)」</div>
+</section>
+<div class="note"><b>[意図]</b> 商品説明(コース)より未来(ベネフィット)を具体的に見せるセクション。66万円の投資対効果を「回収イメージ」で示せると強い(治療家:月◯万円の自費売上増で◯ヶ月で回収、など)。</div>
+
+<!-- ================= 08 受講生の声 ================= -->
+<section>
+  <span class="sec-tag">08 VOICE</span>
+  <p class="sub">VOICE</p>
+  <h2>受講生・卒業生の声</h2>
+  <div class="copy"><small>カルーセル(横スワイプ)3〜5件</small>
+    HPの受講生の声から<b>女性/社会人からの転身/治療系バックグラウンド</b>の3属性を優先して転記。顔写真+名前(イニシャル可)+Before/Afterの一言。
+  </div>
+  <div style="display:flex;gap:8px;margin-top:10px;">
+    <div class="ph" style="height:110px;flex:1;">声1<br>(女性・転職)</div>
+    <div class="ph" style="height:110px;flex:1;">声2<br>(治療家)</div>
+    <div class="ph" style="height:110px;flex:1;opacity:.5;">声3→</div>
+  </div>
+</section>
+<div class="note"><b>[意図]</b> カルーセルはここで使用。声の人選がそのままターゲティング(女性・治療家・転職組)。</div>
+
+<!-- ================= 09 料金 ================= -->
+<section>
+  <span class="sec-tag">09 PRICE</span>
+  <p class="sub">PRICE</p>
+  <h2>受講料</h2>
+  <table>
+    <tr><th>外部からの入学</th><td><span class="strike">660,000円(税込)</span><br><span class="price-big">600,000円</span><span style="font-size:11px;">(税込)</span><br><span style="font-size:11px;color:#c0392b;font-weight:700;">▲ キャンペーンコード利用で60,000円OFF</span></td></tr>
+    <tr><th>九州医療スポーツ専門学校 在学生</th><td><span class="price-big">600,000円</span><span style="font-size:11px;">(税込)</span><br><span style="font-size:11px;">在学生特別価格(60,000円引)</span></td></tr>
+  </table>
+  <p style="font-size:11px;color:#8b97ad;margin-top:8px;">※ 分割払い:月々◯◯円〜(要確認:分割可否・回数) ※ 支払方法:◯◯(要確認)</p>
+</section>
+<div class="note"><b>[意図]</b> 定価66万→コードで60万の「二段価格」で割引を可視化。<b>[要確認]</b> (1)在学生とキャンペーンコードの併用可否(併用可なら在学生54万になるが意図通りか?) (2)分割払いの可否と月額表示(66万を一括表示のみにするとCVRが大きく落ちるため、月々表示を強く推奨) (3)コードの文字列と入力方法(申込フォームに入力欄?)</div>
+
+<!-- ================= 10 開講概要 ================= -->
+<section>
+  <span class="sec-tag">10 OUTLINE</span>
+  <p class="sub">OUTLINE</p>
+  <h2>開講概要</h2>
+  <table>
+    <tr><th>開講日</th><td>2026年10月5日(月)</td></tr>
+    <tr><th>時間</th><td>外部入学生:13:30〜16:30<br>在学生:17:30〜20:30</td></tr>
+    <tr><th>期間</th><td>6ヶ月</td></tr>
+    <tr><th>会場</th><td>九州医療スポーツ専門学校(住所・アクセス ※要確認)</td></tr>
+    <tr><th>定員</th><td>16名(外部8名/在学生8名)<br><b style="color:#c0392b;">現在の残席:外部◯名・在学生◯名(手動更新)</b></td></tr>
+  </table>
+</section>
+<div class="note"><b>[意図]</b> 残席表示は希少性の核。手動更新でよいので週1回必ず更新する運用ルールとセットで。<br><b>[要確認]</b> 開催曜日・頻度(毎週月曜?週1回?)— 「働きながら通えるか」の判断材料なので明記必須。</div>
+
+<!-- ================= 11 説明会案内(CV) ================= -->
+<section style="background:#f6f8fb;">
+  <span class="sec-tag">11 CV</span>
+  <p class="sub">FREE SESSION</p>
+  <h2>まずは無料オンライン個別説明会へ</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>🖥 オンライン個別説明会(毎日開催)</h3>
+      <p>・所要30分/Zoom/カメラオフOK<br>・あなたの状況に合わせて個別に相談<br>・参加特典:受講料60,000円OFFキャンペーンコード+特典資料(内容 ※要相談)</p>
+    </div>
+    <div class="card">
+      <h3>🏫 現地説明会(8月3日限定)</h3>
+      <p>九州医療スポーツ専門学校にて開催。校舎・設備を直接見学できる唯一の機会。</p>
+    </div>
+  </div>
+  <ol class="flow">
+    <li>下のボタンから希望日時を選択(カレンダー予約 or LINE ※要確認)</li>
+    <li>当日、Zoomで30分お話しします</li>
+    <li>納得できたら申込(その場で決めなくてOK)</li>
+  </ol>
+  <a class="cta">無料オンライン個別説明会に申し込む<small>毎日開催/30分/無理な勧誘は一切ありません</small></a>
+  <a class="cta-sub">LINEで気軽に質問する(サブCTA ※要確認)</a>
+</section>
+<div class="note"><b>[意図]</b> CVセクション。心理障壁を下げる3点セット=「30分・カメラオフOK・その場で決めなくてOK」を明記。<b>[要確認]</b> 予約導線をどうするか:(A)日程調整ツール(TimeRex/Calendly等・無料)でカレンダー予約 (B)LINE公式アカウントで受付 (C)Googleフォーム。推奨は A+B 併用(Aで即予約完結、Bで検討層を逃さず追客)。</div>
+
+<!-- ================= 12 FAQ ================= -->
+<section>
+  <span class="sec-tag">12 FAQ</span>
+  <p class="sub">FAQ</p>
+  <h2>よくあるご質問</h2>
+  <p class="faq-q">Q. 完全未経験でもついていけますか?</p>
+  <p class="faq-a">A. 基礎から段階的に学ぶカリキュラムのため未経験の方も◯◯…(HPのFAQベースで作成)</p>
+  <p class="faq-q">Q. 働きながら通えますか?</p>
+  <p class="faq-a">A. 週◯回・◯曜日開催のため…(開催頻度確定後に記載)</p>
+  <p class="faq-q">Q. 女性の受講生はいますか?</p>
+  <p class="faq-a">A. 東京校では女性受講生が◯割…(実数 要確認)</p>
+  <p class="faq-q">Q. 支払い方法・分割はできますか?</p>
+  <p class="faq-a">A. (要確認)</p>
+  <p class="faq-q">Q. 治療院を経営しながらでも学べますか?</p>
+  <p class="faq-a">A. (治療家向け回答を作成)</p>
+</section>
+<div class="note"><b>[意図]</b> FAQは説明会申込の最後の不安潰し。「女性はいますか」を必ず入れる(女性ターゲットの安心材料)。</div>
+
+<!-- ================= 13 最終CTA ================= -->
+<section style="background:#1c2b4a;color:#fff;">
+  <span class="sec-tag">13 FINAL CV</span>
+  <h2 style="color:#fff;">限定16名。<br>枠が埋まり次第、募集終了です。</h2>
+  <p style="color:rgba(255,255,255,.75);font-size:12px;">2026年10月5日開講/現在の残席:外部◯名・在学生◯名</p>
+  <a class="cta">無料オンライン個別説明会に申し込む<small>毎日開催/オンライン30分</small></a>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<section style="padding:18px;">
+  <span class="sec-tag">FOOTER</span>
+  <p style="font-size:10px;color:#8b97ad;">運営会社情報/特定商取引法に基づく表記/プライバシーポリシー/トレーナーズラボ公式サイトへのリンク</p>
+</section>
+
+<!-- 追従CTA(スクロール中常時表示) -->
+<div class="sticky-cta">
+  <a class="cta">無料オンライン個別説明会に申し込む</a>
+</div>
+
+</div>
+</body>
+</html>
