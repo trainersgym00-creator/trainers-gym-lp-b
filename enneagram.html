@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>エニアグラム本格診断｜TRAINER'S GYM</title>
+<meta name="description" content="90問の本格エニアグラム診断。9つのタイプ・ウィング・本能サブタイプまで判定し、あなたに合ったトレーニングの続け方まで提案します。">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="エニアグラム本格診断｜TRAINER'S GYM">
+<meta property="og:description" content="9タイプ×ウィング×本能サブタイプを判定。あなたが「続く」トレーニングの型がわかります。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Bebas+Neue&display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+:root{
+  --orn:#ff6b00;--orn2:#e55a00;--yel:#ffcc00;--cyan:#00e5ff;--pink:#ff3cac;--grn:#39ff14;
+  --bg:#08080f;--bg2:#0f0f1e;--line:rgba(255,255,255,.1);
+  --tx:#f0f0f8;--tx2:rgba(255,255,255,.62);--tx3:rgba(255,255,255,.4);
+  --r:14px;--rf:999px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--tx);line-height:1.75;
+  -webkit-text-size-adjust:100%;max-width:560px;margin:0 auto;overflow-x:hidden;padding-bottom:40px;}
+button{font-family:inherit;color:inherit;border:none;background:none;cursor:pointer;}
+a{color:inherit;text-decoration:none;}
+
+/* ---------- HEADER ---------- */
+.hdr{position:sticky;top:0;z-index:100;background:rgba(8,8,15,.94);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,107,0,.18);padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.logo{display:flex;align-items:center;gap:9px;}
+.logo-bolt{width:34px;height:34px;background:linear-gradient(135deg,var(--orn),var(--yel));border-radius:9px;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(255,107,0,.45);font-size:17px;}
+.logo-en{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;line-height:1.1;}
+.logo-ja{font-size:8.5px;color:var(--tx3);letter-spacing:1.4px;}
+.hdr-tag{font-size:10px;font-weight:700;color:var(--orn);border:1px solid rgba(255,107,0,.4);
+  background:rgba(255,107,0,.12);padding:5px 10px;border-radius:var(--rf);white-space:nowrap;}
+
+/* ---------- PROGRESS ---------- */
+.pbar-wrap{position:sticky;top:57px;z-index:99;background:rgba(8,8,15,.94);backdrop-filter:blur(16px);
+  padding:10px 16px 12px;border-bottom:1px solid var(--line);}
+.pbar-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
+.pbar-n{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.5px;}
+.pbar-n em{color:var(--orn);font-style:normal;font-size:26px;}
+.pbar-pct{font-size:11px;color:var(--tx3);font-weight:700;}
+.pbar{height:6px;background:rgba(255,255,255,.08);border-radius:var(--rf);overflow:hidden;}
+.pbar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--orn),var(--yel));
+  border-radius:var(--rf);transition:width .3s ease;box-shadow:0 0 12px rgba(255,107,0,.5);}
+
+/* ---------- COMMON ---------- */
+.sec{padding:26px 18px;}
+.eyebrow{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:2.6px;margin-bottom:10px;color:var(--orn);}
+.eyebrow::before{content:'';width:20px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--orn),var(--yel));}
+h2.ttl{font-size:20px;font-weight:900;line-height:1.45;margin-bottom:14px;}
+h3.sub{font-size:14px;font-weight:900;margin:22px 0 10px;display:flex;align-items:center;gap:8px;scroll-margin-top:72px;}
+h3.sub::before{content:'';width:4px;height:15px;border-radius:2px;background:var(--orn);flex-shrink:0;}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:12px;}
+.muted{color:var(--tx2);font-size:13px;}
+.mini{font-size:11.5px;color:var(--tx3);line-height:1.8;}
+.hide{display:none !important;}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(135deg,var(--orn),var(--orn2));
+  color:#fff;padding:17px 20px;border-radius:var(--rf);font-size:15.5px;font-weight:900;width:100%;
+  box-shadow:0 0 30px rgba(255,107,0,.45);position:relative;overflow:hidden;}
+.btn:active{transform:scale(.985);}
+.btn-ghost{display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid rgba(255,255,255,.22);
+  color:var(--tx2);padding:13px 18px;border-radius:var(--rf);font-size:13px;font-weight:700;width:100%;background:transparent;}
+.btn-row{display:flex;gap:9px;}
+.btn-row>*{flex:1;}
+
+/* ---------- START ---------- */
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,107,0,.14);border:1px solid rgba(255,107,0,.4);
+  color:#ff9a50;padding:6px 13px;border-radius:var(--rf);font-size:10.5px;font-weight:700;letter-spacing:1.4px;margin-bottom:14px;}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,12vw,60px);line-height:.92;margin-bottom:10px;letter-spacing:1px;
+  text-shadow:0 0 40px rgba(255,107,0,.3);}
+.hero-h1 .orn{color:var(--orn);}
+.hero-h1 .sub{font-family:'Noto Sans JP',sans-serif;font-size:clamp(14px,4.4vw,19px);font-weight:900;letter-spacing:0;
+  display:block;margin-top:9px;line-height:1.45;color:rgba(255,255,255,.92);}
+.stats-bar{display:flex;background:rgba(255,255,255,.06);border:1px solid rgba(255,107,0,.2);border-radius:var(--r);overflow:hidden;margin:18px 0;}
+.stat{flex:1;padding:12px 6px;text-align:center;border-right:1px solid rgba(255,255,255,.06);}
+.stat:last-child{border-right:none;}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:25px;line-height:1;margin-bottom:2px;color:var(--orn);}
+.stat-n.c{color:var(--cyan);}.stat-n.y{color:var(--yel);}
+.stat-l{font-size:9px;color:var(--tx3);}
+
+.mode{border:1.5px solid var(--line);background:var(--bg2);border-radius:var(--r);padding:14px 15px;margin-bottom:10px;
+  display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;transition:.2s;}
+.mode[aria-checked="true"]{border-color:var(--orn);background:rgba(255,107,0,.09);box-shadow:0 0 22px rgba(255,107,0,.16);}
+.mode-dot{width:19px;height:19px;border-radius:50%;border:2px solid rgba(255,255,255,.28);flex-shrink:0;margin-top:3px;position:relative;}
+.mode[aria-checked="true"] .mode-dot{border-color:var(--orn);}
+.mode[aria-checked="true"] .mode-dot::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--orn);}
+.mode-t{font-size:14.5px;font-weight:900;margin-bottom:3px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+.pill{font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:var(--rf);background:rgba(255,107,0,.16);color:#ff9a50;border:1px solid rgba(255,107,0,.3);}
+.pill.c{background:rgba(0,229,255,.12);color:var(--cyan);border-color:rgba(0,229,255,.3);}
+.mode-d{font-size:11.5px;color:var(--tx3);line-height:1.7;}
+
+.note{background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.22);border-radius:var(--r);padding:13px 15px;}
+.note-t{font-size:12px;font-weight:900;color:var(--cyan);margin-bottom:6px;}
+.note ul{list-style:none;}
+.note li{font-size:11.5px;color:var(--tx2);line-height:1.85;padding-left:14px;position:relative;}
+.note li::before{content:'';position:absolute;left:2px;top:11px;width:4px;height:4px;border-radius:50%;background:var(--cyan);}
+
+/* ---------- QUIZ ---------- */
+.q-cat{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--tx3);margin-bottom:12px;}
+.q-text{font-size:19px;font-weight:900;line-height:1.6;margin-bottom:22px;min-height:2.4em;}
+.opts{display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:14px 15px;border-radius:12px;
+  border:1.5px solid var(--line);background:var(--bg2);font-size:14px;font-weight:700;transition:.15s;}
+.opt:active{transform:scale(.99);}
+.opt-n{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:15px;background:rgba(255,255,255,.07);color:var(--tx3);border:1px solid rgba(255,255,255,.12);}
+.opt[aria-checked="true"]{border-color:var(--orn);background:rgba(255,107,0,.13);}
+.opt[aria-checked="true"] .opt-n{background:var(--orn);color:#fff;border-color:var(--orn);}
+.q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:10px;}
+.q-nav button{font-size:12px;font-weight:700;color:var(--tx3);padding:9px 15px;border-radius:var(--rf);border:1px solid var(--line);}
+.q-nav button:disabled{opacity:.3;}
+
+/* ---------- RESULT ---------- */
+.res-hero{background:linear-gradient(160deg,rgba(255,107,0,.2),rgba(15,15,30,.9) 55%,rgba(0,229,255,.09));
+  border:1px solid rgba(255,107,0,.3);border-radius:18px;padding:24px 18px;text-align:center;position:relative;overflow:hidden;}
+.res-hero::after{content:'';position:absolute;width:240px;height:240px;border-radius:50%;top:-120px;right:-90px;
+  background:radial-gradient(circle,rgba(255,107,0,.22),transparent 70%);pointer-events:none;}
+.res-lbl{font-size:10px;letter-spacing:3px;color:var(--tx3);font-weight:700;margin-bottom:8px;}
+.res-num{font-family:'Bebas Neue',sans-serif;font-size:78px;line-height:.85;color:var(--orn);
+  text-shadow:0 0 45px rgba(255,107,0,.55);margin-bottom:4px;}
+.res-name{font-size:22px;font-weight:900;margin-bottom:5px;}
+.res-en{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2.4px;color:var(--tx3);margin-bottom:12px;}
+.res-catch{font-size:13.5px;color:var(--tx2);line-height:1.85;position:relative;z-index:1;}
+.res-meta{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-top:14px;position:relative;z-index:1;}
+.chip{font-size:11px;font-weight:700;padding:6px 12px;border-radius:var(--rf);background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);}
+.chip b{color:var(--yel);}
+
+.conf{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:12px;margin-top:12px;
+  background:rgba(57,255,20,.07);border:1px solid rgba(57,255,20,.25);}
+.conf.mid{background:rgba(255,204,0,.07);border-color:rgba(255,204,0,.28);}
+.conf.low{background:rgba(255,60,172,.07);border-color:rgba(255,60,172,.3);}
+.conf-i{font-size:19px;line-height:1.35;flex-shrink:0;}
+.conf-t{font-size:12px;font-weight:900;margin-bottom:2px;}
+.conf-d{font-size:11px;color:var(--tx2);line-height:1.7;}
+
+.chart-wrap{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:8px 4px 4px;}
+svg{display:block;width:100%;height:auto;}
+.rdr-ring{stroke:rgba(255,255,255,.08);}
+.rdr-ring.out{stroke:rgba(255,255,255,.16);}
+.rdr-axis{stroke:rgba(255,255,255,.09);}
+.rdr-lbl{fill:rgba(255,255,255,.55);}
+
+.bars{display:flex;flex-direction:column;gap:9px;}
+.bar-row{display:flex;align-items:center;gap:10px;}
+.bar-lbl{width:104px;flex-shrink:0;font-size:11.5px;font-weight:700;color:var(--tx2);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-lbl b{color:var(--orn);font-family:'Bebas Neue',sans-serif;font-size:14px;margin-right:4px;}
+.bar-track{flex:1;height:9px;background:rgba(255,255,255,.07);border-radius:var(--rf);overflow:hidden;}
+.bar-fill{height:100%;border-radius:var(--rf);background:linear-gradient(90deg,rgba(255,107,0,.45),rgba(255,107,0,.75));
+  width:0;transition:width .8s cubic-bezier(.2,.8,.3,1);}
+.bar-row.top .bar-fill{background:linear-gradient(90deg,var(--orn),var(--yel));box-shadow:0 0 12px rgba(255,107,0,.45);}
+.bar-row.top .bar-lbl{color:#fff;}
+.bar-v{width:34px;text-align:right;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--tx3);flex-shrink:0;}
+.bar-row.top .bar-v{color:var(--yel);}
+
+.kv{display:grid;grid-template-columns:78px 1fr;gap:9px 12px;}
+.kv dt{font-size:11px;font-weight:700;color:var(--orn);padding-top:2px;}
+.kv dd{font-size:13px;color:var(--tx);line-height:1.75;}
+
+ul.list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+ul.list li{font-size:13px;line-height:1.75;padding-left:22px;position:relative;color:var(--tx2);}
+ul.list li::before{content:'✓';position:absolute;left:0;top:0;color:var(--grn);font-weight:900;font-size:12px;}
+ul.list.warn li::before{content:'!';color:var(--pink);}
+ul.list.talk li::before{content:'“';color:var(--cyan);font-size:18px;top:2px;}
+
+.arrow-grid{display:flex;flex-direction:column;gap:10px;}
+.arrow{border-radius:12px;padding:13px 14px;border:1px solid var(--line);background:var(--bg2);}
+.arrow.up{border-color:rgba(57,255,20,.28);background:rgba(57,255,20,.05);}
+.arrow.down{border-color:rgba(255,60,172,.28);background:rgba(255,60,172,.05);}
+.arrow-h{font-size:12px;font-weight:900;margin-bottom:6px;display:flex;align-items:center;gap:7px;}
+.arrow.up .arrow-h{color:var(--grn);}
+.arrow.down .arrow-h{color:var(--pink);}
+.arrow-h span{font-family:'Bebas Neue',sans-serif;font-size:16px;}
+.arrow p{font-size:12.5px;color:var(--tx2);line-height:1.8;}
+
+.gym-card{background:linear-gradient(150deg,rgba(255,107,0,.11),rgba(15,15,30,.7));
+  border:1px solid rgba(255,107,0,.28);border-radius:var(--r);padding:16px;}
+.gym-row{padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.11);}
+.gym-row:last-child{border-bottom:none;padding-bottom:0;}
+.gym-row:first-child{padding-top:0;}
+.gym-k{font-size:11px;font-weight:900;color:var(--yel);margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+.gym-v{font-size:13px;color:var(--tx);line-height:1.8;}
+
+.trainer-card{background:rgba(0,229,255,.055);border:1px solid rgba(0,229,255,.25);border-radius:var(--r);padding:16px;}
+.trainer-h{font-size:13px;font-weight:900;color:var(--cyan);margin-bottom:4px;}
+
+.inst{display:flex;flex-direction:column;gap:9px;}
+.inst-row{display:flex;align-items:center;gap:10px;}
+.inst-lbl{width:96px;flex-shrink:0;font-size:11.5px;font-weight:700;}
+.inst-track{flex:1;height:9px;background:rgba(255,255,255,.07);border-radius:var(--rf);overflow:hidden;}
+.inst-fill{height:100%;border-radius:var(--rf);width:0;transition:width .8s;background:linear-gradient(90deg,#0099ff,var(--cyan));}
+.inst-v{width:34px;text-align:right;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--tx3);}
+
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.cmp-col{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--bg2);}
+.cmp-h{font-size:12.5px;font-weight:900;margin-bottom:8px;color:var(--orn);}
+.cmp-k{font-size:9.5px;color:var(--tx3);font-weight:700;margin-top:8px;}
+.cmp-v{font-size:11.5px;line-height:1.65;color:var(--tx2);}
+
+.cta{background:linear-gradient(160deg,rgba(255,107,0,.16),rgba(15,15,30,.85));
+  border:1px solid rgba(255,107,0,.3);border-radius:18px;padding:20px 17px;text-align:center;}
+.cta-t{font-size:16px;font-weight:900;line-height:1.55;margin-bottom:8px;}
+.cta-d{font-size:12px;color:var(--tx2);line-height:1.8;margin-bottom:15px;}
+
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);z-index:300;
+  background:rgba(20,20,34,.97);border:1px solid rgba(255,107,0,.45);color:#fff;font-size:12.5px;font-weight:700;
+  padding:12px 20px;border-radius:var(--rf);opacity:0;transition:.28s;pointer-events:none;box-shadow:0 8px 30px rgba(0,0,0,.5);}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
+
+.foot{padding:28px 18px 10px;text-align:center;}
+.foot p{font-size:10.5px;color:var(--tx3);line-height:1.9;}
+
+@media print{
+  @page{margin:12mm 10mm;}
+  body{background:#fff;color:#111;max-width:none;padding:0;line-height:1.6;}
+  .hdr,.pbar-wrap,.btn,.btn-ghost,.btn-row,.cta,.no-print,.toast{display:none !important;}
+  /* 背景に依存した淡色テキストを、紙でも読める濃さに戻す */
+  .muted,.mini,.gym-v,.arrow p,ul.list li,.kv dd,.bar-lbl,.cmp-v,.res-catch,.conf-d,.foot p,.chip{color:#333 !important;}
+  .res-lbl,.res-en,.cmp-k,.bar-v,.inst-v,.inst-lbl{color:#666 !important;}
+  .res-num,.res-name,h2.ttl,h3.sub,.gym-k,.conf-t,.cmp-h,.trainer-h,.arrow-h,.kv dt,.eyebrow{
+    color:#111 !important;text-shadow:none !important;}
+  .chip b,.res-num{color:#c2521a !important;}
+  .card,.chart-wrap,.gym-card,.trainer-card,.arrow,.cmp-col,.conf,.res-hero,.chip{
+    background:#fff !important;border-color:#ccc !important;box-shadow:none !important;}
+  .res-hero::after{display:none;}
+  .conf,.arrow.up,.arrow.down{border-color:#bbb !important;}
+  /* バーは白地でも形が残るように */
+  .bar-track,.inst-track{background:#e8e8e8 !important;}
+  .bar-fill{background:#bbb !important;box-shadow:none !important;}
+  .bar-row.top .bar-fill{background:#ff6b00 !important;}
+  .inst-fill{background:#0088aa !important;}
+  /* レーダーチャートは紙面を占有しすぎないよう縮小＋線を濃く */
+  .chart-wrap{padding:0;}
+  .chart-wrap svg{max-width:300px;margin:0 auto;}
+  .rdr-ring{stroke:#ccc !important;}
+  .rdr-ring.out{stroke:#999 !important;}
+  .rdr-axis{stroke:#ddd !important;}
+  .rdr-lbl{fill:#555 !important;}
+  .rdr-dot{fill:#e08a00 !important;}
+  h3.sub::before{background:#ff6b00 !important;}
+  .card,.chart-wrap,.gym-card,.trainer-card,.arrow,.cmp-col,.res-hero,.conf{
+    break-inside:avoid;page-break-inside:avoid;}
+  h3.sub,h2.ttl{break-after:avoid;page-break-after:avoid;}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="logo" href="/">
+    <div class="logo-bolt">⚡</div>
+    <div>
+      <div class="logo-en">TRAINER'S GYM</div>
+      <div class="logo-ja">エニアグラム診断</div>
+    </div>
+  </a>
+  <div class="hdr-tag" id="hdrTag">本格版 90問</div>
+</header>
+
+<!-- ============ START ============ -->
+<section id="scStart">
+  <div class="sec">
+    <div class="hero-badge">◆ ENNEAGRAM ASSESSMENT</div>
+    <h1 class="hero-h1">KNOW<br><span class="orn">YOUR TYPE</span>
+      <span class="sub">あなたが「続く」やり方は、<br>性格タイプで決まっている。</span>
+    </h1>
+    <p class="muted">エニアグラムは、行動ではなく<strong>「動機」</strong>で人を9つに分ける性格類型論です。同じ「痩せたい」でも、その奥にある動機はタイプごとに違います。だから、続く方法も、折れるポイントも違う。<br>この診断は、あなたのタイプを見極め、<strong>トレーニングと日常に落とし込める形</strong>まで具体化します。</p>
+
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-n">9</div><div class="stat-l">基本タイプ</div></div>
+      <div class="stat"><div class="stat-n c">90</div><div class="stat-l">設問数</div></div>
+      <div class="stat"><div class="stat-n y">10</div><div class="stat-l">分の目安</div></div>
+    </div>
+
+    <h3 class="sub">診断ボリュームを選ぶ</h3>
+    <button class="mode" role="radio" aria-checked="false" data-mode="quick">
+      <div class="mode-dot"></div>
+      <div>
+        <div class="mode-t">クイック診断 <span class="pill">36問 / 約4分</span></div>
+        <div class="mode-d">まずは自分のタイプを知りたい方へ。各タイプ4問で基本タイプを判定します。</div>
+      </div>
+    </button>
+    <button class="mode" role="radio" aria-checked="true" data-mode="full">
+      <div class="mode-dot"></div>
+      <div>
+        <div class="mode-t">本格診断 <span class="pill">90問 / 約10分</span><span class="pill c">推奨</span></div>
+        <div class="mode-d">各タイプ10問。基本タイプに加え、ウィング（隣接タイプ）とセンター分析まで精密に判定します。</div>
+      </div>
+    </button>
+    <button class="mode" role="radio" aria-checked="false" data-mode="deep">
+      <div class="mode-dot"></div>
+      <div>
+        <div class="mode-t">完全版 <span class="pill">102問 / 約12分</span></div>
+        <div class="mode-d">本格診断＋本能サブタイプ（自己保存／社会的／一対一）を判定。指導者が使うならこれ。</div>
+      </div>
+    </button>
+
+    <div class="note" style="margin-top:16px">
+      <div class="note-t">正確に診断するための3つのコツ</div>
+      <ul>
+        <li><strong>「今の行動」ではなく「昔からの自分」</strong>で答える。役割で作った自分ではなく、素の自分を思い出してください。</li>
+        <li><strong>理想の自分ではなく、実際の自分</strong>で答える。「そうありたい」ではなく「そうしてしまう」が基準です。</li>
+        <li><strong>直感で速く</strong>。考え込むほど、答えは「なりたい自分」に寄っていきます。</li>
+      </ul>
+    </div>
+
+    <div style="margin-top:18px">
+      <button class="btn" id="btnStart">診断をはじめる →</button>
+      <button class="btn-ghost hide" id="btnResume" style="margin-top:10px">前回の続きから再開する</button>
+      <button class="btn-ghost hide" id="btnLast" style="margin-top:10px">前回の診断結果を見る</button>
+    </div>
+
+    <div class="foot">
+      <p>※ 本診断は自己理解とコーチングのためのツールであり、医学的・心理学的な診断ではありません。<br>回答データは端末内（ブラウザ）にのみ保存され、外部には送信されません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section id="scQuiz" class="hide">
+  <div class="pbar-wrap">
+    <div class="pbar-top">
+      <div class="pbar-n"><em id="qNow">1</em> / <span id="qTotal">90</span></div>
+      <div class="pbar-pct"><span id="qPct">0</span>% 完了</div>
+    </div>
+    <div class="pbar"><div class="pbar-fill" id="qFill"></div></div>
+  </div>
+  <div class="sec">
+    <div class="q-cat" id="qCat">Q1</div>
+    <div class="q-text" id="qText">—</div>
+    <div class="opts" id="qOpts"></div>
+    <div class="q-nav">
+      <button id="btnPrev">← 前の質問</button>
+      <button id="btnQuit">中断して保存</button>
+    </div>
+    <p class="mini" style="margin-top:16px;text-align:center">直感で、素早く。回答は自動で保存されます。</p>
+  </div>
+</section>
+
+<!-- ============ RESULT ============ -->
+<section id="scResult" class="hide">
+  <div class="sec" id="resBody"></div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==========================================================
+   エニアグラム 本格診断  /  TRAINER'S GYM
+   - 90問（各タイプ10問）＋本能サブタイプ12問
+   - 5件法リッカート / タイプ別スコア正規化 / ウィング・センター判定
+   ========================================================== */
+
+/* ---------- 設問（各タイプ10問・動機ベース） ---------- */
+var QT = {
+1:[ "物事には「正しいやり方」があり、それに従うべきだと感じる",
+    "自分のミスに対して、他人に対するよりずっと厳しく自分を責めてしまう",
+    "頭の中に「もっとちゃんとやれ」と指摘してくる声が、いつもある",
+    "だらしなさや手抜きを見ると、強い苛立ちを覚える",
+    "楽しむ前に、やるべきことを片づけないと気が済まない",
+    "不完全なもの・ずれているものを見ると、つい直したくなる",
+    "怒りを表に出すのは未熟なことだと感じ、抑え込むことが多い",
+    "公平さやルールが守られていないと、見過ごすことができない",
+    "良心に反することをすると、後々まで罪悪感が残る",
+    "終わったことを「もっとうまくやれたはずだ」と振り返ってしまう"],
+2:[ "人が困っていると、頼まれる前に手を差し伸べている",
+    "自分の用事より、人からの頼みごとを優先してしまう",
+    "「あなたが必要だ」と言われると、強く満たされる",
+    "人を助けるのは得意なのに、自分が助けを求めるのは苦手だ",
+    "相手が今なにを求めているか、自然と察してしまう",
+    "尽くしたのに感謝が返ってこないと、思った以上に傷つく",
+    "人から嫌われるかもしれないと考えると、落ち着かなくなる",
+    "自分の欲求を後回しにしすぎて、何がしたいのか分からなくなる",
+    "相手によって、自分の見せ方を無意識に変えている",
+    "誰かの人生に良い影響を与えられたと感じると、大きな喜びがある"],
+3:[ "目標を立てて達成していくことが、何よりの原動力になる",
+    "人から自分がどう評価されているかを、常に意識している",
+    "うまくいっていない姿を、人に見せたくない",
+    "効率の悪いやり方には我慢できず、最短ルートを探してしまう",
+    "立ち止まって感情を味わうより、次の行動に移る方が楽だ",
+    "その場に応じて「できる自分」を演じ分けることができる",
+    "忙しく成果を出している時が、いちばん自分らしいと感じる",
+    "結果が出ていないと、自分に価値がないように思えてくる",
+    "つい人と自分を比べて、勝ち負けで測ってしまう",
+    "目標のためなら、休息や感情は後回しにできる"],
+4:[ "自分はどこか人と違っていて、周りに馴染みきれない感覚がある",
+    "ありふれたものより、深く美しいもの・本物に強く惹かれる",
+    "感情の波が大きく、落ち込みと高揚を行き来する",
+    "人が持っていて自分にはないものを、うらやましく感じやすい",
+    "平凡な毎日より、意味のある人生を生きたいと切実に思う",
+    "自分の内面を理解してもらえないと、深い孤独を感じる",
+    "悲しみや切なさの中に、むしろ心地よさを感じることがある",
+    "自分らしさを失う選択なら、たとえ有利でも選びたくない",
+    "過去の出来事や、失ったものに心が向かうことが多い",
+    "表面的な会話より、本音で深く語り合いたい"],
+5:[ "人と長く一緒にいると消耗し、一人の時間で回復する",
+    "行動する前に、十分な知識と準備を揃えておきたい",
+    "感情を求められる場面より、分析し理解する方が得意だ",
+    "自分の時間・エネルギー・領域に踏み込まれたくない",
+    "質問されると、答える前に頭の中で組み立ててから話す",
+    "少ないもので生きられるようにして、人に依存せずにいたい",
+    "興味のある分野は、人より深く掘り下げたくなる",
+    "その場では感情が動かず、後から一人になって味わうことが多い",
+    "予定を詰め込まれると、それだけで負担に感じる",
+    "分かっていないまま人前に立つことに、強い抵抗がある"],
+6:[ "物事を決める前に、最悪のケースを想定してしまう",
+    "信頼できる人やグループには、とことん誠実でいたい",
+    "「大丈夫」と言われても、自分で確認しないと不安が残る",
+    "決断するとき、人の意見を聞いて安心したくなる",
+    "権威や立場が上の人に、従いたい気持ちと反発する気持ちの両方がある",
+    "不安があるからこそ、準備や備えを怠らない",
+    "「この人は本当に信用できるか」と、相手を試すようなことがある",
+    "うまくいっている時ほど、落とし穴がないか気になってしまう",
+    "仲間や大切なものを守るためなら、普段より強くなれる",
+    "決めた後も「あれで良かったのか」と考え直すことが多い"],
+7:[ "面白そうな計画を考えている時が、いちばんワクワクする",
+    "一つに縛られるより、いつでも選択肢を残しておきたい",
+    "退屈や停滞に耐えられず、すぐ次の刺激を探してしまう",
+    "嫌なことがあっても、良い面に切り替えるのが早い",
+    "同時にいくつものことを進めているのが好きだ",
+    "制限されたり、逃げ道がない状況が苦しい",
+    "深刻な話が続くと、冗談を言って空気を変えたくなる",
+    "始めるのは得意だが、最後まで終わらせるのは苦手だ",
+    "先に楽しい予定があると、それを支えに日々を乗り切れる",
+    "ただ我慢し続けることに、あまり意味を感じない"],
+8:[ "物事の主導権を自分が握っていないと、落ち着かない",
+    "自分の弱いところを人に見せることに、強い抵抗がある",
+    "理不尽なことには、はっきりと立ち向かう",
+    "遠回しな言い方より、率直にぶつかってくる人の方が信頼できる",
+    "自分の仲間や大切な人は、自分が守るという感覚が強い",
+    "話が進まない時は、自分が決断を下すことになりがちだ",
+    "エネルギーが強い・圧があると、人から言われることがある",
+    "その場の力関係（誰が主導権を持っているか）に、すぐ気づく",
+    "中途半端にやるくらいなら、徹底的にやりたい",
+    "人に支配されたり、細かく指図されるのが我慢ならない"],
+9:[ "対立や、ぴりぴりした空気が何より苦手だ",
+    "自分の意見より、相手の意見に合わせてしまうことが多い",
+    "「どちらでもいい」と、本当にそう思うことが多い",
+    "大事なことほど、先延ばしにしてしまう",
+    "「一緒にいると落ち着く」と言われることがある",
+    "どちらの言い分も分かってしまい、決められなくなる",
+    "波風を立てないために、不満を飲み込むことがある",
+    "急かされると、かえって動けなくなってしまう",
+    "決まったルーティンや、いつもの習慣に安心を感じる",
+    "自分が本当は何をしたいのか、はっきりしないことがある"]
+};
+
+/* ---------- 本能サブタイプ設問（各4問） ---------- */
+var QI = {
+sp:[ "体調・睡眠・食事など、自分のコンディションの管理が常に気になる",
+     "お金や住まいなど、生活の基盤が安定していないと落ち着かない",
+     "身の回りの快適さ（温度・寝具・道具）に、こだわりがある方だ",
+     "将来に備えて、蓄えや保険を確保しておきたい"],
+so:[ "自分が集団の中でどう位置づけられているかが気になる",
+     "人とのつながりや、所属している場を何より大切にする",
+     "誰かの役に立ち、認めてもらえる場所があると安心する",
+     "その場の空気や、人間関係の力学を敏感に感じ取る"],
+sx:[ "広く浅い関係より、特定の相手と深くつながりたい",
+     "惹かれた対象には、強い熱量で一気に没入する",
+     "強い刺激や、感情が激しく動く体験を求めてしまう",
+     "相手に強い印象を残したい、意識されたいと思う"]
+};
+
+/* ---------- タイプ詳細データ ---------- */
+var TYPES = {
+1:{name:"改革する人",en:"THE REFORMER",catch:"正しさへの情熱。基準を掲げ、世界を少しでも良くしようとする人。",
+  center:"本能",centerDesc:"怒り",
+  want:"正しくありたい／誠実で完全でありたい",fear:"欠陥がある・堕落していると思われること",
+  passion:"怒り（本人は「正すべき指摘」と感じている）",virtue:"平静さ",
+  strengths:["高い倫理観と責任感。任せたことは必ずやり遂げる","細部への注意力があり、品質を落とさない","自制心が強く、正しいと決めた習慣を継続できる","公平で、えこひいきをしない"],
+  pitfalls:["自分にも他人にも基準が高すぎて、疲弊する","「0か100か」で判断し、少しの失敗で全部を投げ出す","楽しむこと・休むことに罪悪感がある","怒りを抑え込み、批判や皮肉として漏れ出す"],
+  gw:{n:7,t:"7の健全さを取り込む。「遊び」「余白」「未完成のまま進む」ことを自分に許すと、緊張がほどけ、驚くほど視野が広がります。"},
+  sd:{n:4,t:"4の不健全さが出る。「自分だけが正しくやっているのに報われない」という孤独感と自己憐憫に沈み、感情の波が大きくなります。"},
+  wings:{a:{k:"1w9",n:"理想主義者",t:"9の穏やかさが加わり、冷静で客観的。感情的にならず、静かに基準を守る。距離を置いて全体を見るタイプ。"},
+         b:{k:"1w2",n:"擁護者",t:"2の対人性が加わり、人に働きかける改革者。教える・正す・世話を焼くことに情熱を注ぐ、面倒見のよいタイプ。"}},
+  gym:{style:"フォーム・回数・重量が明確に定義されたプログラム。「正しいやり方」を理解できると、驚異的な継続力を発揮します。",
+    motiv:"チェックリストと記録。ルールが明快であるほど強い。",
+    risk:"完璧にできない日があると「もう台無しだ」と一気に崩れる、オールオアナッシング型の離脱。",
+    food:"厳格に守れる一方、一度の逸脱で自己嫌悪に陥り、その反動で崩れやすい。",
+    hint:"最初に「80点の日」の基準を決めておくこと。完璧を守るためではなく、続けるために基準を2段階持ちます。"},
+  trainer:{talk:["今日の70点は、サボりではなく計画のうちです","できていない1割より、できている9割を見ましょう","このメニューの根拠を説明しますね"],
+    ng:["「まあ適当でいいよ」（軽く扱われたと感じ、信頼を失います）","人前でのフォーム指摘（羞恥心が強く出ます。個別に伝えてください）"],
+    goal:"達成基準を数値で明確に。ただし必ず「これだけできればOK」という最低ラインをセットで設定します。"}},
+
+2:{name:"人を助ける人",en:"THE HELPER",catch:"人の必要に応える人。与えることで、自分の居場所をつくる。",
+  center:"感情",centerDesc:"恥",
+  want:"愛されたい／必要とされたい",fear:"必要とされず、愛されないこと",
+  passion:"高慢（自分は与える側だ、という無自覚な優位）",virtue:"謙虚さ",
+  strengths:["共感力が高く、相手の必要をすぐに察知できる","温かく、人を安心させる力がある","面倒見がよく、人間関係を育てるのがうまい","惜しみなく与えられる寛大さ"],
+  pitfalls:["自分の欲求が分からなくなるほど、後回しにする","見返りへの期待が裏切られると、強い怒りに変わる","相手にとって「必要な存在」であろうと踏み込みすぎる","No が言えず、抱え込んで潰れる"],
+  gw:{n:4,t:"4の健全さを取り込む。人のためではなく「自分の本当の気持ち」に向き合えるようになると、与えることが取引ではなく純粋な喜びに変わります。"},
+  sd:{n:8,t:"8の不健全さが出る。「こんなにしてあげたのに」と支配的・攻撃的になり、感情をぶつけてしまいます。"},
+  wings:{a:{k:"2w1",n:"奉仕者",t:"1の使命感が加わり、「やるべきだから助ける」責任型。誠実で、奉仕に倫理的な意味を見出す。"},
+         b:{k:"2w3",n:"ホスト",t:"3の社交性が加わり、人を惹きつける魅力型。場を明るくし、人脈を広げるのが得意。"}},
+  gym:{style:"人とのつながりで続くタイプ。トレーナーとの信頼関係そのものが最大の燃料になります。グループレッスンも有効。",
+    motiv:"「誰かのために健康でいる」という文脈。ただし自分軸への転換も必要。",
+    risk:"家族・仕事・人の世話を優先して、自分の予約を後回しにし、いつのまにか来なくなる。",
+    food:"人と食事を合わせる場面で崩れやすい。断れないことが最大の壁。",
+    hint:"「自分を整えることが、周りを支える力になる」と目的を再定義する。自分のための時間を、先に予定表に確保します。"},
+  trainer:{talk:["あなたが元気でいることが、周りにとって一番の支えになります","今日は誰のためでもなく、自分のために来ましたね","無理なときは断ってくれて大丈夫ですよ"],
+    ng:["事務的・機械的な対応（関係が切れたと感じ、モチベーションが急落します）","感謝を伝えないまま指導だけする"],
+    goal:"人を巻き込む目標設定（家族と歩く等）＋「自分のための時間」を明文化してセットに。"}},
+
+3:{name:"達成する人",en:"THE ACHIEVER",catch:"結果で語る人。前に進み続けることで、自分の価値を証明する。",
+  center:"感情",centerDesc:"恥",
+  want:"価値ある存在でありたい／成功を認められたい",fear:"無価値だと思われること・失敗して見捨てられること",
+  passion:"欺瞞（成果のために自分を演出し、本当の感情を見失う）",virtue:"誠実さ",
+  strengths:["目標達成力が圧倒的。決めたら結果まで持っていく","効率がよく、要領を掴むのが速い","自信があり、周囲を巻き込んで動かす推進力がある","適応力が高く、場に合わせて能力を発揮できる"],
+  pitfalls:["結果が出ないと、自分の存在価値まで否定してしまう","立ち止まれず、燃え尽きるまで走る","本音や弱さを見せられず、孤独になりやすい","人と比べて、勝ち負けで自分を測る"],
+  gw:{n:6,t:"6の健全さを取り込む。成果ではなく「仲間への誠実さ」「協力」に価値を置けるようになると、走る理由が自分の内側から生まれます。"},
+  sd:{n:9,t:"9の不健全さが出る。頑張れなくなり、無気力に。何もしていない自分を直視できず、ぼんやりと時間を潰してしまいます。"},
+  wings:{a:{k:"3w2",n:"魅了する人",t:"2の対人性が加わり、人を惹きつけるカリスマ型。人望と成果を同時に取りにいく。"},
+         b:{k:"3w4",n:"プロフェッショナル",t:"4の内面性が加わり、質と独自性にこだわる専門家型。ただ勝つのではなく「良いもの」で認められたい。"}},
+  gym:{style:"数値・記録・PB更新。ビフォーアフター。競争性のある環境で最も伸びます。目に見える指標が原動力。",
+    motiv:"目標の可視化と達成の実感。順位や記録更新は効果絶大。",
+    risk:"結果を急ぎすぎてオーバーワーク・怪我。そして停滞期（プラトー）に入ると、価値を感じられず一気に離脱する。",
+    food:"効率重視で極端な制限に走り、リバウンドを繰り返しやすい。",
+    hint:"体重以外の「過程の指標」（出席率・睡眠・挙上重量）を必ず持つこと。結果が止まっても続く仕組みを作ります。"},
+  trainer:{talk:["今週の勝ちポイントは体重じゃなく「出席率10割」です","停滞期はこの時期に必ず来ます。想定内です","今日は休むという判断ができたのが、成長です"],
+    ng:["人前で失敗を強調する（強い恥を感じ、来なくなります）","根拠のない精神論だけの励まし"],
+    goal:"短期マイルストーンを複数設定し、停滞期の存在を最初に共有しておく。"}},
+
+4:{name:"個性的な人",en:"THE INDIVIDUALIST",catch:"深さを求める人。自分だけの意味を生きようとする。",
+  center:"感情",centerDesc:"恥",
+  want:"自分自身でありたい／唯一無二の意味を持ちたい",fear:"平凡で、取るに足らない存在であること",
+  passion:"妬み（自分に欠けているものを、人の中に見てしまう）",virtue:"平常心",
+  strengths:["感受性が豊かで、人の痛みを深く理解できる","独自の感性と創造性がある","本音で向き合える誠実さ。表面的な関係で終わらせない","苦しい状況にも意味を見出す力"],
+  pitfalls:["気分の波が大きく、行動が安定しない","人と比べて「自分にはない」と落ち込みやすい","感情に浸りすぎて、行動が止まる","特別でない自分を認められず、日常を軽んじる"],
+  gw:{n:1,t:"1の健全さを取り込む。感情に関係なく「決めたことを淡々とやる」規律を持てたとき、才能がはじめて形になります。"},
+  sd:{n:2,t:"2の不健全さが出る。人にしがみつき、承認を過剰に求め、相手の反応に一喜一憂してしまいます。"},
+  wings:{a:{k:"4w3",n:"貴族",t:"3の推進力が加わり、自分の世界観を外に発信する表現者型。洗練を求め、成果にもこだわる。"},
+         b:{k:"4w5",n:"ボヘミアン",t:"5の探究心が加わり、内面世界を深く掘る芸術家型。独自性が強く、孤高になりやすい。"}},
+  gym:{style:"画一的なメニューより、自分のために組まれた特別感。空間・音楽・世界観への共感が継続に直結します。",
+    motiv:"「なりたい自分の像」との接続。数値より、意味とストーリー。",
+    risk:"気分の波でムラが大きい。人と比べて落ち込み、「自分には向いていない」と物語化して離脱する。",
+    food:"感情と食が強く結びつき、落ち込むと過食・拒食に振れやすい。",
+    hint:"「気分が乗らない日用の最小メニュー」を先に用意する。やる気ではなく、仕組みで乗り切ります。"},
+  trainer:{talk:["調子が乗らない日も想定して、このメニューを作りました","あなたの体質・骨格に合わせるとこうなります","今の気分はどうですか？そこから今日の強度を決めましょう"],
+    ng:["「みんなこうしてますよ」（没個性化され、一気に冷めます）","感情を軽く扱う・急かす"],
+    goal:"数値目標の前に「どうなりたいか」を一緒に言語化する。意味づけが定まれば継続力は跳ね上がります。"}},
+
+5:{name:"調べる人",en:"THE INVESTIGATOR",catch:"理解することで安心する人。自分の世界を守り、深く掘る。",
+  center:"思考",centerDesc:"恐れ",
+  want:"有能でありたい／理解し、自分の力で立ちたい",fear:"無力で、消耗させられ、侵食されること",
+  passion:"強欲（時間・エネルギー・知識を出し惜しみして蓄える）",virtue:"無執着",
+  strengths:["客観的で、感情に流されない分析力","一つのことを人より深く掘り下げられる","冷静沈着。危機の場面でも取り乱さない","独立心が強く、自分で完結できる"],
+  pitfalls:["準備・情報収集で満足し、行動が遅れる","人との関わりを削り、孤立しやすい","感情を切り離しすぎて、体の声に気づかない","「まだ分かっていない」を理由に始められない"],
+  gw:{n:8,t:"8の健全さを取り込む。頭で完結せず「まず体で動く」勇気を持てたとき、知識が現実を動かす力に変わります。"},
+  sd:{n:7,t:"7の不健全さが出る。集中が散り、次々と新しい情報に飛びつき、落ち着きなく浅い刺激を追ってしまいます。"},
+  wings:{a:{k:"5w4",n:"独創家",t:"4の感性が加わり、独自の世界観を持つ探究者。知性と芸術性が同居する。"},
+         b:{k:"5w6",n:"問題解決者",t:"6の実務性が加わり、専門知識を現実の課題解決に使う実践派。堅実で、信頼を積み上げる。"}},
+  gym:{style:"理論とデータ。なぜこの種目なのか、仕組みが腹落ちすると自走します。一人で黙々と取り組める環境が最適。",
+    motiv:"エビデンスと数値。自分でログを設計させると強い。",
+    risk:"調べることで満足して実行に移らない。人が多い時間帯や過度な干渉で消耗し、足が遠のく。",
+    food:"知識は完璧なのに、実践が続かないというギャップが起きやすい。",
+    hint:"「調べる時間」に上限を決め、最小限の実行ルール（3種目だけ等）に落とし込むこと。"},
+  trainer:{talk:["理由はこうです。まずはこの3種目だけで十分です","数値はこちらで記録しておきます。見返せるようにしますね","今日は質問がなければ、黙々といきましょう"],
+    ng:["過度にハイテンションな励まし・急かす声かけ（消耗させます）","根拠を示さない指示"],
+    goal:"学習欲を活かし、記録フォーマットを本人に設計してもらう。理解＝継続の燃料になります。"}},
+
+6:{name:"忠実な人",en:"THE LOYALIST",catch:"備える人。不安を力に変え、仲間を守り抜く。",
+  center:"思考",centerDesc:"恐れ",
+  want:"安全でありたい／信頼できる支えが欲しい",fear:"支えを失い、独りで対処できなくなること",
+  passion:"恐れ（最悪を想定し続ける習性）",virtue:"勇気",
+  strengths:["責任感が強く、約束を守り抜く","リスク察知能力が高く、備えを怠らない","仲間思いで、信頼した相手には徹底的に忠実","誠実で、地に足がついた判断ができる"],
+  pitfalls:["決断に時間がかかり、決めた後も迷い続ける","考えすぎて不安を増幅させる","人を信じたいのに疑ってしまい、試すような行動をとる","うまくいっている時ほど不安になる"],
+  gw:{n:9,t:"9の健全さを取り込む。「大丈夫かどうか」を手放し、今この瞬間に落ち着けるようになると、不安が静かな安心に変わります。"},
+  sd:{n:3,t:"3の不健全さが出る。不安を打ち消すために働きすぎ、成果を追って自分を追い込みます。"},
+  wings:{a:{k:"6w5",n:"守護者",t:"5の分析力が加わり、慎重で思慮深い。情報を固めてから動く堅実型。"},
+         b:{k:"6w7",n:"バディ",t:"7の陽気さが加わり、人懐こく行動的。不安を人と分かち合いながら前へ進む。"}},
+  gym:{style:"手順が明確で、いつでも確認できる環境。信頼できるトレーナーが一人つけば、最も長く続くタイプです。",
+    motiv:"安心。不安を先回りして潰してもらえることが最大の動機づけ。",
+    risk:"「本当にこれで合っているのか」と不安になり、方針をころころ変える。情報過多で迷子になる。",
+    food:"心配のあまり調べすぎ、極端な情報に振り回されやすい。",
+    hint:"情報源を1つに絞る合意をする。「迷ったらこの人に聞く」を決めるだけで、継続率が大きく変わります。"},
+  trainer:{talk:["不安なところ、先に全部潰しておきましょう","この種目が効く理由と、危ないケースを両方お伝えします","何かあればいつでも聞いてください。それが普通です"],
+    ng:["曖昧な説明、根拠のない「大丈夫です」（かえって不安が増します）","担当や方針をころころ変える"],
+    goal:"想定される不安と、その対処法をセットで書き出す。「もしこうなったら、こうする」を用意しておく。"}},
+
+7:{name:"熱中する人",en:"THE ENTHUSIAST",catch:"可能性に生きる人。楽しさで、世界を明るくする。",
+  center:"思考",centerDesc:"恐れ",
+  want:"満たされたい／自由に、可能性を味わい尽くしたい",fear:"苦痛や退屈に閉じ込められること",
+  passion:"暴食（刺激・体験・選択肢を求め続ける）",virtue:"節制",
+  strengths:["発想力が豊かで、次々にアイデアが出る","切り替えが早く、逆境でも明るさを失わない","好奇心が強く、行動範囲が広い","場を楽しくする力があり、人を巻き込める"],
+  pitfalls:["飽きっぽく、始めたものを終わらせられない","地味な反復や、深掘りが苦手","痛みや向き合うべき問題から目を逸らす","選択肢を残しすぎて、何も決まらない"],
+  gw:{n:5,t:"5の健全さを取り込む。一つのことに腰を据えて深く関わったとき、はじめて本当の充実が手に入ります。"},
+  sd:{n:1,t:"1の不健全さが出る。急に完璧主義的・批判的になり、自分にも人にも厳しく苛立ちます。"},
+  wings:{a:{k:"7w6",n:"エンターテイナー",t:"6の協調性が加わり、人と一緒に楽しむ社交型。責任感もあり、仲間を大切にする。"},
+         b:{k:"7w8",n:"現実主義者",t:"8の行動力が加わり、欲しいものを実際に掴みにいく実行型。パワフルでスピードがある。"}},
+  gym:{style:"バリエーションとゲーム性。飽きさせない工夫が全て。仲間とワイワイやれる環境で驚くほど続きます。",
+    motiv:"新しさ・楽しさ・選べること。イベント性のある目標が効く。",
+    risk:"飽きたら来なくなる。地味な基礎種目と停滞期に極端に弱い。",
+    food:"我慢型の食事管理が最も苦手。禁止されるほど反発します。",
+    hint:"「3つの中から今日のメニューを選ぶ」形式にする。制限ではなく、選択肢の中で設計するのがコツ。"},
+  trainer:{talk:["今日は3パターン用意しました。どれにします？","来月、記録会やりましょう。目標にしませんか","これ、たぶんまだやったことないやつです"],
+    ng:["「これを3ヶ月ずっと続けてください」（想像しただけで苦しくなります）","禁止事項を並べるだけの食事指導"],
+    goal:"短いスパンで区切り、変化とご褒美を設計に組み込む。ゴールは常に「楽しそう」であること。"}},
+
+8:{name:"挑戦する人",en:"THE CHALLENGER",catch:"力で道を切り拓く人。自分と仲間を、誰にも侵させない。",
+  center:"本能",centerDesc:"怒り",
+  want:"強くありたい／自分の人生を自分で決めたい",fear:"人に支配され、傷つけられること",
+  passion:"色欲（強さ・刺激・過剰さへの渇望）",virtue:"無垢さ",
+  strengths:["圧倒的な行動力と決断力","逆境に強く、責任を引き受ける","率直で裏表がない","仲間や弱い立場の人を全力で守る"],
+  pitfalls:["強引になり、周囲を萎縮させる","弱さを見せられず、限界まで抱え込む","怒りの表出が早く、関係を壊すことがある","休息を「弱さ」と見なして無視する"],
+  gw:{n:2,t:"2の健全さを取り込む。守るだけでなく、素直に人に心を開けたとき、本当の強さが手に入ります。"},
+  sd:{n:5,t:"5の不健全さが出る。人を遮断して引きこもり、警戒しながら一人で抱え込みます。"},
+  wings:{a:{k:"8w7",n:"独立独歩",t:"7の推進力が加わり、行動的でスピード感のある開拓型。次々と勝負を仕掛ける。"},
+         b:{k:"8w9",n:"守る者",t:"9の落ち着きが加わり、どっしりと構える重量級。普段は穏やかだが、いざという時に圧倒的。"}},
+  gym:{style:"高強度で限界に挑む設計。主導権を自分が握れる形にすると、爆発的に伸びます。",
+    motiv:"挑戦と勝負。「これができたら本物です」という提示が効く。",
+    risk:"オーバーワークと、痛みを我慢して続けることによる怪我。一方的な指図には強く反発する。",
+    food:"極端に振れやすく、やるときは完璧、崩れるときは一気。",
+    hint:"「休むことも強さ」と再定義する。回復を戦略として位置づけると、素直に受け入れられます。"},
+  trainer:{talk:["今日は追い込まない、が今日の課題です","AとB、どちらでいきますか","率直に言います。今の重量は関節に対して早いです"],
+    ng:["一方的な指示・子供扱い（即座に反発を招きます）","遠回しな言い方でごまかす"],
+    goal:"選択権を渡した上で、限界を提示する。「決めるのは本人」という形が最も機能します。"}},
+
+9:{name:"平和をもたらす人",en:"THE PEACEMAKER",catch:"調和を保つ人。そこにいるだけで、場が穏やかになる。",
+  center:"本能",centerDesc:"怒り",
+  want:"心の平安／調和した、波風のない状態",fear:"分離・喪失・対立に巻き込まれること",
+  passion:"怠惰（自分自身に関わることを後回しにする）",virtue:"行動",
+  strengths:["穏やかで、人を安心させる包容力","偏りなく、複数の立場を理解できる","粘り強く、一度習慣化すると崩れない","対立を和らげ、場をまとめる力"],
+  pitfalls:["自分の意見や欲求が分からなくなる","大事なことほど先延ばしにする","不満を溜め込み、突然限界がくる","流れに身を任せ、変化を起こせない"],
+  gw:{n:3,t:"3の健全さを取り込む。自分の目標に向けて主体的に動き出したとき、眠っていた力が一気に立ち上がります。"},
+  sd:{n:6,t:"6の不健全さが出る。不安と疑いが強まり、心配ばかりが増えて動けなくなります。"},
+  wings:{a:{k:"9w8",n:"仲裁者",t:"8の力強さが加わり、穏やかだが芯が強い。必要な場面ではしっかり主張する。"},
+         b:{k:"9w1",n:"夢見る人",t:"1の理想が加わり、静かな理想主義者。秩序を好み、正しさを穏やかに守る。"}},
+  gym:{style:"穏やかなペースで、ルーティン化。習慣にさえなれば、9タイプ中もっとも長く続きます。",
+    motiv:"考えなくていい状態。決めるストレスがないほど続く。",
+    risk:"そもそも始まらない・予約が先延ばしになる。強度が上がらず、変化が出ないまま停滞する。",
+    food:"気づかないうちに元の習慣に戻っている。無自覚な後退が起きやすい。",
+    hint:"曜日と時間を固定し、「考えずに行けば終わっている」状態にする。決定の回数を減らすほど続きます。"},
+  trainer:{talk:["考える前に、まず来てください。中身は僕が決めます","毎週火曜19時、固定にしましょう","今日は少しだけ強度を上げます。大丈夫です"],
+    ng:["急かす・強く詰める（かえって固まって動けなくなります）","選択肢を多く出しすぎる"],
+    goal:"小さく確実な習慣から。決定を代行し、選択肢は2つまでに絞る。予約は次回分をその場で確定させる。"}}
+};
+
+var CENTERS={
+  "本能":{types:[8,9,1],core:"怒り",desc:"体と本能で世界を捉え、「自分の領域が侵されていないか」に反応します。中心テーマは怒りの扱い方（8は外に出し、9は麻痺させ、1は抑え込む）。"},
+  "感情":{types:[2,3,4],core:"恥",desc:"人との関係とイメージで世界を捉え、「自分に価値があるか」に反応します。中心テーマは恥（2は与えて埋め、3は成果で覆い、4は深く味わう）。"},
+  "思考":{types:[5,6,7],core:"恐れ",desc:"頭と分析で世界を捉え、「安全が確保されているか」に反応します。中心テーマは恐れ（5は知識で備え、6は想定で備え、7は快で紛らわす）。"}
+};
+
+var INSTINCT={
+  sp:{n:"自己保存",en:"SELF-PRESERVATION",t:"身体・健康・お金・住環境といった「生存の土台」に注意が向きます。トレーニングでは体調管理や栄養へのこだわりが強く、生活を整える文脈で最も動きます。"},
+  so:{n:"社会的",en:"SOCIAL",t:"集団の中での立ち位置やつながりに注意が向きます。仲間がいる環境・グループ・コミュニティが継続の鍵。一人だと続きにくい傾向があります。"},
+  sx:{n:"一対一",en:"SEXUAL / ONE-TO-ONE",t:"特定の相手との深い結びつきや強い刺激に注意が向きます。信頼するトレーナーとのマンツーマン、そして強度の高い挑戦で最も燃えます。"}
+};
+
+var OPTS=[
+  {v:1,l:"まったく当てはまらない"},
+  {v:2,l:"あまり当てはまらない"},
+  {v:3,l:"どちらとも言えない"},
+  {v:4,l:"やや当てはまる"},
+  {v:5,l:"とても当てはまる"}
+];
+
+/* ---------- 状態 ---------- */
+var LS_P='tg_enneagram_progress_v1', LS_R='tg_enneagram_result_v1';
+var state={mode:'full',seq:[],idx:0,ans:{}};
+
+function $(id){return document.getElementById(id);}
+function show(id){['scStart','scQuiz','scResult'].forEach(function(s){$(s).classList.toggle('hide',s!==id);});window.scrollTo(0,0);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function setHdrTag(){
+  $('hdrTag').textContent = state.mode==='quick'?'クイック 36問':(state.mode==='deep'?'完全版 102問':'本格版 90問');
+}
+function toast(msg){var t=$('toast');t.textContent=msg;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('on');},2200);}
+
+/* 設問シーケンス構築：タイプが連続しないよう回転させて配置 */
+function buildSeq(mode){
+  var rounds = (mode==='quick') ? 4 : 10;
+  var seq=[], r, i, t;
+  for(r=0;r<rounds;r++){
+    for(i=0;i<9;i++){
+      t = ((r + i*4) % 9) + 1;        // 4ずつ飛ばす（9と互いに素なので1周で全タイプを網羅）
+      seq.push({k:'t'+t+'_'+r, kind:'type', t:t, q:QT[t][r]});
+    }
+  }
+  if(mode==='deep'){
+    var ord=['sp','so','sx'];
+    for(r=0;r<4;r++){
+      for(i=0;i<3;i++){
+        var g=ord[(r+i)%3];
+        seq.push({k:g+'_'+r, kind:'inst', g:g, q:QI[g][r]});
+      }
+    }
+  }
+  return seq;
+}
+
+/* ---------- 進行 ---------- */
+function startQuiz(mode,resume){
+  state.mode=mode;
+  state.seq=buildSeq(mode);
+  if(!resume){state.idx=0;state.ans={};}
+  $('qTotal').textContent=state.seq.length;
+  setHdrTag();
+  show('scQuiz');
+  renderQ();
+}
+
+function renderQ(){
+  var item=state.seq[state.idx];
+  if(!item){finish();return;}
+  $('qCat').textContent = (item.kind==='inst'?'本能サブタイプ ':'') + 'Q'+(state.idx+1);
+  $('qText').textContent = item.q;
+  var cur=state.ans[item.k];
+  var html='';
+  for(var i=0;i<OPTS.length;i++){
+    var o=OPTS[i];
+    html+='<button class="opt" role="radio" aria-checked="'+(cur===o.v?'true':'false')+'" data-v="'+o.v+'">'
+        + '<span class="opt-n">'+o.v+'</span><span>'+o.l+'</span></button>';
+  }
+  $('qOpts').innerHTML=html;
+  var pct=Math.round(state.idx/state.seq.length*100);
+  $('qNow').textContent=state.idx+1;
+  $('qPct').textContent=pct;
+  $('qFill').style.width=pct+'%';
+  $('btnPrev').disabled = state.idx===0;
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+var advTimer=null;
+function answer(v){
+  var item=state.seq[state.idx];
+  if(!item)return;
+  state.ans[item.k]=v;
+  save();
+  var btns=$('qOpts').querySelectorAll('.opt');
+  for(var i=0;i<btns.length;i++){btns[i].setAttribute('aria-checked', parseInt(btns[i].dataset.v,10)===v?'true':'false');}
+  /* 連打・ダブルタップで設問が飛ばないよう、進行予約は常に1つだけ保持する */
+  if(advTimer){clearTimeout(advTimer);}
+  advTimer=setTimeout(function(){
+    advTimer=null;
+    if(state.idx < state.seq.length-1){state.idx++;renderQ();}
+    else{finish();}
+  },170);
+}
+
+function save(){
+  try{localStorage.setItem(LS_P,JSON.stringify({mode:state.mode,idx:state.idx,ans:state.ans,ts:Date.now()}));}catch(e){}
+}
+
+/* ---------- 採点 ---------- */
+function score(){
+  var per = state.mode==='quick'?4:10;
+  var raw={},pct={},t,r,k,v,sum;
+  for(t=1;t<=9;t++){
+    sum=0;
+    for(r=0;r<per;r++){ v=state.ans['t'+t+'_'+r]; sum += (typeof v==='number'?v:3); }
+    raw[t]=sum;
+    pct[t]=Math.round(((sum-per)/(per*4))*1000)/10;   // 1〜5 → 0〜100% に正規化
+  }
+  var order=[];
+  for(t=1;t<=9;t++) order.push({t:t,p:pct[t],raw:raw[t]});
+  order.sort(function(a,b){return b.p-a.p || a.t-b.t;});
+
+  var inst=null;
+  if(state.mode==='deep'){
+    inst={};
+    ['sp','so','sx'].forEach(function(g){
+      var s=0;
+      for(r=0;r<4;r++){v=state.ans[g+'_'+r];s+=(typeof v==='number'?v:3);}
+      inst[g]=Math.round(((s-4)/16)*1000)/10;
+    });
+  }
+  return {pct:pct,order:order,inst:inst,per:per};
+}
+
+function wingOf(t,pct){
+  var a=(t===1)?9:t-1, b=(t===9)?1:t+1;
+  var w=TYPES[t].wings;
+  return (pct[a]>=pct[b]) ? {n:a,d:w.a} : {n:b,d:w.b};
+}
+
+function finish(){
+  var res=score();
+  try{
+    localStorage.setItem(LS_R,JSON.stringify({mode:state.mode,pct:res.pct,inst:res.inst,ts:Date.now()}));
+    localStorage.removeItem(LS_P);
+  }catch(e){}
+  renderResult(res);
+}
+
+/* ---------- レーダーチャート（SVG） ---------- */
+function radar(pct){
+  var cx=170,cy=158,R=112,i,t,ang,x,y;
+  var rings='',axes='',labels='',pts=[];
+  for(i=1;i<=4;i++){
+    var rr=R*i/4, pp=[];
+    for(t=0;t<9;t++){
+      ang=-Math.PI/2 + t*2*Math.PI/9;
+      pp.push((cx+rr*Math.cos(ang)).toFixed(1)+','+(cy+rr*Math.sin(ang)).toFixed(1));
+    }
+    rings+='<polygon class="rdr-ring'+(i===4?' out':'')+'" points="'+pp.join(' ')+'" fill="none" stroke-width="1"/>';
+  }
+  for(t=0;t<9;t++){
+    ang=-Math.PI/2 + t*2*Math.PI/9;
+    x=cx+R*Math.cos(ang); y=cy+R*Math.sin(ang);
+    axes+='<line class="rdr-axis" x1="'+cx+'" y1="'+cy+'" x2="'+x.toFixed(1)+'" y2="'+y.toFixed(1)+'" stroke-width="1"/>';
+    var lx=cx+(R+20)*Math.cos(ang), ly=cy+(R+20)*Math.sin(ang);
+    labels+='<text class="rdr-lbl" x="'+lx.toFixed(1)+'" y="'+(ly+4).toFixed(1)+'" text-anchor="middle" font-family="Bebas Neue,sans-serif" font-size="17">'+(t+1)+'</text>';
+    var val=Math.max(0,Math.min(100,pct[t+1]))/100;
+    var vx=cx+R*val*Math.cos(ang), vy=cy+R*val*Math.sin(ang);
+    pts.push(vx.toFixed(1)+','+vy.toFixed(1));
+  }
+  var dots='';
+  pts.forEach(function(p){var c=p.split(',');dots+='<circle class="rdr-dot" cx="'+c[0]+'" cy="'+c[1]+'" r="3" fill="#ffcc00"/>';});
+  return '<svg viewBox="0 0 340 330" role="img" aria-label="9タイプのスコア分布">'
+    + '<defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1">'
+    + '<stop offset="0%" stop-color="#ff6b00" stop-opacity=".55"/><stop offset="100%" stop-color="#00e5ff" stop-opacity=".35"/>'
+    + '</linearGradient></defs>'
+    + rings + axes
+    + '<polygon points="'+pts.join(' ')+'" fill="url(#rg)" stroke="#ff6b00" stroke-width="2"/>'
+    + dots + labels + '</svg>';
+}
+
+/* ---------- 結果描画 ---------- */
+function renderResult(res){
+  var o=res.order, top=o[0], t=top.t, T=TYPES[t], pct=res.pct;
+  var gap=Math.round((o[0].p-o[1].p)*10)/10;
+  var wing=wingOf(t,pct);
+  var C=CENTERS[T.center];
+  var h='';
+
+  /* HERO */
+  h+='<div class="res-hero">'
+   + '<div class="res-lbl">YOUR BASIC TYPE</div>'
+   + '<div class="res-num">'+t+'</div>'
+   + '<div class="res-name">'+esc(T.name)+'</div>'
+   + '<div class="res-en">'+T.en+'</div>'
+   + '<p class="res-catch">'+esc(T.catch)+'</p>'
+   + '<div class="res-meta">'
+   + '<span class="chip">ウィング <b>'+wing.d.k+'</b></span>'
+   + '<span class="chip">'+T.center+'センター</span>'
+   + '<span class="chip">一致度 <b>'+top.p+'%</b></span>'
+   + '</div></div>';
+
+  /* 確信度 */
+  var cf = gap>=8 ? {c:'',i:'◎',t:'判定の確度：高い',d:'2位のタイプと'+gap+'ポイント差。タイプ'+t+'である可能性が高いです。'}
+        : gap>=4 ? {c:'mid',i:'○',t:'判定の確度：中程度',d:'2位のタイプ'+o[1].t+'とは'+gap+'ポイント差。下の「候補タイプの見分け方」も確認してください。'}
+        : {c:'low',i:'△',t:'判定の確度：要確認',d:'1位と2位（タイプ'+o[1].t+'）が'+gap+'ポイント差と拮抗しています。両方の説明を読み、「恐れ」の項目がより刺さる方を選んでください。'};
+  h+='<div class="conf '+cf.c+'"><div class="conf-i">'+cf.i+'</div><div><div class="conf-t">'+cf.t+'</div><div class="conf-d">'+cf.d+'</div></div></div>';
+
+  /* チャート */
+  h+='<h3 class="sub">9タイプ スコア分布</h3><div class="chart-wrap">'+radar(pct)+'</div>';
+
+  /* バー */
+  h+='<h3 class="sub">全タイプのスコア</h3><div class="bars">';
+  o.forEach(function(x,i){
+    h+='<div class="bar-row'+(i<3?' top':'')+'">'
+     + '<div class="bar-lbl"><b>'+x.t+'</b>'+esc(TYPES[x.t].name)+'</div>'
+     + '<div class="bar-track"><div class="bar-fill" data-w="'+Math.max(2,x.p)+'"></div></div>'
+     + '<div class="bar-v">'+x.p+'</div></div>';
+  });
+  h+='</div>';
+
+  /* 候補が拮抗している場合の比較 */
+  if(gap<8){
+    var A=TYPES[o[0].t], B=TYPES[o[1].t];
+    h+='<h3 class="sub">候補タイプの見分け方</h3>'
+     + '<p class="mini" style="margin-bottom:10px">エニアグラムは行動ではなく<strong>「恐れ」と「欲求」</strong>で決まります。似た行動をしていても、その奥の動機が違えばタイプは違います。より深く刺さる方が、あなたの本来のタイプです。</p>'
+     + '<div class="cmp">'
+     + '<div class="cmp-col"><div class="cmp-h">タイプ'+o[0].t+' '+esc(A.name)+'</div>'
+     + '<div class="cmp-k">根源的な欲求</div><div class="cmp-v">'+esc(A.want)+'</div>'
+     + '<div class="cmp-k">根源的な恐れ</div><div class="cmp-v">'+esc(A.fear)+'</div></div>'
+     + '<div class="cmp-col"><div class="cmp-h">タイプ'+o[1].t+' '+esc(B.name)+'</div>'
+     + '<div class="cmp-k">根源的な欲求</div><div class="cmp-v">'+esc(B.want)+'</div>'
+     + '<div class="cmp-k">根源的な恐れ</div><div class="cmp-v">'+esc(B.fear)+'</div></div>'
+     + '</div>';
+  }
+
+  /* 核 */
+  h+='<h3 class="sub">タイプ'+t+' の核にあるもの</h3><div class="card"><dl class="kv">'
+   + '<dt>根源的欲求</dt><dd>'+esc(T.want)+'</dd>'
+   + '<dt>根源的恐れ</dt><dd>'+esc(T.fear)+'</dd>'
+   + '<dt>囚われ</dt><dd>'+esc(T.passion)+'</dd>'
+   + '<dt>向かう徳</dt><dd>'+esc(T.virtue)+'</dd>'
+   + '</dl></div>';
+
+  /* 強み・課題 */
+  h+='<h3 class="sub">強み</h3><div class="card"><ul class="list">';
+  T.strengths.forEach(function(s){h+='<li>'+esc(s)+'</li>';});
+  h+='</ul></div>';
+  h+='<h3 class="sub">つまずきやすいところ</h3><div class="card"><ul class="list warn">';
+  T.pitfalls.forEach(function(s){h+='<li>'+esc(s)+'</li>';});
+  h+='</ul></div>';
+
+  /* ウィング */
+  h+='<h3 class="sub">ウィング：'+wing.d.k+'（'+esc(wing.d.n)+'）</h3><div class="card">'
+   + '<p class="muted">'+esc(wing.d.t)+'</p>'
+   + '<p class="mini" style="margin-top:10px">※ ウィングは基本タイプの両隣（タイプ'+((t===1)?9:t-1)+'と'+((t===9)?1:t+1)+'）のうち、影響が強い方。同じタイプでも、ウィングが違うと印象は大きく変わります。</p></div>';
+
+  /* センター */
+  h+='<h3 class="sub">'+T.center+'センター（'+C.core+'の中心）</h3><div class="card">'
+   + '<p class="muted">'+esc(C.desc)+'</p>'
+   + '<p class="mini" style="margin-top:10px">同じセンターの仲間：タイプ'+C.types.join('・')+'</p></div>';
+
+  /* 矢印 */
+  h+='<h3 class="sub">成長とストレスの方向</h3><div class="arrow-grid">'
+   + '<div class="arrow up"><div class="arrow-h">▲ 成長の方向 <span>'+t+' → '+T.gw.n+'</span></div><p>'+esc(T.gw.t)+'</p></div>'
+   + '<div class="arrow down"><div class="arrow-h">▼ ストレスの方向 <span>'+t+' → '+T.sd.n+'</span></div><p>'+esc(T.sd.t)+'</p></div>'
+   + '</div>';
+
+  /* 本能サブタイプ */
+  if(res.inst){
+    var ig=['sp','so','sx'].sort(function(a,b){return res.inst[b]-res.inst[a];});
+    var main=INSTINCT[ig[0]];
+    h+='<h3 class="sub">本能サブタイプ：'+main.n+'</h3><div class="card"><div class="inst">';
+    ig.forEach(function(g){
+      h+='<div class="inst-row"><div class="inst-lbl">'+INSTINCT[g].n+'</div>'
+       + '<div class="inst-track"><div class="inst-fill" data-w="'+Math.max(2,res.inst[g])+'"></div></div>'
+       + '<div class="inst-v">'+res.inst[g]+'</div></div>';
+    });
+    h+='</div><p class="muted" style="margin-top:13px">'+esc(main.t)+'</p>'
+     + '<p class="mini" style="margin-top:8px">あなたの型は <strong>タイプ'+t+' ・ '+main.n+'（'+main.en+'）</strong>。基本タイプに、この本能が重なった形で現れます。</p></div>';
+  }
+
+  /* ジム活用 */
+  h+='<div class="eyebrow" style="margin-top:32px">◆ TRAINING APPLICATION</div>'
+   + '<h2 class="ttl">タイプ'+t+' の「続くトレーニング」設計図</h2>'
+   + '<div class="gym-card">'
+   + '<div class="gym-row"><div class="gym-k">◎ 向いているスタイル</div><div class="gym-v">'+esc(T.gym.style)+'</div></div>'
+   + '<div class="gym-row"><div class="gym-k">◎ 効くモチベーション</div><div class="gym-v">'+esc(T.gym.motiv)+'</div></div>'
+   + '<div class="gym-row"><div class="gym-k">▲ 挫折パターン</div><div class="gym-v">'+esc(T.gym.risk)+'</div></div>'
+   + '<div class="gym-row"><div class="gym-k">▲ 食事管理の傾向</div><div class="gym-v">'+esc(T.gym.food)+'</div></div>'
+   + '<div class="gym-row"><div class="gym-k">★ 継続のカギ</div><div class="gym-v">'+esc(T.gym.hint)+'</div></div>'
+   + '</div>';
+
+  /* トレーナー向け */
+  h+='<h3 class="sub">トレーナー向け：指導のポイント</h3><div class="trainer-card">'
+   + '<div class="trainer-h">効く声かけ</div><ul class="list talk">';
+  T.trainer.talk.forEach(function(s){h+='<li>'+esc(s)+'</li>';});
+  h+='</ul><div class="trainer-h" style="margin-top:14px">避けたい対応</div><ul class="list warn">';
+  T.trainer.ng.forEach(function(s){h+='<li>'+esc(s)+'</li>';});
+  h+='</ul><div class="trainer-h" style="margin-top:14px">目標設定のコツ</div>'
+   + '<p class="muted">'+esc(T.trainer.goal)+'</p></div>';
+
+  /* アクション */
+  h+='<div class="no-print" style="margin-top:26px">'
+   + '<div class="btn-row" style="margin-bottom:9px">'
+   + '<button class="btn-ghost" id="btnCopy">結果をコピー</button>'
+   + '<button class="btn-ghost" id="btnPrint">保存・印刷</button>'
+   + '</div>'
+   + '<button class="btn-ghost" id="btnRetry">もう一度診断する</button>'
+   + '</div>';
+
+  /* CTA */
+  h+='<div class="cta no-print" style="margin-top:24px">'
+   + '<div class="cta-t">タイプが分かれば、<br>続け方が変わる。</div>'
+   + '<p class="cta-d">TRAINER\'S GYM では、この診断結果をもとに、あなたのタイプに合わせてメニュー・声かけ・食事の進め方を設計します。まずは結果を持って、無料カウンセリングへ。</p>'
+   + '<a class="btn" href="https://lin.ee/2Z1Luhr" target="_blank" rel="noopener">LINEで無料カウンセリング予約</a>'
+   + '<a class="btn-ghost" href="https://trainers-gym.com/" target="_blank" rel="noopener" style="margin-top:9px">公式サイトを見る</a>'
+   + '</div>';
+
+  h+='<div class="foot"><p>※ 本診断は自己理解とコーチングのためのツールであり、医学的・心理学的な診断ではありません。<br>結果は「今の自己認識」を映すものです。時期や状況によって変動することがあります。</p></div>';
+
+  $('resBody').innerHTML=h;
+  $('hdrTag').textContent='診断結果';
+  show('scResult');
+
+  /* バーアニメーション */
+  setTimeout(function(){
+    var f=document.querySelectorAll('.bar-fill,.inst-fill');
+    for(var i=0;i<f.length;i++){f[i].style.width=f[i].dataset.w+'%';}
+  },80);
+
+  /* アクション束ね */
+  $('btnRetry').onclick=function(){
+    try{localStorage.removeItem(LS_P);}catch(e){}
+    setHdrTag();
+    show('scStart');checkSaved();
+  };
+  $('btnPrint').onclick=function(){window.print();};
+  $('btnCopy').onclick=function(){
+    var txt=summaryText(res,t,wing);
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast('結果をコピーしました');},function(){fallbackCopy(txt);});
+    }else{fallbackCopy(txt);}
+  };
+}
+
+function summaryText(res,t,wing){
+  var T=TYPES[t],o=res.order,L=[];
+  L.push('【エニアグラム診断結果／TRAINER\'S GYM】');
+  L.push('基本タイプ：'+t+' '+T.name+'（'+T.en+'）');
+  L.push('ウィング：'+wing.d.k+' '+wing.d.n);
+  L.push('センター：'+T.center+'（'+CENTERS[T.center].core+'）');
+  if(res.inst){
+    var ig=['sp','so','sx'].sort(function(a,b){return res.inst[b]-res.inst[a];});
+    L.push('本能サブタイプ：'+INSTINCT[ig[0]].n);
+  }
+  L.push('');
+  L.push('■ スコア');
+  o.forEach(function(x){L.push('  タイプ'+x.t+' '+TYPES[x.t].name+'：'+x.p+'%');});
+  L.push('');
+  L.push('■ 根源的欲求：'+T.want);
+  L.push('■ 根源的恐れ：'+T.fear);
+  L.push('');
+  L.push('■ 向いているスタイル');
+  L.push('  '+T.gym.style);
+  L.push('■ 挫折パターン');
+  L.push('  '+T.gym.risk);
+  L.push('■ 継続のカギ');
+  L.push('  '+T.gym.hint);
+  L.push('');
+  L.push('■ 指導のポイント（目標設定）');
+  L.push('  '+T.trainer.goal);
+  return L.join('\n');
+}
+
+function fallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');toast('結果をコピーしました');}catch(e){toast('コピーできませんでした');}
+  document.body.removeChild(ta);
+}
+
+/* ---------- 保存データの確認 ---------- */
+function checkSaved(){
+  var p=null,r=null;
+  try{p=JSON.parse(localStorage.getItem(LS_P)||'null');r=JSON.parse(localStorage.getItem(LS_R)||'null');}catch(e){}
+  $('btnResume').classList.toggle('hide', !(p && p.idx>0));
+  $('btnLast').classList.toggle('hide', !r);
+  $('btnResume')._d=p; $('btnLast')._d=r;
+}
+
+/* ---------- イベント ---------- */
+document.querySelectorAll('.mode').forEach(function(b){
+  b.onclick=function(){
+    document.querySelectorAll('.mode').forEach(function(x){x.setAttribute('aria-checked','false');});
+    b.setAttribute('aria-checked','true');
+    state.mode=b.dataset.mode;
+    setHdrTag();
+  };
+});
+
+$('btnStart').onclick=function(){startQuiz(state.mode,false);};
+
+$('btnResume').onclick=function(){
+  var p=$('btnResume')._d; if(!p)return;
+  state.ans=p.ans||{}; state.idx=p.idx||0;
+  startQuiz(p.mode||'full',true);
+};
+
+$('btnLast').onclick=function(){
+  var r=$('btnLast')._d; if(!r)return;
+  state.mode=r.mode||'full';
+  var order=[];
+  for(var t=1;t<=9;t++) order.push({t:t,p:r.pct[t]});
+  order.sort(function(a,b){return b.p-a.p || a.t-b.t;});
+  renderResult({pct:r.pct,order:order,inst:r.inst,per:(r.mode==='quick'?4:10)});
+};
+
+$('qOpts').onclick=function(e){
+  var b=e.target.closest('.opt'); if(!b)return;
+  answer(parseInt(b.dataset.v,10));
+};
+
+function cancelAdv(){ if(advTimer){clearTimeout(advTimer);advTimer=null;} }
+
+$('btnPrev').onclick=function(){ cancelAdv(); if(state.idx>0){state.idx--;renderQ();} };
+
+$('btnQuit').onclick=function(){
+  cancelAdv();
+  save();
+  toast('ここまでの回答を保存しました');
+  setTimeout(function(){show('scStart');checkSaved();},600);
+};
+
+/* キーボード（1〜5で回答／PCでの一括診断に便利） */
+document.addEventListener('keydown',function(e){
+  if($('scQuiz').classList.contains('hide'))return;
+  if(e.key>='1'&&e.key<='5'){answer(parseInt(e.key,10));}
+  else if(e.key==='ArrowLeft'&&state.idx>0){cancelAdv();state.idx--;renderQ();}
+});
+
+checkSaved();
+</script>
+</body>
+</html>
