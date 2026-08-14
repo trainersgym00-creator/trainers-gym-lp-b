@@ -206,6 +206,11 @@ ${JSON.stringify(txns.map(t => ({
     摘要: t.description,
   })), null, 2)}
 
+## 取引先ごとの仕訳ルール（優先して従うこと）
+- 摘要に「AMAZON」「アマゾン」を含む出金 → **消耗品費**（税区分は課税仕入10%）。備品・事務用品の購入としてconfidence 0.85で登録してよい。
+  ただし1件30,000円以上の場合は高額備品（工具器具備品などの資産）の可能性があるため、confidence を 0.5 にして人間のレビューに回すこと。
+- 摘要に「GOOGLE」「META」「FACEBOOK」「YAHOO」等の広告出稿を含む出金 → 広告宣伝費
+
 ## 指示
 - 各明細に最適な account_item_id と tax_code を選んでください（必ず上記一覧の値を使うこと）
 - entry_side が income なら収益系、expense なら費用・資産系の科目を選ぶこと
