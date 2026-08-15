@@ -10,7 +10,7 @@
 <meta property="og:description" content="9タイプ×ウィング×本能サブタイプを判定。あなたが「続く」トレーニングの型がわかります。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Bebas+Neue&display=swap">
-<style>
+<style id="basecss">
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 :root{
   --orn:#ff6b00;--orn2:#e55a00;--yel:#ffcc00;--cyan:#00e5ff;--pink:#ff3cac;--grn:#39ff14;
@@ -57,6 +57,7 @@ h3.sub::before{content:'';width:4px;height:15px;border-radius:2px;background:var
 .muted{color:var(--tx2);font-size:13px;}
 .mini{font-size:11.5px;color:var(--tx3);line-height:1.8;}
 .hide{display:none !important;}
+.pdf-head{display:none;}
 
 .btn{display:flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(135deg,var(--orn),var(--orn2));
   color:#fff;padding:17px 20px;border-radius:var(--rf);font-size:15.5px;font-weight:900;width:100%;
@@ -98,6 +99,36 @@ h3.sub::before{content:'';width:4px;height:15px;border-radius:2px;background:var
 .note ul{list-style:none;}
 .note li{font-size:11.5px;color:var(--tx2);line-height:1.85;padding-left:14px;position:relative;}
 .note li::before{content:'';position:absolute;left:2px;top:11px;width:4px;height:4px;border-radius:50%;background:var(--cyan);}
+
+/* FORM */
+.fld{margin-bottom:14px;}
+.fld label{display:block;font-size:12px;font-weight:900;margin-bottom:6px;}
+.req{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:var(--rf);margin-left:6px;
+  background:rgba(255,107,0,.16);color:#ff9a50;border:1px solid rgba(255,107,0,.3);}
+.opt-lbl{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:var(--rf);margin-left:6px;
+  background:rgba(255,255,255,.07);color:var(--tx3);border:1px solid rgba(255,255,255,.12);}
+.fld input[type=text],.fld input[type=email]{width:100%;background:rgba(255,255,255,.05);
+  border:1.5px solid var(--line);border-radius:11px;padding:13px 14px;font-size:15px;color:var(--tx);
+  font-family:inherit;transition:.15s;}
+.fld input::placeholder{color:rgba(255,255,255,.26);}
+.fld input:focus{outline:none;border-color:var(--orn);background:rgba(255,107,0,.07);}
+.fld input.err{border-color:var(--pink);}
+.fld-help{font-size:11px;color:var(--tx3);line-height:1.7;margin-top:6px;}
+.agree{display:flex;gap:10px;align-items:flex-start;cursor:pointer;padding:12px 13px;border-radius:11px;
+  border:1.5px solid var(--line);background:rgba(255,255,255,.04);margin-top:4px;}
+.agree input{width:19px;height:19px;flex-shrink:0;margin-top:1px;accent-color:var(--orn);}
+.agree span{font-size:12.5px;line-height:1.7;color:var(--tx2);}
+.agree b{color:var(--tx);}
+
+/* SEND */
+.send-box{border:1px solid rgba(0,229,255,.28);background:rgba(0,229,255,.055);border-radius:var(--r);padding:16px;margin-top:26px;}
+.send-t{font-size:13.5px;font-weight:900;color:var(--cyan);margin-bottom:5px;}
+.send-d{font-size:12px;color:var(--tx2);line-height:1.8;margin-bottom:13px;}
+.send-st{font-size:12px;font-weight:700;line-height:1.7;margin-top:11px;padding:11px 13px;border-radius:11px;display:none;}
+.send-st.on{display:block;}
+.send-st.wait{background:rgba(255,204,0,.09);border:1px solid rgba(255,204,0,.3);color:var(--yel);}
+.send-st.done{background:rgba(57,255,20,.08);border:1px solid rgba(57,255,20,.3);color:var(--grn);}
+.send-st.ng{background:rgba(255,60,172,.08);border:1px solid rgba(255,60,172,.32);color:var(--pink);}
 
 /* ---------- QUIZ ---------- */
 .q-cat{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--tx3);margin-bottom:12px;}
@@ -214,8 +245,9 @@ ul.list.talk li::before{content:'“';color:var(--cyan);font-size:18px;top:2px;}
 
 .foot{padding:28px 18px 10px;text-align:center;}
 .foot p{font-size:10.5px;color:var(--tx3);line-height:1.9;}
+</style>
+<style media="print" id="printcss">
 
-@media print{
   @page{margin:12mm 10mm;}
   body{background:#fff;color:#111;max-width:none;padding:0;line-height:1.6;}
   .hdr,.pbar-wrap,.btn,.btn-ghost,.btn-row,.cta,.no-print,.toast{display:none !important;}
@@ -246,17 +278,21 @@ ul.list.talk li::before{content:'“';color:var(--cyan);font-size:18px;top:2px;}
   .card,.chart-wrap,.gym-card,.trainer-card,.arrow,.cmp-col,.res-hero,.conf{
     break-inside:avoid;page-break-inside:avoid;}
   h3.sub,h2.ttl{break-after:avoid;page-break-after:avoid;}
-}
+/* PDF/印刷の先頭に付く受診者ヘッダー */
+.pdf-head{display:block !important;border-bottom:2px solid #ff6b00;padding-bottom:8px;margin-bottom:16px;}
+.pdf-brand{font-size:15px;font-weight:900;color:#111 !important;letter-spacing:.5px;}
+.pdf-meta{font-size:11px;color:#555 !important;margin-top:4px;}
+.pdf-meta span{margin-right:14px;}
 </style>
 </head>
 <body>
 
 <header class="hdr">
-  <a class="logo" href="/">
-    <div class="logo-bolt">⚡</div>
+  <a class="logo" id="brandLink" href="/">
+    <div class="logo-bolt" id="brandMark">⚡</div>
     <div>
-      <div class="logo-en">TRAINER'S GYM</div>
-      <div class="logo-ja">エニアグラム診断</div>
+      <div class="logo-en" id="brandName">TRAINER'S GYM</div>
+      <div class="logo-ja" id="brandSub">エニアグラム診断</div>
     </div>
   </a>
   <div class="hdr-tag" id="hdrTag">本格版 90問</div>
@@ -307,6 +343,29 @@ ul.list.talk li::before{content:'“';color:var(--cyan);font-size:18px;top:2px;}
         <li><strong>理想の自分ではなく、実際の自分</strong>で答える。「そうありたい」ではなく「そうしてしまう」が基準です。</li>
         <li><strong>直感で速く</strong>。考え込むほど、答えは「なりたい自分」に寄っていきます。</li>
       </ul>
+    </div>
+
+    <h3 class="sub">受診者情報</h3>
+    <div class="card">
+      <div class="fld">
+        <label for="inName">お名前 <span class="req">必須</span></label>
+        <input type="text" id="inName" autocomplete="name" placeholder="山田 太郎">
+      </div>
+      <div class="fld" id="fldUnit">
+        <label for="inUnit"><span id="unitLabel">店舗</span></label>
+        <input type="text" id="inUnit" list="unitList" placeholder="選択または入力">
+        <datalist id="unitList"></datalist>
+      </div>
+      <div class="fld">
+        <label for="inMail">メールアドレス <span class="opt-lbl">任意</span></label>
+        <input type="email" id="inMail" autocomplete="email" inputmode="email" placeholder="example@mail.com">
+        <p class="fld-help">結果のPDFをご本人にもお送りします。空欄でも診断は受けられます。</p>
+      </div>
+      <label class="agree" id="agreeWrap">
+        <input type="checkbox" id="inAgree">
+        <span>診断結果を<b id="agreeOrg">本部</b>および担当トレーナーと共有することに同意します</span>
+      </label>
+      <p class="fld-help">同意しない場合も診断は受けられます（結果は画面表示と印刷のみになります）。</p>
     </div>
 
     <div style="margin-top:18px">
@@ -660,6 +719,41 @@ var OPTS=[
   {v:5,l:"とても当てはまる"}
 ];
 
+/* ---------- 事業ごとの表示設定 ----------
+   URLの ?org= で切り替える。
+     ジム   : /enneagram.html            （既定）
+     LAB    : /enneagram.html?org=lab
+     SOARS  : /enneagram.html?org=soars
+   名称・所属の選択肢・CTAはここだけ直せば全画面に反映される。 */
+var BRANDS={
+  gym:{ name:"TRAINER'S GYM", sub:"エニアグラム診断", owner:"本部",
+        unitLabel:"店舗",
+        units:["駒沢大学店","高円寺店","江古田店","外苑前店","曙橋店","西荻窪店","幡ヶ谷店"],
+        cta:true,
+        ctaBody:"この診断結果をもとに、あなたのタイプに合わせてメニュー・声かけ・食事の進め方を設計します。まずは結果を持って、無料カウンセリングへ。",
+        line:"https://lin.ee/2Z1Luhr", site:"https://trainers-gym.com/" },
+  lab:{ name:"LAB", sub:"エニアグラム診断", owner:"本部",
+        unitLabel:"所属", units:[], cta:false },
+  soars:{ name:"SOARS", sub:"エニアグラム診断", owner:"本部",
+        unitLabel:"店舗", units:[], cta:true,
+        ctaBody:"この診断結果をもとに、あなたのタイプに合わせて進め方を設計します。担当スタッフにお声がけください。",
+        line:"", site:"" }
+};
+
+/* 結果PDFの送信先（Google Apps ScriptのウェブアプリURLを貼る）。
+   空のままだと送信ボタンは出ず、画面表示と印刷のみになる。 */
+var SEND_ENDPOINT="";
+
+var ORG=(function(){
+  var m=/[?&]org=([a-z0-9_-]+)/i.exec(location.search);
+  var k=m?m[1].toLowerCase():"gym";
+  return BRANDS[k]?k:"gym";
+})();
+var BRAND=BRANDS[ORG];
+
+/* 受診者情報 */
+var person={name:"",unit:"",email:"",agree:false};
+
 /* ---------- 状態 ---------- */
 var LS_P='tg_enneagram_progress_v1', LS_R='tg_enneagram_result_v1';
 var state={mode:'full',seq:[],idx:0,ans:{}};
@@ -667,6 +761,20 @@ var state={mode:'full',seq:[],idx:0,ans:{}};
 function $(id){return document.getElementById(id);}
 function show(id){['scStart','scQuiz','scResult'].forEach(function(s){$(s).classList.toggle('hide',s!==id);});window.scrollTo(0,0);}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function applyBrand(){
+  $('brandName').textContent=BRAND.name;
+  $('brandSub').textContent=BRAND.sub;
+  $('agreeOrg').textContent=BRAND.owner;
+  $('unitLabel').textContent=BRAND.unitLabel;
+  $('inUnit').placeholder=BRAND.units.length?"選択または入力":"入力してください";
+  document.title=BRAND.name+" エニアグラム診断";
+  var dl=$('unitList'),html='';
+  BRAND.units.forEach(function(u){html+='<option value="'+esc(u)+'"></option>';});
+  dl.innerHTML=html;
+  if(BRAND.site){$('brandLink').setAttribute('href',BRAND.site);}
+  else{$('brandLink').removeAttribute('href');}
+}
+
 function setHdrTag(){
   $('hdrTag').textContent = state.mode==='quick'?'クイック 36問':(state.mode==='deep'?'完全版 102問':'本格版 90問');
 }
@@ -744,7 +852,7 @@ function answer(v){
 }
 
 function save(){
-  try{localStorage.setItem(LS_P,JSON.stringify({mode:state.mode,idx:state.idx,ans:state.ans,ts:Date.now()}));}catch(e){}
+  try{localStorage.setItem(LS_P,JSON.stringify({mode:state.mode,idx:state.idx,ans:state.ans,ts:Date.now(),person:person}));}catch(e){}
 }
 
 /* ---------- 採点 ---------- */
@@ -782,7 +890,7 @@ function wingOf(t,pct){
 function finish(){
   var res=score();
   try{
-    localStorage.setItem(LS_R,JSON.stringify({mode:state.mode,pct:res.pct,inst:res.inst,ts:Date.now()}));
+    localStorage.setItem(LS_R,JSON.stringify({mode:state.mode,pct:res.pct,inst:res.inst,ts:Date.now(),org:ORG,person:person}));
     localStorage.removeItem(LS_P);
   }catch(e){}
   renderResult(res);
@@ -828,6 +936,16 @@ function renderResult(res){
   var wing=wingOf(t,pct);
   var C=CENTERS[T.center];
   var h='';
+
+  /* PDF・印刷時のみ出る受診者ヘッダー */
+  h+='<div class="pdf-head">'
+   + '<div class="pdf-brand">'+esc(BRAND.name)+'　エニアグラム診断 結果レポート</div>'
+   + '<div class="pdf-meta">'
+   + '<span>お名前：'+esc(person.name||'—')+'</span>'
+   + (person.unit?'<span>'+esc(BRAND.unitLabel)+'：'+esc(person.unit)+'</span>':'')
+   + '<span>診断日：'+fmtDate()+'</span>'
+   + '<span>設問数：'+(state.mode==='quick'?36:(state.mode==='deep'?102:90))+'問</span>'
+   + '</div></div>';
 
   /* HERO */
   h+='<div class="res-hero">'
@@ -942,6 +1060,23 @@ function renderResult(res){
   h+='</ul><div class="trainer-h" style="margin-top:14px">目標設定のコツ</div>'
    + '<p class="muted">'+esc(T.trainer.goal)+'</p></div>';
 
+  /* 結果の送信 */
+  if(SEND_ENDPOINT){
+    var dest=[BRAND.owner];
+    if(person.unit)dest.push(person.unit+'の担当者');
+    if(person.email)dest.push('ご本人（'+person.email+'）');
+    h+='<div class="send-box no-print" id="sendBox">'
+     + '<div class="send-t">結果を送る</div>'
+     + '<p class="send-d">この結果をPDFにして、'+esc(dest.join('・'))+' に送信します。</p>';
+    if(person.agree){
+      h+='<button class="btn" id="btnSend">PDFを送信する</button>';
+    }else{
+      h+='<p class="send-d" style="margin:0">共有に同意していないため、送信は行いません。'
+       + '下の「保存・印刷」からPDFを保存して、必要な相手にご自身でお渡しください。</p>';
+    }
+    h+='<div class="send-st" id="sendSt"></div></div>';
+  }
+
   /* アクション */
   h+='<div class="no-print" style="margin-top:26px">'
    + '<div class="btn-row" style="margin-bottom:9px">'
@@ -952,12 +1087,14 @@ function renderResult(res){
    + '</div>';
 
   /* CTA */
-  h+='<div class="cta no-print" style="margin-top:24px">'
-   + '<div class="cta-t">タイプが分かれば、<br>続け方が変わる。</div>'
-   + '<p class="cta-d">TRAINER\'S GYM では、この診断結果をもとに、あなたのタイプに合わせてメニュー・声かけ・食事の進め方を設計します。まずは結果を持って、無料カウンセリングへ。</p>'
-   + '<a class="btn" href="https://lin.ee/2Z1Luhr" target="_blank" rel="noopener">LINEで無料カウンセリング予約</a>'
-   + '<a class="btn-ghost" href="https://trainers-gym.com/" target="_blank" rel="noopener" style="margin-top:9px">公式サイトを見る</a>'
-   + '</div>';
+  if(BRAND.cta){
+    h+='<div class="cta no-print" style="margin-top:24px">'
+     + '<div class="cta-t">タイプが分かれば、<br>続け方が変わる。</div>'
+     + '<p class="cta-d">'+esc(BRAND.name)+' では、'+esc(BRAND.ctaBody)+'</p>';
+    if(BRAND.line){h+='<a class="btn" href="'+BRAND.line+'" target="_blank" rel="noopener">LINEで無料カウンセリング予約</a>';}
+    if(BRAND.site){h+='<a class="btn-ghost" href="'+BRAND.site+'" target="_blank" rel="noopener" style="margin-top:9px">公式サイトを見る</a>';}
+    h+='</div>';
+  }
 
   h+='<div class="foot"><p>※ 本診断は自己理解とコーチングのためのツールであり、医学的・心理学的な診断ではありません。<br>結果は「今の自己認識」を映すものです。時期や状況によって変動することがあります。</p></div>';
 
@@ -978,6 +1115,7 @@ function renderResult(res){
     show('scStart');checkSaved();
   };
   $('btnPrint').onclick=function(){window.print();};
+  if($('btnSend')){ $('btnSend').onclick=function(){sendResult(res,t,wing,this);}; }
   $('btnCopy').onclick=function(){
     var txt=summaryText(res,t,wing);
     if(navigator.clipboard&&navigator.clipboard.writeText){
@@ -986,9 +1124,62 @@ function renderResult(res){
   };
 }
 
+function fmtDate(d){
+  d=d||new Date();
+  return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';
+}
+
+/* 結果画面のHTMLを、単体で開けるPDF用HTMLに組み立てる */
+function buildPdfHtml(){
+  var css=$('basecss').textContent+'\n'+$('printcss').textContent;
+  return '<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">'
+    + '<title>'+esc(BRAND.name)+' エニアグラム診断 '+esc(person.name)+'</title>'
+    + '<style>'+css+'</style></head><body>'
+    + $('resBody').innerHTML
+    + '</body></html>';
+}
+
+function sendResult(res,t,wing,btn){
+  var st=$('sendSt');
+  function show(cls,msg){st.className='send-st on '+cls;st.innerHTML=msg;}
+  btn.disabled=true;btn.style.opacity='.55';
+  show('wait','送信しています…');
+
+  var payload={
+    org:ORG, brand:BRAND.name,
+    name:person.name, unit:person.unit, email:person.email,
+    type:t, typeName:TYPES[t].name, wing:wing.d.k,
+    center:TYPES[t].center,
+    mode:state.mode, questions:(state.mode==='quick'?36:(state.mode==='deep'?102:90)),
+    scores:res.pct, instinct:res.inst||null,
+    date:fmtDate(), summary:summaryText(res,t,wing),
+    html:buildPdfHtml()
+  };
+
+  fetch(SEND_ENDPOINT,{
+    method:'POST',
+    /* text/plain にすることでプリフライトを避ける（Apps Script側は生のBodyを読む） */
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify(payload)
+  }).then(function(r){return r.json();}).then(function(j){
+    if(j&&j.ok){
+      show('done','送信しました。'+esc(BRAND.owner)+'に結果PDFを共有済みです。'
+        +(person.email?'<br>ご本人（'+esc(person.email)+'）にも同じPDFをお送りしました。':''));
+    }else{
+      throw new Error((j&&j.error)||'不明なエラー');
+    }
+  }).catch(function(err){
+    show('ng','送信できませんでした（'+esc(String(err.message||err))+'）。<br>'
+      +'下の「保存・印刷」からPDFを保存して、お手数ですが手動で共有してください。');
+    btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
 function summaryText(res,t,wing){
   var T=TYPES[t],o=res.order,L=[];
-  L.push('【エニアグラム診断結果／TRAINER\'S GYM】');
+  L.push('【エニアグラム診断結果／'+BRAND.name+'】');
+  L.push('お名前：'+(person.name||'—')+(person.unit?'　'+BRAND.unitLabel+'：'+person.unit:''));
+  L.push('診断日：'+fmtDate());
   L.push('基本タイプ：'+t+' '+T.name+'（'+T.en+'）');
   L.push('ウィング：'+wing.d.k+' '+wing.d.n);
   L.push('センター：'+T.center+'（'+CENTERS[T.center].core+'）');
@@ -1042,17 +1233,31 @@ document.querySelectorAll('.mode').forEach(function(b){
   };
 });
 
-$('btnStart').onclick=function(){startQuiz(state.mode,false);};
+$('btnStart').onclick=function(){
+  var nm=$('inName').value.trim();
+  if(!nm){
+    $('inName').classList.add('err');
+    $('inName').focus();
+    toast('お名前を入力してください');
+    return;
+  }
+  $('inName').classList.remove('err');
+  person={name:nm, unit:$('inUnit').value.trim(), email:$('inMail').value.trim(), agree:$('inAgree').checked};
+  startQuiz(state.mode,false);
+};
+$('inName').oninput=function(){ if(this.value.trim()) this.classList.remove('err'); };
 
 $('btnResume').onclick=function(){
   var p=$('btnResume')._d; if(!p)return;
   state.ans=p.ans||{}; state.idx=p.idx||0;
+  if(p.person){person=p.person;}
   startQuiz(p.mode||'full',true);
 };
 
 $('btnLast').onclick=function(){
   var r=$('btnLast')._d; if(!r)return;
   state.mode=r.mode||'full';
+  if(r.person){person=r.person;}
   var order=[];
   for(var t=1;t<=9;t++) order.push({t:t,p:r.pct[t]});
   order.sort(function(a,b){return b.p-a.p || a.t-b.t;});
@@ -1082,6 +1287,7 @@ document.addEventListener('keydown',function(e){
   else if(e.key==='ArrowLeft'&&state.idx>0){cancelAdv();state.idx--;renderQ();}
 });
 
+applyBrand();
 checkSaved();
 </script>
 </body>
