@@ -348,10 +348,10 @@ h3.sub,h2.ttl{break-after:avoid;page-break-after:avoid;}
 <div class="app">
   <header class="chat-hdr">
     <button class="hdr-btn" id="btnHome" aria-label="最初に戻る">‹</button>
-    <div class="hdr-ava" id="brandMark">⚡</div>
+    <div class="hdr-ava" id="brandMark">◆</div>
     <div class="hdr-nm">
-      <div class="hdr-name" id="brandName">TRAINER'S GYM</div>
-      <div class="hdr-sub" id="brandSub">エニアグラム診断</div>
+      <div class="hdr-name" id="brandName">エニアグラム診断</div>
+      <div class="hdr-sub" id="brandSub">事業を選んでください</div>
     </div>
     <button class="hdr-btn" id="btnRich" aria-label="メニュー">☰</button>
   </header>
@@ -371,7 +371,9 @@ h3.sub,h2.ttl{break-after:avoid;page-break-after:avoid;}
   <nav class="rich" id="rich" aria-label="メニュー">
     <div class="rich-g">
       <button id="rmGuide"><span class="ic">💡</span>使い方</button>
+      <button id="rmOrg"><span class="ic">🏢</span>事業を切り替える</button>
       <button id="rmReport"><span class="ic">📄</span>結果を見る</button>
+      <button id="rmPrint"><span class="ic">🖨</span>保存・印刷</button>
       <button id="rmSend"><span class="ic">📮</span>結果を送る</button>
       <button id="rmRestart"><span class="ic">🔄</span>もう一度</button>
     </div>
@@ -706,14 +708,17 @@ var OPTS=[
      SOARS  : /enneagram.html?org=soars   */
 var BRANDS={
   gym:{ name:"TRAINER'S GYM", sub:"エニアグラム診断", mark:"⚡", owner:"本部",
+        desc:"パーソナルジム／新規入会時に実施",
         unitLabel:"店舗",
         units:["駒沢大学店","高円寺店","江古田店","外苑前店","曙橋店","西荻窪店","幡ヶ谷店"],
         cta:true,
         ctaBody:"この診断結果をもとに、あなたのタイプに合わせてメニュー・声かけ・食事の進め方を設計します。",
         line:"https://lin.ee/2Z1Luhr", site:"https://trainers-gym.com/" },
   lab:{ name:"LAB", sub:"エニアグラム診断", mark:"🔬", owner:"本部",
+        desc:"生徒向け／自己理解と現場での活用",
         unitLabel:"所属", units:[], cta:false },
   soars:{ name:"SOARS", sub:"エニアグラム診断", mark:"✦", owner:"本部",
+        desc:"新規入会時に実施",
         unitLabel:"店舗", units:[], cta:true,
         ctaBody:"この診断結果をもとに、あなたのタイプに合わせて進め方を設計します。担当スタッフにお声がけください。",
         line:"", site:"" }
@@ -723,17 +728,20 @@ var BRANDS={
    空のままだと送信は行わず、画面表示と印刷のみになる。 */
 var SEND_ENDPOINT="";
 
-var ORG=(function(){
+var ORG_FIXED=(function(){
+  /* URLで事業が指定されていればそれに固定する（各事業のリッチメニューから直接開く用） */
   var m=/[?&]org=([a-z0-9_-]+)/i.exec(location.search);
-  var k=m?m[1].toLowerCase():"gym";
-  return BRANDS[k]?k:"gym";
+  var k=m?m[1].toLowerCase():"";
+  return BRANDS[k]?k:"";
 })();
+var ORG=ORG_FIXED||"gym";
 var BRAND=BRANDS[ORG];
 
 var LS_P='tg_enneagram_progress_v2', LS_R='tg_enneagram_result_v2';
 var person={name:"",unit:"",email:"",agree:false};
 var state={mode:'full',seq:[],idx:0,ans:{}};
 var lastRes=null;          /* 直近の採点結果 */
+var sender=null;           /* 送信者の表示（事業選択前は中立にするため） */
 var step='';               /* 現在の会話ステップ */
 
 function $(id){return document.getElementById(id);}
@@ -750,10 +758,11 @@ function scrollDown(){ chat.scrollTop=chat.scrollHeight; }
 
 /* 相手（アカウント）の吹き出し */
 function say(html){
+  var who=sender||BRAND;
   var r=document.createElement('div');
   r.className='row in';
-  r.innerHTML='<div class="ava'+(firstIn?'':' ghost')+'">'+esc(BRAND.mark)+'</div>'
-    +'<div class="bwrap">'+(firstIn?'<div class="who">'+esc(BRAND.name)+'</div>':'')
+  r.innerHTML='<div class="ava'+(firstIn?'':' ghost')+'">'+esc(who.mark)+'</div>'
+    +'<div class="bwrap">'+(firstIn?'<div class="who">'+esc(who.name)+'</div>':'')
     +'<div class="bub">'+html+'</div></div>'
     +'<div class="meta">'+nowHM()+'</div>';
   chat.appendChild(r); firstIn=false; scrollDown();
@@ -790,7 +799,7 @@ function sayLater(html,delay){
   return new Promise(function(res){
     var r=document.createElement('div');
     r.className='row in';
-    r.innerHTML='<div class="ava'+(firstIn?'':' ghost')+'">'+esc(BRAND.mark)+'</div>'
+    r.innerHTML='<div class="ava'+(firstIn?'':' ghost')+'">'+esc((sender||BRAND).mark)+'</div>'
       +'<div class="bwrap"><div class="bub typing"><i></i><i></i><i></i></div></div>';
     chat.appendChild(r); scrollDown();
     setTimeout(function(){
@@ -937,12 +946,40 @@ function applyBrand(){
   document.title=BRAND.name+' エニアグラム診断';
 }
 
+/* ---------- ⓪ 事業を選ぶ ---------- */
+/* 結果は事業名つきで本部にメールされるため、取り違えないよう毎回ここで選ぶ。
+   URLで ?org= が指定されている場合はその事業に固定し、この画面は出さない。 */
+function pickOrg(){
+  step='org';
+  chat.innerHTML=''; firstIn=true;
+  lastRes=null;
+  progress(0,0);
+  $('brandName').textContent='エニアグラム診断';
+  $('brandSub').textContent='事業を選んでください';
+  $('brandMark').textContent='◆';
+  document.title='エニアグラム診断';
+  sender={name:'エニアグラム診断',mark:'◆'};
+  updateRich();
+  dayBar('今日');
+  say('こんにちは。\n<b>どちらの事業でお使いですか？</b>\n下から選んでください。');
+  quick(Object.keys(BRANDS).map(function(k){
+    return {html:'<b>'+esc(BRANDS[k].name)+'</b>　'+esc(BRANDS[k].desc),
+            on:function(){ chooseOrg(k); }};
+  }),true);
+}
+
+function chooseOrg(k){
+  ORG=k; BRAND=BRANDS[k];
+  sender=null;
+  applyBrand();
+  me(BRAND.name);
+  greet(!!loadProgress());
+}
+
 /* ---------- ① あいさつ＋使い方 ---------- */
 function greet(resumable){
   step='greet';
-  chat.innerHTML=''; firstIn=true;
   progress(0,0);
-  dayBar('今日');
 
   say('はじめまして。<b>'+esc(BRAND.name)+' エニアグラム診断</b>です。\nあなたの性格タイプを、9つの中から見つけます。');
 
@@ -1141,7 +1178,9 @@ function toggleRich(on){
 function updateRich(){
   var done=!!lastRes;
   $('rmReport').disabled=!done;
+  $('rmPrint').disabled=!done;
   $('rmSend').disabled=!(done&&SEND_ENDPOINT&&person.agree);
+  $('rmOrg').disabled=!!ORG_FIXED;
 }
 
 function restart(){
@@ -1149,7 +1188,26 @@ function restart(){
   lastRes=null; person={name:"",unit:"",email:"",agree:false};
   state={mode:'full',seq:[],idx:0,ans:{}};
   updateRich();
-  greet(false);
+  if(ORG_FIXED){
+    chat.innerHTML=''; firstIn=true; dayBar('今日');
+    greet(false);
+  }else{
+    pickOrg();
+  }
+}
+
+/* 診断の途中で事業を切り替えると、結果が別の事業に混ざるため確認する */
+function switchOrg(){
+  if(ORG_FIXED){ toast('このリンクは'+BRAND.name+'専用です'); return; }
+  if(step==='quiz'){
+    say('診断の途中です。事業を切り替えると、<b>いまの回答は破棄</b>されて最初からになります。');
+    quick([
+      {label:'切り替える', on:function(){ me('切り替える'); clearProgress(); restart(); }},
+      {label:'このまま続ける', sub:true, on:function(){ me('このまま続ける'); askQ(); }}
+    ],true);
+    return;
+  }
+  restart();
 }
 
 function loadProgress(){
@@ -1414,12 +1472,20 @@ $('rmGuide').onclick=function(){
     +'<span class="em">④</span> 「保存・印刷」からPDFとして保存・印刷できます\n\n'
     +'答えるコツは、「こうありたい自分」ではなく「ついそうしてしまう自分」で選ぶことです。');
 };
+$('rmOrg').onclick=function(){ toggleRich(false); switchOrg(); };
+$('rmPrint').onclick=function(){ toggleRich(false); if(lastRes){ openSheet(); setTimeout(function(){window.print();},400); } };
 $('rmReport').onclick=function(){ toggleRich(false); if(lastRes)openSheet(); };
 $('rmSend').onclick=function(){ toggleRich(false); if(lastRes){ openSheet(); setTimeout(doSend,350); } };
 $('rmRestart').onclick=function(){ toggleRich(false); restart(); };
 
 updateRich();
-greet(!!loadProgress());
+if(ORG_FIXED){
+  applyBrand();
+  chat.innerHTML=''; firstIn=true; dayBar('今日');
+  greet(!!loadProgress());
+}else{
+  pickOrg();
+}
 
 </script>
 </body>
