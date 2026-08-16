@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>トレーナーズラボ スペシャリストコース 九州校｜医療×トレーニングを、あなたの武器に。</title>
+<meta name="description" content="東京で実績多数のパーソナルトレーナー養成スクール「トレーナーズラボ」が九州初上陸。九州医療スポーツ専門学校提携・2026年10月5日開講・定員8名。無料オンライン個別説明会 毎日開催中。">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GT-TWD7ZM5');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Montserrat:wght@600;700;800&display=swap">
+<style>
+/* =========================================================
+   トレーナーズラボ 九州校 LP v2
+   トンマナ: ネイビー × 白 × 赤 / 明るく・清潔感・女性が安心できる印象
+   ※ フォントはHP確認後に差し替え可能なようCSS変数化
+========================================================= */
+:root{
+  --navy:#1b2a55;        /* メインネイビー ※HP実色に要差し替え */
+  --navy-deep:#111c3d;
+  --red:#d7263d;         /* アクセント赤 ※HP実色に要差し替え */
+  --red-soft:#fdeef0;
+  --ivory:#faf9f6;
+  --gray:#5f6b85;
+  --line:#e4e8f0;
+  --ff-ja:'Noto Sans JP',sans-serif;   /* ※HPフォント確認後に差し替え */
+  --ff-en:'Montserrat',sans-serif;
+  --r:16px;--rf:999px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--ff-ja);background:#fff;color:var(--navy);line-height:1.85;max-width:480px;margin:0 auto;overflow-x:hidden;box-shadow:0 0 40px rgba(17,28,61,.08);}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* ---- 写真プレースホルダー(HP素材に差し替え) ---- */
+.photo{position:relative;background:linear-gradient(135deg,#26386b 0%,#1b2a55 55%,#3a4f8e 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.photo::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(255,255,255,.14),transparent 55%);}
+.photo span{position:relative;color:rgba(255,255,255,.55);font-size:10px;letter-spacing:1px;text-align:center;padding:0 16px;}
+
+/* ---- ヘッダー ---- */
+.hdr{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;flex-direction:column;line-height:1.2;}
+.logo-en{font-family:var(--ff-en);font-weight:800;font-size:16px;letter-spacing:1.5px;color:var(--navy);}
+.logo-en em{font-style:normal;color:var(--red);}
+.logo-ja{font-size:8.5px;color:var(--gray);letter-spacing:2px;}
+.hdr-btn{background:var(--red);color:#fff;padding:9px 15px;border-radius:var(--rf);font-size:11.5px;font-weight:700;box-shadow:0 4px 14px rgba(215,38,61,.3);}
+
+/* ---- ヒーロー ---- */
+.hero{position:relative;overflow:hidden;background:var(--navy);}
+.hero-photo{position:absolute;inset:0;will-change:transform;}
+.hero-photo .photo{width:100%;height:115%;}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(175deg,rgba(17,28,61,.25) 0%,rgba(17,28,61,.65) 62%,rgba(17,28,61,.92) 100%);}
+.hero-in{position:relative;z-index:1;padding:52px 22px 34px;}
+.hero-topbadge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.94);color:var(--navy);padding:7px 15px;border-radius:var(--rf);font-size:11px;font-weight:700;margin-bottom:20px;box-shadow:0 4px 16px rgba(0,0,0,.18);}
+.hero-topbadge i{color:var(--red);font-style:normal;}
+.hero h1{color:#fff;font-size:clamp(26px,7.4vw,34px);font-weight:900;line-height:1.45;margin-bottom:14px;}
+.hero h1 .mark{background:linear-gradient(transparent 62%,rgba(215,38,61,.85) 62%);padding:0 2px;}
+.hero-lead{color:rgba(255,255,255,.88);font-size:13.5px;line-height:2;margin-bottom:22px;}
+.hero-badges{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;}
+.hb{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:11px;font-weight:700;padding:6px 13px;border-radius:var(--rf);backdrop-filter:blur(4px);}
+.hb.red{background:var(--red);border-color:var(--red);}
+.cta{display:block;background:linear-gradient(135deg,#e6394f,var(--red));color:#fff;text-align:center;font-weight:900;font-size:15.5px;padding:17px 18px;border-radius:var(--rf);box-shadow:0 8px 26px rgba(215,38,61,.42);position:relative;overflow:hidden;transition:transform .15s;}
+.cta:active{transform:scale(.98);}
+.cta::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transform:translateX(-100%);animation:shine 2.6s infinite;}
+@keyframes shine{100%{transform:translateX(100%);}}
+.cta small{display:block;font-size:10px;font-weight:500;opacity:.92;margin-top:2px;}
+.hero-note{text-align:center;color:rgba(255,255,255,.8);font-size:10.5px;margin-top:12px;}
+.hero-note b{color:#ffd7dc;}
+
+/* ---- お知らせバー ---- */
+.news{background:var(--red-soft);border-bottom:1px solid #f5d5da;padding:12px 20px;font-size:12px;color:var(--navy);}
+.news b{color:var(--red);}
+
+/* ---- セクション共通 ---- */
+section{padding:58px 22px;}
+.ey{font-family:var(--ff-en);font-size:11px;font-weight:700;letter-spacing:3.5px;color:var(--red);display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.ey::before{content:'';width:26px;height:2px;background:var(--red);border-radius:2px;}
+h2{font-size:clamp(21px,6vw,26px);font-weight:900;line-height:1.5;margin-bottom:14px;}
+.lead{font-size:13px;color:var(--gray);line-height:2;}
+
+/* ---- 共感 ---- */
+.sec-empathy{background:var(--ivory);}
+.emp-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-top:16px;box-shadow:0 6px 20px rgba(17,28,61,.05);}
+.emp-tag{display:inline-block;font-size:10.5px;font-weight:700;padding:4px 13px;border-radius:var(--rf);margin-bottom:10px;}
+.t-navy{background:var(--navy);color:#fff;}
+.t-red{background:var(--red);color:#fff;}
+.emp-card h3{font-size:15.5px;font-weight:900;margin-bottom:8px;line-height:1.6;}
+.emp-card ul{list-style:none;}
+.emp-card li{font-size:12.5px;color:var(--gray);padding:7px 0 7px 24px;position:relative;border-bottom:1px dashed var(--line);}
+.emp-card li:last-child{border-bottom:none;}
+.emp-card li::before{content:'✓';position:absolute;left:2px;color:var(--red);font-weight:900;}
+
+/* ---- 解決策 ---- */
+.sec-solution .photo{height:190px;border-radius:var(--r);margin:18px 0;}
+.sol-box{background:var(--navy);color:#fff;border-radius:var(--r);padding:22px;margin-top:16px;}
+.sol-box p{font-size:13px;line-height:2;color:rgba(255,255,255,.92);}
+.sol-box b{color:#ffd7dc;}
+
+/* ---- 特徴 ---- */
+.sec-features{background:var(--ivory);}
+.ft-list{display:flex;flex-direction:column;gap:12px;margin-top:18px;}
+.ft{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;box-shadow:0 4px 14px rgba(17,28,61,.04);}
+.ft-num{font-family:var(--ff-en);font-weight:800;font-size:20px;color:var(--red);border:2px solid var(--red);width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;}
+.ft h3{font-size:14px;font-weight:900;margin-bottom:4px;line-height:1.5;}
+.ft p{font-size:12px;color:var(--gray);line-height:1.9;}
+
+/* ---- カリキュラム ---- */
+.cur-step{display:grid;grid-template-columns:64px 1fr;gap:14px;position:relative;padding-bottom:22px;}
+.cur-step::before{content:'';position:absolute;left:31px;top:64px;bottom:0;width:2px;background:linear-gradient(180deg,var(--line),transparent);}
+.cur-step:last-child::before{display:none;}
+.cur-ic{width:64px;height:64px;border-radius:18px;background:var(--red-soft);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--red);font-weight:900;}
+.cur-ic small{font-size:8.5px;letter-spacing:1px;}
+.cur-ic b{font-size:15px;line-height:1.1;}
+.cur-body{padding-top:4px;}
+.cur-body h3{font-size:14.5px;font-weight:900;margin-bottom:4px;}
+.cur-body p{font-size:12px;color:var(--gray);line-height:1.9;}
+.cur-more{margin-top:8px;background:var(--ivory);border-radius:var(--r);padding:16px 18px;font-size:12px;color:var(--gray);}
+.cur-more b{color:var(--navy);}
+
+/* ---- キャリア ---- */
+.sec-career{background:linear-gradient(180deg,var(--ivory),#fff);}
+.car-card{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);margin-top:16px;background:#fff;box-shadow:0 6px 20px rgba(17,28,61,.05);}
+.car-card .photo{height:130px;}
+.car-body{padding:18px;}
+.car-body h3{font-size:15px;font-weight:900;margin:8px 0 6px;}
+.car-body p{font-size:12.5px;color:var(--gray);line-height:1.9;}
+
+/* ---- 受講生の声(カルーセル) ---- */
+.sec-voice{background:var(--navy);}
+.sec-voice .ey{color:#ffd7dc;}
+.sec-voice .ey::before{background:#ffd7dc;}
+.sec-voice h2{color:#fff;}
+.sec-voice .lead{color:rgba(255,255,255,.7);}
+.vo-wrap{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 4px 8px;margin:0 -4px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.vo-wrap::-webkit-scrollbar{display:none;}
+.vo{flex:0 0 82%;scroll-snap-align:center;background:#fff;border-radius:var(--r);padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.2);}
+.vo-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.vo-face{width:52px;height:52px;border-radius:50%;flex-shrink:0;}
+.vo-face .photo{width:100%;height:100%;border-radius:50%;}
+.vo-name{font-size:12px;font-weight:900;}
+.vo-attr{font-size:10px;color:var(--gray);}
+.vo p{font-size:12px;color:var(--gray);line-height:1.95;}
+.vo-hint{text-align:center;color:rgba(255,255,255,.55);font-size:10px;margin-top:10px;}
+
+/* ---- 料金 ---- */
+.price-card{border:2px solid var(--navy);border-radius:var(--r);overflow:hidden;margin-top:18px;}
+.price-head{background:var(--navy);color:#fff;text-align:center;padding:13px;font-size:13px;font-weight:900;letter-spacing:1px;}
+.price-body{padding:24px 20px;text-align:center;background:#fff;}
+.price-strike{font-size:15px;color:var(--gray);text-decoration:line-through;}
+.price-arrow{color:var(--red);font-size:12px;font-weight:700;margin:2px 0;}
+.price-main{font-size:40px;font-weight:900;color:var(--red);line-height:1.2;font-family:var(--ff-en);}
+.price-main small{font-size:14px;font-family:var(--ff-ja);}
+.code-box{margin:16px 0 6px;background:var(--red-soft);border:2px dashed var(--red);border-radius:12px;padding:14px;}
+.code-box p{font-size:11px;color:var(--navy);font-weight:700;}
+.code-str{font-family:var(--ff-en);font-size:20px;font-weight:800;color:var(--red);letter-spacing:3px;margin:4px 0;}
+.code-box small{font-size:10px;color:var(--gray);font-weight:400;display:block;}
+.price-note{font-size:10.5px;color:var(--gray);margin-top:10px;}
+
+/* ---- 開講概要 ---- */
+.sec-outline{background:var(--ivory);}
+.ol-table{width:100%;border-collapse:collapse;margin-top:16px;background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 4px 14px rgba(17,28,61,.05);}
+.ol-table th,.ol-table td{padding:13px 15px;font-size:12.5px;text-align:left;border-bottom:1px solid var(--line);}
+.ol-table tr:last-child th,.ol-table tr:last-child td{border-bottom:none;}
+.ol-table th{background:#f2f4fa;color:var(--navy);width:88px;font-size:11.5px;white-space:nowrap;}
+.seat{display:inline-block;background:var(--red);color:#fff;font-weight:900;padding:3px 12px;border-radius:var(--rf);font-size:12px;}
+
+/* ---- CV ---- */
+.sec-cv{background:linear-gradient(180deg,#fff,var(--red-soft));}
+.cv-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-top:16px;box-shadow:0 6px 20px rgba(17,28,61,.06);}
+.cv-card h3{font-size:14.5px;font-weight:900;margin-bottom:8px;}
+.cv-card ul{list-style:none;}
+.cv-card li{font-size:12px;color:var(--gray);padding:5px 0 5px 22px;position:relative;}
+.cv-card li::before{content:'●';position:absolute;left:2px;color:var(--red);font-size:8px;top:11px;}
+.flow{counter-reset:s;margin-top:18px;}
+.flow li{list-style:none;display:grid;grid-template-columns:30px 1fr;gap:12px;font-size:12.5px;color:var(--gray);padding:8px 0;align-items:center;}
+.flow li::before{counter-increment:s;content:counter(s);background:var(--navy);color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;font-family:var(--ff-en);}
+.cta-sub{display:block;border:2px solid #06c755;color:#06c755;text-align:center;font-weight:700;font-size:13px;padding:13px;border-radius:var(--rf);margin-top:10px;}
+.micro{text-align:center;font-size:10px;color:var(--gray);margin-top:10px;}
+
+/* ---- FAQ ---- */
+.faq details{border-bottom:1px solid var(--line);}
+.faq summary{list-style:none;cursor:pointer;padding:16px 30px 16px 30px;font-size:13px;font-weight:700;position:relative;}
+.faq summary::before{content:'Q';position:absolute;left:0;color:var(--red);font-family:var(--ff-en);font-weight:800;}
+.faq summary::after{content:'+';position:absolute;right:4px;color:var(--gray);font-size:17px;transition:transform .2s;}
+.faq details[open] summary::after{transform:rotate(45deg);}
+.faq .a{padding:0 4px 16px 30px;font-size:12px;color:var(--gray);line-height:1.95;position:relative;}
+.faq .a::before{content:'A';position:absolute;left:0;color:var(--navy);font-family:var(--ff-en);font-weight:800;}
+
+/* ---- 最終CTA ---- */
+.sec-final{background:var(--navy-deep);position:relative;overflow:hidden;}
+.sec-final::before{content:'';position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(215,38,61,.28),transparent 70%);top:-120px;right:-120px;}
+.sec-final h2{color:#fff;position:relative;}
+.sec-final p{color:rgba(255,255,255,.75);font-size:12.5px;margin-bottom:20px;position:relative;}
+.sec-final .seat{font-size:13px;}
+
+/* ---- フッター ---- */
+footer{padding:26px 22px 110px;background:#0d1630;color:rgba(255,255,255,.45);font-size:10.5px;text-align:center;line-height:2.2;}
+footer a{text-decoration:underline;}
+
+/* ---- 追従CTA ---- */
+.fix-cta{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);z-index:90;}
+.fix-cta .cta{padding:13px;font-size:13.5px;}
+
+/* ---- ふわっと表示 ---- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.rv.on{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="hdr">
+  <a class="logo" href="#">
+    <!-- TODO: HPロゴ画像(SVG/PNG)に差し替え -->
+    <span class="logo-en">TRAINER'S <em>LAB</em></span>
+    <span class="logo-ja">パーソナルトレーナー養成スクール 九州校</span>
+  </a>
+  <a class="hdr-btn js-reserve" href="#cv">無料説明会</a>
+</header>
+
+<!-- 01 ヒーロー -->
+<div class="hero">
+  <div class="hero-photo" id="paraHero">
+    <!-- TODO: HP写真「女性受講生が明るいスタジオで実技中」に差し替え -->
+    <div class="photo"><span>写真差し替え:明るいスタジオでの実技シーン(女性受講生)</span></div>
+  </div>
+  <div class="hero-in">
+    <span class="hero-topbadge"><i>●</i> 九州初上陸 × 九州医療スポーツ専門学校 提携</span>
+    <h1>「医療×トレーニング」を、<br><span class="mark">あなたの武器</span>に。</h1>
+    <p class="hero-lead">東京で選ばれ続けてきたパーソナルトレーナー養成スクール「トレーナーズラボ」のスペシャリストコースが、九州で開講します。</p>
+    <div class="hero-badges">
+      <span class="hb">2026年10月5日 開講</span>
+      <span class="hb">6ヶ月間</span>
+      <span class="hb red">定員8名・残り3名</span>
+    </div>
+    <a class="cta js-reserve" href="#cv">無料オンライン個別説明会に申し込む<small>毎日開催 / Zoom30分 / 無理な勧誘は一切ありません</small></a>
+    <p class="hero-note">LP限定キャンペーンコードで受講料 <b>60,000円OFF</b>(ページ下部に記載)</p>
+  </div>
+</div>
+
+<!-- 02 お知らせ -->
+<div class="news">
+  <b>【毎日開催中】</b>オンライン個別説明会 受付中。ご都合の良い日時をお選びいただけます(所要30分・カメラオフOK)。
+</div>
+
+<!-- 03 共感 -->
+<section class="sec-empathy">
+  <p class="ey">SUCH AS YOU</p>
+  <h2 class="rv">こんな想い、<br>ありませんか?</h2>
+  <div class="emp-card rv">
+    <span class="emp-tag t-navy">治療家・施術者の方へ</span>
+    <h3>「施術だけの売上に、<br>限界を感じている」</h3>
+    <ul>
+      <li>保険診療の単価は、これ以上は上げられない</li>
+      <li>リピーターはいるのに、客単価が伸びない</li>
+      <li>パーソナル指導を導入したいが、正しい学び方がわからない</li>
+    </ul>
+  </div>
+  <div class="emp-card rv">
+    <span class="emp-tag t-red">転職・キャリアチェンジの方へ</span>
+    <h3>「好きなことを、<br>仕事にしたい」</h3>
+    <ul>
+      <li>未経験からトレーナーになれるか不安</li>
+      <li>独学では、現場で通用する自信がない</li>
+      <li>働きながら学べるスクールが九州に見つからない</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 04 解決策 -->
+<section class="sec-solution">
+  <p class="ey">WHY TRAINER'S LAB</p>
+  <h2 class="rv">その答えが、<br>トレーナーズラボ。</h2>
+  <p class="lead rv">東京で多くのお客様に信頼され、永く選ばれ続けるかかりつけトレーナーを数多く輩出してきた実績多数のスクール。その学びが、九州医療スポーツ専門学校との提携により、医療系専門学校の設備・環境とともに九州で受けられるようになりました。</p>
+  <!-- TODO: HP写真「講師が指導しているシーン」に差し替え -->
+  <div class="photo rv"><span>写真差し替え:講師の指導シーン</span></div>
+  <div class="sol-box rv">
+    <p>各分野のトップランナーが直接指導するカリキュラムで、資格だけでは身につかない<b>「現場で信頼されるトレーナーの実力」</b>を6ヶ月で養います。</p>
+  </div>
+</section>
+
+<!-- 05 特徴 -->
+<section class="sec-features">
+  <p class="ey">FEATURES</p>
+  <h2 class="rv">スペシャリストコース<br>6つの特徴</h2>
+  <div class="ft-list">
+    <div class="ft rv"><span class="ft-num">1</span><div><h3>6ヶ月・現場主義カリキュラム</h3><p>解剖学・栄養学の基礎から実技・接客まで。詳細カリキュラムは説明会でご案内します。</p></div></div>
+    <div class="ft rv"><span class="ft-num">2</span><div><h3>各分野トップランナーが直接指導</h3><p>医師・管理栄養士をはじめ、第一線で活躍する講師陣から直接学べます。</p></div></div>
+    <div class="ft rv"><span class="ft-num">3</span><div><h3>定員8名の少人数制</h3><p>一人ひとりに実技指導が行き届く超少人数制。質問しやすい環境です。</p></div></div>
+    <div class="ft rv"><span class="ft-num">4</span><div><h3>医療系専門学校の設備で学べる</h3><p>九州医療スポーツ専門学校の実習環境を使用。医療×スポーツの学びに最適な環境です。</p></div></div>
+    <div class="ft rv"><span class="ft-num">5</span><div><h3>治療家の自費メニュー化を支援</h3><p>施術×パーソナルの組み合わせで、保険に依存しない自費売上づくりまで踏み込みます。</p></div></div>
+    <div class="ft rv"><span class="ft-num">6</span><div><h3>卒業後のキャリアサポート</h3><p>就職・開業に向けたサポート体制。詳しくは説明会でお話しします。</p></div></div>
+  </div>
+</section>
+
+<!-- 06 カリキュラム -->
+<section>
+  <p class="ey">CURRICULUM</p>
+  <h2 class="rv">6ヶ月で「現場に立てる」<br>までのロードマップ</h2>
+  <div style="margin-top:20px;">
+    <div class="cur-step rv">
+      <div class="cur-ic"><small>PHASE</small><b>1</b></div>
+      <div class="cur-body"><h3>基礎を固める</h3><p>解剖学・生理学・栄養学など、トレーナーの土台となる知識を体系的に学びます。</p></div>
+    </div>
+    <div class="cur-step rv">
+      <div class="cur-ic"><small>PHASE</small><b>2</b></div>
+      <div class="cur-body"><h3>実技・評価を磨く</h3><p>トレーニング指導・姿勢評価・プログラム設計を、少人数で繰り返し実践します。</p></div>
+    </div>
+    <div class="cur-step rv">
+      <div class="cur-ic"><small>PHASE</small><b>3</b></div>
+      <div class="cur-body"><h3>現場で通用する力へ</h3><p>接客・カウンセリング・セッション実習を通じて「選ばれ続けるトレーナー」に仕上げます。</p></div>
+    </div>
+  </div>
+  <div class="cur-more rv"><b>詳細カリキュラムは公式サイトに掲載しています。</b>あなたの経験・目標に合わせた学び方は、個別説明会でご提案します。</div>
+</section>
+
+<!-- 07 キャリア -->
+<section class="sec-career">
+  <p class="ey">AFTER GRADUATION</p>
+  <h2 class="rv">卒業後、<br>あなたはこう変わる。</h2>
+  <div class="car-card rv">
+    <!-- TODO: HP写真(治療・施術系カット)に差し替え -->
+    <div class="photo"><span>写真差し替え:施術×トレーニング指導のシーン</span></div>
+    <div class="car-body">
+      <span class="emp-tag t-navy">治療家の方</span>
+      <h3>施術+パーソナルで、客単価アップ</h3>
+      <p>自費のパーソナルメニューを自院に導入し、保険に依存しない経営へ。学んだその月から、あなたの院の新しい売上の柱になります。</p>
+    </div>
+  </div>
+  <div class="car-card rv">
+    <!-- TODO: HP写真(卒業生・女性トレーナーの活躍カット)に差し替え -->
+    <div class="photo"><span>写真差し替え:卒業生トレーナーの活躍シーン(女性優先)</span></div>
+    <div class="car-body">
+      <span class="emp-tag t-red">転職を目指す方</span>
+      <h3>未経験から、プロのトレーナーへ</h3>
+      <p>現場で通用する実力と自信を身につけて、パーソナルトレーナーとしての新しいキャリアをスタート。就職に向けたサポートもあります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 受講生の声 -->
+<section class="sec-voice">
+  <p class="ey">VOICE</p>
+  <h2 class="rv">受講生・卒業生の声</h2>
+  <p class="lead rv">※ 掲載内容はトレーナーズラボ公式サイトの「受講生の声」より差し替え予定</p>
+  <div class="vo-wrap">
+    <!-- TODO: HPの受講生の声(女性/治療家/転職組を優先)に差し替え -->
+    <div class="vo">
+      <div class="vo-head"><div class="vo-face"><div class="photo"><span>写真</span></div></div><div><p class="vo-name">A.Sさん(仮)</p><p class="vo-attr">30代女性・未経験から転身</p></div></div>
+      <p>「未経験の私でも、少人数で先生に何度も質問できたので、半年で自信を持ってセッションに立てるようになりました。」(差し替え用ダミー)</p>
+    </div>
+    <div class="vo">
+      <div class="vo-head"><div class="vo-face"><div class="photo"><span>写真</span></div></div><div><p class="vo-name">K.Tさん(仮)</p><p class="vo-attr">整骨院経営・治療家</p></div></div>
+      <p>「施術にパーソナルを組み合わせたことで、自費メニューの売上が院の柱になりました。」(差し替え用ダミー)</p>
+    </div>
+    <div class="vo">
+      <div class="vo-head"><div class="vo-face"><div class="photo"><span>写真</span></div></div><div><p class="vo-name">M.Yさん(仮)</p><p class="vo-attr">20代女性・会社員から転職</p></div></div>
+      <p>「働きながらでも通い切れるカリキュラムでした。今は好きなことを仕事にできています。」(差し替え用ダミー)</p>
+    </div>
+  </div>
+  <p class="vo-hint">← スワイプで他の声も見られます →</p>
+</section>
+
+<!-- 09 料金 -->
+<section>
+  <p class="ey">PRICE</p>
+  <h2 class="rv">受講料</h2>
+  <div class="price-card rv">
+    <div class="price-head">スペシャリストコース(6ヶ月)</div>
+    <div class="price-body">
+      <p class="price-strike">通常価格 660,000円(税込)</p>
+      <p class="price-arrow">▼ キャンペーンコード利用で</p>
+      <p class="price-main">600,000<small>円(税込)</small></p>
+      <div class="code-box">
+        <p>LP限定キャンペーンコード</p>
+        <p class="code-str">KYUSHU60</p><!-- TODO: 正式なコード文字列に差し替え -->
+        <small>お申込時にこのコードをお伝えいただくと60,000円OFFが適用されます</small>
+      </div>
+      <p class="price-note">お支払い方法・分割のご相談は、個別説明会でご案内します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 開講概要 -->
+<section class="sec-outline">
+  <p class="ey">OUTLINE</p>
+  <h2 class="rv">開講概要</h2>
+  <table class="ol-table rv">
+    <tr><th>コース名</th><td>トレーナーズラボ スペシャリストコース 九州校</td></tr>
+    <tr><th>開講日</th><td>2026年10月5日(月)</td></tr>
+    <tr><th>時間</th><td>13:30〜16:30</td></tr>
+    <tr><th>期間</th><td>6ヶ月</td></tr>
+    <tr><th>会場</th><td>九州医療スポーツ専門学校<!-- TODO: 住所・アクセスを追記 --></td></tr>
+    <tr><th>定員</th><td>8名 <span class="seat">残り3名</span></td></tr>
+  </table>
+</section>
+
+<!-- 11 CV -->
+<section class="sec-cv" id="cv">
+  <p class="ey">FREE SESSION</p>
+  <h2 class="rv">まずは無料の<br>オンライン個別説明会へ。</h2>
+  <div class="cv-card rv">
+    <h3>🖥 オンライン個別説明会(毎日開催)</h3>
+    <ul>
+      <li>所要30分・Zoom開催・カメラオフでもOK</li>
+      <li>あなたの状況・目標に合わせた個別相談</li>
+      <li>カリキュラム・お支払い方法も詳しくご案内</li>
+      <li>その場で決める必要はありません</li>
+    </ul>
+  </div>
+  <ol class="flow rv">
+    <li>下のボタンからご希望の日時を選択</li>
+    <li>当日、Zoomで30分お話しします</li>
+    <li>納得できたらお申込み(コード利用で60,000円OFF)</li>
+  </ol>
+  <!-- TODO: 予約URL(日程調整ツール or フォーム)に差し替え -->
+  <a class="cta js-reserve" href="#" style="margin-top:18px;">無料オンライン個別説明会に申し込む<small>毎日開催 / 30分 / 無理な勧誘は一切ありません</small></a>
+  <!-- TODO: LINE公式アカウントURLに差し替え(未開設ならこのボタンごと削除) -->
+  <a class="cta-sub" href="#">まずはLINEで気軽に質問する</a>
+  <p class="micro">説明会は毎日随時開催しています。お仕事帰りの時間帯もご相談いただけます。</p>
+</section>
+
+<!-- 12 FAQ -->
+<section class="faq">
+  <p class="ey">FAQ</p>
+  <h2 class="rv">よくあるご質問</h2>
+  <details><summary>完全未経験でもついていけますか?</summary><p class="a">はい。基礎から段階的に学ぶカリキュラムのため、受講生の多くが未経験からのスタートです。少人数制なので、わからないことをその場で解消しながら進められます。</p></details>
+  <details><summary>働きながら通えますか?</summary><p class="a">週1回・月曜13:30〜16:30の開講です。シフト調整のご相談など、詳しくは個別説明会でお気軽にご相談ください。<!-- TODO: 開催頻度を確定情報に差し替え --></p></details>
+  <details><summary>女性でも安心して学べますか?</summary><p class="a">はい。女性の受講生・卒業生も多数活躍しています。少人数制のため、体力や経験に不安がある方も自分のペースで学べます。</p></details>
+  <details><summary>治療院を経営しながらでも学べますか?</summary><p class="a">はい。治療家の方が施術と両立しながら学び、自院にパーソナルメニューを導入するケースを想定したコースです。導入までの設計もサポートします。</p></details>
+  <details><summary>支払い方法・分割はできますか?</summary><p class="a">お支払い方法の詳細・分割のご相談は、個別説明会でご案内しています。まずはお気軽にご参加ください。<!-- TODO: 分割可否確定後に具体化 --></p></details>
+</section>
+
+<!-- 13 最終CTA -->
+<section class="sec-final">
+  <h2 class="rv">定員8名、<span class="seat">残り3名</span>。<br>枠が埋まり次第、<br>募集を終了します。</h2>
+  <p>2026年10月5日開講/九州医療スポーツ専門学校</p>
+  <a class="cta js-reserve" href="#cv">無料オンライン個別説明会に申し込む<small>毎日開催 / Zoom30分</small></a>
+</section>
+
+<footer>
+  <p>トレーナーズラボ スペシャリストコース 九州校</p>
+  <p><a href="https://trainers-lab.com/" target="_blank" rel="noopener">トレーナーズラボ公式サイト</a></p>
+  <p><!-- TODO: 運営会社情報 / 特定商取引法に基づく表記 / プライバシーポリシー のリンクを追加 -->&copy; TRAINER'S LAB</p>
+</footer>
+
+<!-- 追従CTA -->
+<div class="fix-cta"><a class="cta js-reserve" href="#cv">無料オンライン個別説明会に申し込む</a></div>
+
+<script>
+// ===== 設定(確定後にここだけ差し替え) =====
+var RESERVE_URL = '';   // TODO: 説明会予約URL(TimeRex/Calendly/フォーム等)
+var LINE_URL    = '';   // TODO: LINE公式アカウントURL
+
+// 予約URLが設定されたらCTAを外部リンク化
+if(RESERVE_URL){document.querySelectorAll('.js-reserve').forEach(function(a){a.href=RESERVE_URL;a.target='_blank';a.rel='noopener';});}
+if(LINE_URL){var l=document.querySelector('.cta-sub');if(l){l.href=LINE_URL;l.target='_blank';l.rel='noopener';}}
+
+// ヒーローのパララックス
+(function(){
+  var el=document.getElementById('paraHero');
+  if(!el)return;
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY;
+    if(y<700){el.style.transform='translateY('+(y*0.35)+'px)';}
+  },{passive:true});
+})();
+
+// スクロールでふわっと表示
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
+  },{threshold:0.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+
+// CTAクリック計測(GTM dataLayer)
+document.querySelectorAll('.js-reserve').forEach(function(a){
+  a.addEventListener('click',function(){
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'reserve_click',location:a.closest('section,header,div.hero,div.fix-cta')?(a.closest('section')?a.closest('section').className:'other'):'other'});
+  });
+});
+</script>
+</body>
+</html>
