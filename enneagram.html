@@ -6,6 +6,15 @@
 <title>エニアグラム診断</title>
 <meta name="description" content="トーク形式で答えるだけのエニアグラム診断。9つの性格タイプを判定し、続くトレーニングの型まで提案します。">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#06c755">
+<!-- ホーム画面に追加すると、ブラウザを経由せず1タップで開ける -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="診断">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAADGElEQVR42u3cUUoDQRRFwflyh67ZZSn5FBRiZhrfnK6Gs4Gb8iEKOY4h7+3j/VP37dj5AQA5xIIbZIENssAGWTHYPhxlYPtAlEDtQ1AGtuGVQW1wZVAbWhnUBlYGtWGVQW1QZVAbUinURlQGtAH/v8ezwwWoDTcDM9AXoTYa0BnQBpuDGegLUBsL5gxoQwGdQm2kOZiBPgnaQLMwA30StXGAzoA2zDzMQJ9AbRSggRbME0EbZB5moE+gNgbQQGspZqCBTmEGGmiggYZ5KmagX0RtBNcZaLnOQOsvz15AAy2gJ2IGGugUZqCBBlpAwwy0gAYaZqCB3hQz0EADLaCnYgYa6BRmoIF2nQW06wy0FmMGGmigBfRUzEADDbSAnooZaKBhFtBAA63FmIEGOoUZaKCBFtBTMQMNNNACGmagtRgz0EADLaCnYgYa6BRmoIEGWkBPxQw00DALaKCBhhlooIEGGuhNMQMNdAoz0EADLaBhBhrm8AMaaJiBhhlooIGGGWiYYd4atF81gAYaZqBhhhlomIEGGmj/idwMtOsMNNAwAw0zzEDDDDTQQMO8GWiYgYYZaKCBhhlomGEGGmag/R06/UNkf6CBBlq+BgFomGEGGmiggfYFjwLa1+8CLaCBBhpmoGGGGWiggTbEDUDbGmiggdZE0HYGOgPaxkC7zkDLdQYaaJiBBhpooDcDbVugM6DtCrTrLKBdZ6AFNNBAwwz0ZqDtCTTQAhpmoLUQtC2BBlpATwRtR6AzoG0INNACGmagBTTQQMMM9GagbQc00AJ6Imi7AZ0BbTOgXWcB7ToL6IWg7QU00AJ6ImhbAQ20gIZZQC8EbacBoB/PEEBnMAN9DWgbAZ0BbR+ggRbQMOsp0FC/Bto2QzEDDTTQm4O2y3DQUAOdwgz086BtchPQUMOcwgw00DnQUP8O2h43xAz0z6BtcWPQUAOdwgz0d9B2CICGGuYUZqiBzmF2pZUDDbVSmKFWDjPUymGGWjnMUCuHGWrlMEOtHGawlYMMtZKYwVYOMthKQgZbSchgKwkZboi3fADAe8X7AkIoZGkPDiYFAAAAAElFTkSuQmCC">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAADGElEQVR42u3cUUoDQRRFwflyh67ZZSn5FBRiZhrfnK6Gs4Gb8iEKOY4h7+3j/VP37dj5AQA5xIIbZIENssAGWTHYPhxlYPtAlEDtQ1AGtuGVQW1wZVAbWhnUBlYGtWGVQW1QZVAbUinURlQGtAH/v8ezwwWoDTcDM9AXoTYa0BnQBpuDGegLUBsL5gxoQwGdQm2kOZiBPgnaQLMwA30StXGAzoA2zDzMQJ9AbRSggRbME0EbZB5moE+gNgbQQGspZqCBTmEGGmiggYZ5KmagX0RtBNcZaLnOQOsvz15AAy2gJ2IGGugUZqCBBlpAwwy0gAYaZqCB3hQz0EADLaCnYgYa6BRmoIF2nQW06wy0FmMGGmigBfRUzEADDbSAnooZaKBhFtBAA63FmIEGOoUZaKCBFtBTMQMNNNACGmagtRgz0EADLaCnYgYa6BRmoIEGWkBPxQw00DALaKCBhhlooIEGGuhNMQMNdAoz0EADLaBhBhrm8AMaaJiBhhlooIGGGWiYYd4atF81gAYaZqBhhhlomIEGGmj/idwMtOsMNNAwAw0zzEDDDDTQQMO8GWiYgYYZaKCBhhlomGEGGmag/R06/UNkf6CBBlq+BgFomGEGGmiggfYFjwLa1+8CLaCBBhpmoGGGGWiggTbEDUDbGmiggdZE0HYGOgPaxkC7zkDLdQYaaJiBBhpooDcDbVugM6DtCrTrLKBdZ6AFNNBAwwz0ZqDtCTTQAhpmoLUQtC2BBlpATwRtR6AzoG0INNACGmagBTTQQMMM9GagbQc00AJ6Imi7AZ0BbTOgXWcB7ToL6IWg7QU00AJ6ImhbAQ20gIZZQC8EbacBoB/PEEBnMAN9DWgbAZ0BbR+ggRbQMOsp0FC/Bto2QzEDDTTQm4O2y3DQUAOdwgz086BtchPQUMOcwgw00DnQUP8O2h43xAz0z6BtcWPQUAOdwgz0d9B2CICGGuYUZqiBzmF2pZUDDbVSmKFWDjPUymGGWjnMUCuHGWrlMEOtHGawlYMMtZKYwVYOMthKQgZbSchgKwkZboi3fADAe8X7AkIoZGkPDiYFAAAAAElFTkSuQmCC">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22%E3%82%A8%E3%83%8B%E3%82%A2%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%BA%E6%96%AD%22%2C%20%22short_name%22%3A%20%22%E8%A8%BA%E6%96%AD%22%2C%20%22start_url%22%3A%20%22./%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%23f2f4f7%22%2C%20%22theme_color%22%3A%20%22%2306c755%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAADGElEQVR42u3cUUoDQRRFwflyh67ZZSn5FBRiZhrfnK6Gs4Gb8iEKOY4h7%2B3j/VP37dj5AQA5xIIbZIENssAGWTHYPhxlYPtAlEDtQ1AGtuGVQW1wZVAbWhnUBlYGtWGVQW1QZVAbUinURlQGtAH/v8ezwwWoDTcDM9AXoTYa0BnQBpuDGegLUBsL5gxoQwGdQm2kOZiBPgnaQLMwA30StXGAzoA2zDzMQJ9AbRSggRbME0EbZB5moE%2BgNgbQQGspZqCBTmEGGmiggYZ5KmagX0RtBNcZaLnOQOsvz15AAy2gJ2IGGugUZqCBBlpAwwy0gAYaZqCB3hQz0EADLaCnYgYa6BRmoIF2nQW06wy0FmMGGmigBfRUzEADDbSAnooZaKBhFtBAA63FmIEGOoUZaKCBFtBTMQMNNNACGmagtRgz0EADLaCnYgYa6BRmoIEGWkBPxQw00DALaKCBhhlooIEGGuhNMQMNdAoz0EADLaBhBhrm8AMaaJiBhhlooIGGGWiYYd4atF81gAYaZqBhhhlomIEGGmj/idwMtOsMNNAwAw0zzEDDDDTQQMO8GWiYgYYZaKCBhhlomGEGGmag/R06/UNkf6CBBlq%2BBgFomGEGGmiggfYFjwLa1%2B8CLaCBBhpmoGGGGWiggTbEDUDbGmiggdZE0HYGOgPaxkC7zkDLdQYaaJiBBhpooDcDbVugM6DtCrTrLKBdZ6AFNNBAwwz0ZqDtCTTQAhpmoLUQtC2BBlpATwRtR6AzoG0INNACGmagBTTQQMMM9GagbQc00AJ6Imi7AZ0BbTOgXWcB7ToL6IWg7QU00AJ6ImhbAQ20gIZZQC8EbacBoB/PEEBnMAN9DWgbAZ0BbR%2BggRbQMOsp0FC/Bto2QzEDDTTQm4O2y3DQUAOdwgz086BtchPQUMOcwgw00DnQUP8O2h43xAz0z6BtcWPQUAOdwgz0d9B2CICGGuYUZqiBzmF2pZUDDbVSmKFWDjPUymGGWjnMUCuHGWrlMEOtHGawlYMMtZKYwVYOMthKQgZbSchgKwkZboi3fADAe8X7AkIoZGkPDiYFAAAAAElFTkSuQmCC%22%2C%20%22sizes%22%3A%20%22180x180%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22any%20maskable%22%7D%5D%7D">
 <style id="basecss">
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 
@@ -724,8 +733,12 @@ var BRANDS={
         line:"", site:"" }
 };
 
-/* 結果PDFの送信先（Google Apps ScriptのウェブアプリURL）。
-   空のままだと送信は行わず、画面表示と印刷のみになる。 */
+/* 本部の宛先。メールアプリを開いて送る方式で使う（設定不要）。 */
+var HQ_MAIL="trainers.gym00@gmail.com";
+
+/* 結果PDFの自動送信先（Google Apps ScriptのウェブアプリURL）。
+   設定すると、PDFを添付して本部・担当者・本人へ自動送信できるようになる。
+   空のままでも、下記のメール送信・共有は使える。 */
 var SEND_ENDPOINT="";
 
 var ORG_FIXED=(function(){
@@ -1179,7 +1192,7 @@ function updateRich(){
   var done=!!lastRes;
   $('rmReport').disabled=!done;
   $('rmPrint').disabled=!done;
-  $('rmSend').disabled=!(done&&SEND_ENDPOINT&&person.agree);
+  $('rmSend').disabled=!(done&&person.agree);
   $('rmOrg').disabled=!!ORG_FIXED;
 }
 
@@ -1327,18 +1340,28 @@ function renderReport(res){
   h+='</ul><div class="coach-h" style="margin-top:14px">目標設定のコツ</div>'
    + '<p class="muted">'+esc(T.trainer.goal)+'</p></div>';
 
-  if(SEND_ENDPOINT){
-    var dest=[BRAND.owner];
-    if(person.unit)dest.push(person.unit+'の担当者');
-    if(person.email)dest.push('ご本人（'+person.email+'）');
-    h+='<div class="send-box no-print"><div class="send-t">結果を送る</div>'
-     + '<p class="send-d">この結果をPDFにして、'+esc(dest.join('・'))+' に送信します。</p>';
-    h+= person.agree
-      ? '<button class="btn" id="btnSend">PDFを送信する</button>'
-      : '<p class="send-d" style="margin:0">共有に同意していないため、送信は行いません。'
-        +'下の「保存・印刷」からPDFを保存して、必要な相手にご自身でお渡しください。</p>';
-    h+='<div class="send-st" id="sendSt"></div></div>';
+  h+='<div class="send-box no-print"><div class="send-t">結果を送る</div>';
+  if(person.agree){
+    if(SEND_ENDPOINT){
+      var dest=[BRAND.owner];
+      if(person.unit)dest.push(person.unit+'の担当者');
+      if(person.email)dest.push('ご本人（'+person.email+'）');
+      h+='<p class="send-d">PDFにして '+esc(dest.join('・'))+' に自動で送ります。</p>'
+       + '<button class="btn" id="btnSend">PDFを送信する</button>'
+       + '<div class="send-st" id="sendSt"></div>'
+       + '<p class="send-d" style="margin:13px 0 0">うまくいかないときは、下のどちらかでも送れます。</p>';
+    }else{
+      h+='<p class="send-d">下のボタンから、'+esc(BRAND.owner)+'（'+esc(HQ_MAIL)+'）に結果を送れます。</p>';
+    }
+    h+='<div class="btn-row" style="margin-top:10px">'
+     + '<button class="btn-g" id="btnMailto">メールで送る</button>'
+     + '<button class="btn-g" id="btnShare">LINEなどで送る</button></div>'
+     + '<p class="send-d" style="margin:11px 0 0">※ この2つは本文のみです。PDFが必要な場合は「保存・印刷」で保存して添付してください。</p>';
+  }else{
+    h+='<p class="send-d" style="margin:0">共有に同意していないため、送信は行いません。'
+     + '「保存・印刷」からPDFを保存して、必要な相手にご自身でお渡しください。</p>';
   }
+  h+='</div>';
 
   h+='<div class="act no-print"><div class="btn-row">'
    + '<button class="btn-g" id="btnCopy">結果をコピー</button>'
@@ -1361,6 +1384,8 @@ function renderReport(res){
   $('btnPrint').onclick=function(){ window.print(); };
   $('btnCopy').onclick=function(){ copyText(summaryText(res,t,wing)); };
   if($('btnSend')){ $('btnSend').onclick=doSend; }
+  if($('btnMailto')){ $('btnMailto').onclick=function(){ sendByMail(res,t,wing); }; }
+  if($('btnShare')){ $('btnShare').onclick=function(){ shareResult(res,t,wing); }; }
 }
 
 /* ---------- 送信 ---------- */
@@ -1405,6 +1430,32 @@ function doSend(){
       +'「保存・印刷」からPDFを保存して、お手数ですが手動で共有してください。');
     btn.disabled=false;
   });
+}
+
+/* メールアプリを開いて送る。サーバー不要で、その場ですぐ使える。 */
+function mailSubject(t){
+  return '【'+BRAND.name+(person.unit?'／'+person.unit:'')+'】'
+    + (person.name||'匿名')+' さん：タイプ'+t+' '+TYPES[t].name;
+}
+function sendByMail(res,t,wing){
+  var to=HQ_MAIL;
+  if(person.email) to+=','+person.email;
+  var url='mailto:'+encodeURIComponent(to)
+    + '?subject='+encodeURIComponent(mailSubject(t))
+    + '&body='+encodeURIComponent(summaryText(res,t,wing));
+  location.href=url;
+  toast('メールアプリを開きます');
+}
+
+/* 端末の共有メニューを開く（LINE・メールなどに渡せる） */
+function shareResult(res,t,wing){
+  var txt=summaryText(res,t,wing);
+  if(navigator.share){
+    navigator.share({title:mailSubject(t),text:txt}).catch(function(){});
+  }else{
+    copyText(txt);
+    toast('結果をコピーしました。貼り付けて送ってください');
+  }
 }
 
 function summaryText(res,t,wing){
@@ -1475,7 +1526,16 @@ $('rmGuide').onclick=function(){
 $('rmOrg').onclick=function(){ toggleRich(false); switchOrg(); };
 $('rmPrint').onclick=function(){ toggleRich(false); if(lastRes){ openSheet(); setTimeout(function(){window.print();},400); } };
 $('rmReport').onclick=function(){ toggleRich(false); if(lastRes)openSheet(); };
-$('rmSend').onclick=function(){ toggleRich(false); if(lastRes){ openSheet(); setTimeout(doSend,350); } };
+$('rmSend').onclick=function(){
+  toggleRich(false);
+  if(!lastRes)return;
+  openSheet();
+  /* 自動送信が設定済みならそれを実行し、未設定なら送信欄まで案内する */
+  setTimeout(function(){
+    if(SEND_ENDPOINT&&person.agree&&$('btnSend')){ doSend(); }
+    else if($('btnMailto')){ $('btnMailto').scrollIntoView({block:'center'}); }
+  },380);
+};
 $('rmRestart').onclick=function(){ toggleRich(false); restart(); };
 
 updateRich();
