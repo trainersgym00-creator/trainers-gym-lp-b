@@ -741,13 +741,17 @@ var HQ_MAIL="trainers.gym00@gmail.com";
    空のままでも、下記のメール送信・共有は使える。 */
 var SEND_ENDPOINT="";
 
-var ORG_FIXED=(function(){
-  /* URLで事業が指定されていればそれに固定する（各事業のリッチメニューから直接開く用） */
+/* この入口がどの事業のものか。事業ごとに別ファイル・別URLで配る前提のため、
+   受診者に事業を選ばせることはしない（選ぶのは、渡す側の本部・スタッフ）。
+   URLに ?org= があればそれを優先する。 */
+var DEFAULT_ORG="gym";
+
+var ORG=(function(){
   var m=/[?&]org=([a-z0-9_-]+)/i.exec(location.search);
   var k=m?m[1].toLowerCase():"";
-  return BRANDS[k]?k:"";
+  if(BRANDS[k])return k;
+  return BRANDS[DEFAULT_ORG]?DEFAULT_ORG:"gym";
 })();
-var ORG=ORG_FIXED||"gym";
 var BRAND=BRANDS[ORG];
 
 var LS_P='tg_enneagram_progress_v2', LS_R='tg_enneagram_result_v2';
@@ -974,7 +978,7 @@ function pickOrg(){
   sender={name:'エニアグラム診断',mark:'◆'};
   updateRich();
   dayBar('今日');
-  say('こんにちは。\n<b>どちらの事業でお使いですか？</b>\n下から選んでください。');
+  say('<b>スタッフ用</b>\nこの端末で実施する事業を選び直します。\n選ぶと、その事業の入口として最初から始まります。');
   quick(Object.keys(BRANDS).map(function(k){
     return {html:'<b>'+esc(BRANDS[k].name)+'</b>　'+esc(BRANDS[k].desc),
             on:function(){ chooseOrg(k); }};
@@ -1193,7 +1197,7 @@ function updateRich(){
   $('rmReport').disabled=!done;
   $('rmPrint').disabled=!done;
   $('rmSend').disabled=!(done&&person.agree);
-  $('rmOrg').disabled=!!ORG_FIXED;
+  $('rmOrg').disabled=false;
 }
 
 function restart(){
@@ -1201,26 +1205,21 @@ function restart(){
   lastRes=null; person={name:"",unit:"",email:"",agree:false};
   state={mode:'full',seq:[],idx:0,ans:{}};
   updateRich();
-  if(ORG_FIXED){
-    chat.innerHTML=''; firstIn=true; dayBar('今日');
-    greet(false);
-  }else{
-    pickOrg();
-  }
+  chat.innerHTML=''; firstIn=true; dayBar('今日');
+  greet(false);
 }
 
 /* 診断の途中で事業を切り替えると、結果が別の事業に混ざるため確認する */
 function switchOrg(){
-  if(ORG_FIXED){ toast('このリンクは'+BRAND.name+'専用です'); return; }
   if(step==='quiz'){
     say('診断の途中です。事業を切り替えると、<b>いまの回答は破棄</b>されて最初からになります。');
     quick([
-      {label:'切り替える', on:function(){ me('切り替える'); clearProgress(); restart(); }},
+      {label:'切り替える', on:function(){ me('切り替える'); clearProgress(); pickOrg(); }},
       {label:'このまま続ける', sub:true, on:function(){ me('このまま続ける'); askQ(); }}
     ],true);
     return;
   }
-  restart();
+  pickOrg();
 }
 
 function loadProgress(){
@@ -1539,13 +1538,9 @@ $('rmSend').onclick=function(){
 $('rmRestart').onclick=function(){ toggleRich(false); restart(); };
 
 updateRich();
-if(ORG_FIXED){
-  applyBrand();
-  chat.innerHTML=''; firstIn=true; dayBar('今日');
-  greet(!!loadProgress());
-}else{
-  pickOrg();
-}
+applyBrand();
+chat.innerHTML=''; firstIn=true; dayBar('今日');
+greet(!!loadProgress());
 
 </script>
 </body>
