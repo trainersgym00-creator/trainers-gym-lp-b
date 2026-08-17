@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>エニアグラム診断</title>
+<meta name="description" content="トーク形式で答えるだけのエニアグラム診断。9つの性格タイプを判定し、続くトレーニングの型まで提案します。">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#06c755">
+<!-- ホーム画面に追加すると、ブラウザを経由せず1タップで開ける -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="診断">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAADGElEQVR42u3cUUoDQRRFwflyh67ZZSn5FBRiZhrfnK6Gs4Gb8iEKOY4h7+3j/VP37dj5AQA5xIIbZIENssAGWTHYPhxlYPtAlEDtQ1AGtuGVQW1wZVAbWhnUBlYGtWGVQW1QZVAbUinURlQGtAH/v8ezwwWoDTcDM9AXoTYa0BnQBpuDGegLUBsL5gxoQwGdQm2kOZiBPgnaQLMwA30StXGAzoA2zDzMQJ9AbRSggRbME0EbZB5moE+gNgbQQGspZqCBTmEGGmiggYZ5KmagX0RtBNcZaLnOQOsvz15AAy2gJ2IGGugUZqCBBlpAwwy0gAYaZqCB3hQz0EADLaCnYgYa6BRmoIF2nQW06wy0FmMGGmigBfRUzEADDbSAnooZaKBhFtBAA63FmIEGOoUZaKCBFtBTMQMNNNACGmagtRgz0EADLaCnYgYa6BRmoIEGWkBPxQw00DALaKCBhhlooIEGGuhNMQMNdAoz0EADLaBhBhrm8AMaaJiBhhlooIGGGWiYYd4atF81gAYaZqBhhhlomIEGGmj/idwMtOsMNNAwAw0zzEDDDDTQQMO8GWiYgYYZaKCBhhlomGEGGmag/R06/UNkf6CBBlq+BgFomGEGGmiggfYFjwLa1+8CLaCBBhpmoGGGGWiggTbEDUDbGmiggdZE0HYGOgPaxkC7zkDLdQYaaJiBBhpooDcDbVugM6DtCrTrLKBdZ6AFNNBAwwz0ZqDtCTTQAhpmoLUQtC2BBlpATwRtR6AzoG0INNACGmagBTTQQMMM9GagbQc00AJ6Imi7AZ0BbTOgXWcB7ToL6IWg7QU00AJ6ImhbAQ20gIZZQC8EbacBoB/PEEBnMAN9DWgbAZ0BbR+ggRbQMOsp0FC/Bto2QzEDDTTQm4O2y3DQUAOdwgz086BtchPQUMOcwgw00DnQUP8O2h43xAz0z6BtcWPQUAOdwgz0d9B2CICGGuYUZqiBzmF2pZUDDbVSmKFWDjPUymGGWjnMUCuHGWrlMEOtHGawlYMMtZKYwVYOMthKQgZbSchgKwkZboi3fADAe8X7AkIoZGkPDiYFAAAAAElFTkSuQmCC">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAADGElEQVR42u3cUUoDQRRFwflyh67ZZSn5FBRiZhrfnK6Gs4Gb8iEKOY4h7+3j/VP37dj5AQA5xIIbZIENssAGWTHYPhxlYPtAlEDtQ1AGtuGVQW1wZVAbWhnUBlYGtWGVQW1QZVAbUinURlQGtAH/v8ezwwWoDTcDM9AXoTYa0BnQBpuDGegLUBsL5gxoQwGdQm2kOZiBPgnaQLMwA30StXGAzoA2zDzMQJ9AbRSggRbME0EbZB5moE+gNgbQQGspZqCBTmEGGmiggYZ5KmagX0RtBNcZaLnOQOsvz15AAy2gJ2IGGugUZqCBBlpAwwy0gAYaZqCB3hQz0EADLaCnYgYa6BRmoIF2nQW06wy0FmMGGmigBfRUzEADDbSAnooZaKBhFtBAA63FmIEGOoUZaKCBFtBTMQMNNNACGmagtRgz0EADLaCnYgYa6BRmoIEGWkBPxQw00DALaKCBhhlooIEGGuhNMQMNdAoz0EADLaBhBhrm8AMaaJiBhhlooIGGGWiYYd4atF81gAYaZqBhhhlomIEGGmj/idwMtOsMNNAwAw0zzEDDDDTQQMO8GWiYgYYZaKCBhhlomGEGGmag/R06/UNkf6CBBlq+BgFomGEGGmiggfYFjwLa1+8CLaCBBhpmoGGGGWiggTbEDUDbGmiggdZE0HYGOgPaxkC7zkDLdQYaaJiBBhpooDcDbVugM6DtCrTrLKBdZ6AFNNBAwwz0ZqDtCTTQAhpmoLUQtC2BBlpATwRtR6AzoG0INNACGmagBTTQQMMM9GagbQc00AJ6Imi7AZ0BbTOgXWcB7ToL6IWg7QU00AJ6ImhbAQ20gIZZQC8EbacBoB/PEEBnMAN9DWgbAZ0BbR+ggRbQMOsp0FC/Bto2QzEDDTTQm4O2y3DQUAOdwgz086BtchPQUMOcwgw00DnQUP8O2h43xAz0z6BtcWPQUAOdwgz0d9B2CICGGuYUZqiBzmF2pZUDDbVSmKFWDjPUymGGWjnMUCuHGWrlMEOtHGawlYMMtZKYwVYOMthKQgZbSchgKwkZboi3fADAe8X7AkIoZGkPDiYFAAAAAElFTkSuQmCC">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22%E3%82%A8%E3%83%8B%E3%82%A2%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%BA%E6%96%AD%22%2C%20%22short_name%22%3A%20%22%E8%A8%BA%E6%96%AD%22%2C%20%22start_url%22%3A%20%22./%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%23f2f4f7%22%2C%20%22theme_color%22%3A%20%22%2306c755%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAADGElEQVR42u3cUUoDQRRFwflyh67ZZSn5FBRiZhrfnK6Gs4Gb8iEKOY4h7%2B3j/VP37dj5AQA5xIIbZIENssAGWTHYPhxlYPtAlEDtQ1AGtuGVQW1wZVAbWhnUBlYGtWGVQW1QZVAbUinURlQGtAH/v8ezwwWoDTcDM9AXoTYa0BnQBpuDGegLUBsL5gxoQwGdQm2kOZiBPgnaQLMwA30StXGAzoA2zDzMQJ9AbRSggRbME0EbZB5moE%2BgNgbQQGspZqCBTmEGGmiggYZ5KmagX0RtBNcZaLnOQOsvz15AAy2gJ2IGGugUZqCBBlpAwwy0gAYaZqCB3hQz0EADLaCnYgYa6BRmoIF2nQW06wy0FmMGGmigBfRUzEADDbSAnooZaKBhFtBAA63FmIEGOoUZaKCBFtBTMQMNNNACGmagtRgz0EADLaCnYgYa6BRmoIEGWkBPxQw00DALaKCBhhlooIEGGuhNMQMNdAoz0EADLaBhBhrm8AMaaJiBhhlooIGGGWiYYd4atF81gAYaZqBhhhlomIEGGmj/idwMtOsMNNAwAw0zzEDDDDTQQMO8GWiYgYYZaKCBhhlomGEGGmag/R06/UNkf6CBBlq%2BBgFomGEGGmiggfYFjwLa1%2B8CLaCBBhpmoGGGGWiggTbEDUDbGmiggdZE0HYGOgPaxkC7zkDLdQYaaJiBBhpooDcDbVugM6DtCrTrLKBdZ6AFNNBAwwz0ZqDtCTTQAhpmoLUQtC2BBlpATwRtR6AzoG0INNACGmagBTTQQMMM9GagbQc00AJ6Imi7AZ0BbTOgXWcB7ToL6IWg7QU00AJ6ImhbAQ20gIZZQC8EbacBoB/PEEBnMAN9DWgbAZ0BbR%2BggRbQMOsp0FC/Bto2QzEDDTTQm4O2y3DQUAOdwgz086BtchPQUMOcwgw00DnQUP8O2h43xAz0z6BtcWPQUAOdwgz0d9B2CICGGuYUZqiBzmF2pZUDDbVSmKFWDjPUymGGWjnMUCuHGWrlMEOtHGawlYMMtZKYwVYOMthKQgZbSchgKwkZboi3fADAe8X7AkIoZGkPDiYFAAAAAElFTkSuQmCC%22%2C%20%22sizes%22%3A%20%22180x180%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22any%20maskable%22%7D%5D%7D">
+<style id="basecss">
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+
+/* ---------- トークン（既定＝ライト） ---------- */
+:root{
+  --grn:#06c755;        /* LINEグリーン */
+  --grn-d:#05a948;
+  --grn-soft:#e8f8ee;
+  --bg:#f2f4f7;         /* トーク背景 */
+  --surface:#ffffff;    /* ヘッダー・吹き出し・カード */
+  --surface2:#f7f8fa;
+  --ink:#111418;
+  --ink2:#5b6270;
+  --ink3:#8a9099;
+  --line:#e4e7ec;
+  --line2:#eef0f4;
+  --in-bg:#ffffff;      /* 相手の吹き出し */
+  --in-ink:#111418;
+  --out-bg:#06c755;     /* 自分の吹き出し */
+  --out-ink:#ffffff;
+  --warn:#e8452c;
+  --shadow:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.05);
+  --r:18px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1b1b1b; --surface:#242424; --surface2:#2b2b2b;
+    --ink:#ececec; --ink2:#b3b8bf; --ink3:#8a9099;
+    --line:#343434; --line2:#2e2e2e;
+    --in-bg:#2b2b2b; --in-ink:#ececec;
+    --grn-soft:#12331f;
+    --shadow:0 1px 3px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1b1b1b; --surface:#242424; --surface2:#2b2b2b;
+  --ink:#ececec; --ink2:#b3b8bf; --ink3:#8a9099;
+  --line:#343434; --line2:#2e2e2e;
+  --in-bg:#2b2b2b; --in-ink:#ececec;
+  --grn-soft:#12331f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+
+html,body{height:100%;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Noto Sans JP",Meiryo,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.7;-webkit-text-size-adjust:100%;
+  font-size:15px;overscroll-behavior-y:none;
+}
+button{font-family:inherit;color:inherit;border:none;background:none;cursor:pointer;font-size:inherit;}
+input{font-family:inherit;font-size:16px;}
+a{color:inherit;text-decoration:none;}
+:focus-visible{outline:2px solid var(--grn);outline-offset:2px;}
+
+/* ---------- アプリの器 ---------- */
+.app{
+  max-width:480px;margin:0 auto;height:100dvh;display:flex;flex-direction:column;
+  background:var(--bg);position:relative;overflow:hidden;
+}
+
+/* ---------- トークヘッダー ---------- */
+.chat-hdr{
+  flex-shrink:0;background:var(--surface);border-bottom:1px solid var(--line);
+  padding:max(6px,env(safe-area-inset-top)) 6px 6px;display:flex;align-items:center;gap:8px;z-index:20;
+}
+.hdr-btn{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:var(--ink2);flex-shrink:0;}
+.hdr-btn:active{background:var(--surface2);}
+.hdr-ava{width:36px;height:36px;border-radius:50%;background:var(--grn);color:#fff;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:18px;}
+.hdr-nm{flex:1;min-width:0;}
+.hdr-name{font-size:15px;font-weight:700;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hdr-sub{font-size:11px;color:var(--ink3);line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+.pbar{height:3px;background:var(--line2);flex-shrink:0;overflow:hidden;}
+.pbar-f{height:100%;width:0;background:var(--grn);transition:width .35s ease;}
+
+/* ---------- トーク本文 ---------- */
+.chat{flex:1;overflow-y:auto;overflow-x:hidden;padding:14px 12px 8px;-webkit-overflow-scrolling:touch;}
+.daybar{text-align:center;margin:2px 0 14px;}
+.daybar span{display:inline-block;background:rgba(0,0,0,.16);color:#fff;font-size:11px;font-weight:600;
+  padding:3px 12px;border-radius:999px;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .daybar span{background:rgba(255,255,255,.14);}}
+:root[data-theme="dark"] .daybar span{background:rgba(255,255,255,.14);}
+
+.row{display:flex;gap:8px;margin-bottom:10px;align-items:flex-end;}
+.row.out{flex-direction:row-reverse;}
+.ava{width:34px;height:34px;border-radius:50%;background:var(--grn);color:#fff;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:17px;}
+.ava.ghost{visibility:hidden;}
+.bwrap{max-width:78%;display:flex;flex-direction:column;}
+.row.out .bwrap{align-items:flex-end;}
+.who{font-size:11px;color:var(--ink3);margin:0 0 3px 2px;}
+
+.bub{
+  padding:10px 14px;border-radius:var(--r);font-size:14.5px;line-height:1.72;
+  word-break:break-word;white-space:pre-wrap;position:relative;
+}
+.row.in .bub{background:var(--in-bg);color:var(--in-ink);border-top-left-radius:5px;box-shadow:var(--shadow);}
+.row.out .bub{background:var(--out-bg);color:var(--out-ink);border-top-right-radius:5px;font-weight:600;}
+.bub b{font-weight:700;}
+.bub .em{color:var(--grn);font-weight:700;}
+.row.out .bub .em{color:#fff;}
+
+.meta{font-size:10px;color:var(--ink3);margin:0 3px;align-self:flex-end;white-space:nowrap;flex-shrink:0;}
+.row.out .meta{text-align:right;}
+.meta .read{display:block;font-size:10px;color:var(--ink3);}
+
+/* 打っている最中の表示 */
+.typing{display:flex;gap:4px;padding:14px 16px;}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--ink3);opacity:.5;animation:blink 1.2s infinite;}
+.typing i:nth-child(2){animation-delay:.2s;}
+.typing i:nth-child(3){animation-delay:.4s;}
+@keyframes blink{0%,60%,100%{opacity:.28;transform:translateY(0);}30%{opacity:.9;transform:translateY(-3px);}}
+@media (prefers-reduced-motion:reduce){.typing i{animation:none;opacity:.5;}}
+
+/* ---------- カード（Flexメッセージ風） ---------- */
+.card{background:var(--surface);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
+  max-width:82%;margin-bottom:10px;margin-left:42px;}
+.card-hd{background:var(--grn);color:#fff;padding:14px 16px;}
+.card-hd .k{font-size:11px;opacity:.85;letter-spacing:1.5px;font-weight:700;}
+.card-hd .n{font-size:30px;font-weight:800;line-height:1.15;margin-top:2px;}
+.card-hd .n small{font-size:15px;font-weight:700;margin-left:6px;}
+.card-bd{padding:14px 16px;}
+.card-bd p{font-size:13.5px;color:var(--ink2);line-height:1.75;}
+.card-kv{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px;}
+.card-kv span{font-size:11px;font-weight:700;background:var(--surface2);border:1px solid var(--line);
+  padding:4px 10px;border-radius:999px;color:var(--ink2);}
+.card-ft{border-top:1px solid var(--line2);}
+.card-ft button{width:100%;padding:14px;font-size:14.5px;font-weight:700;color:var(--grn);}
+.card-ft button:active{background:var(--surface2);}
+.card-ft button+button{border-top:1px solid var(--line2);}
+
+/* ---------- クイックリプライ ---------- */
+.qr{flex-shrink:0;padding:8px 12px 10px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
+.qr::-webkit-scrollbar{display:none;}
+.qr.stack{flex-direction:column;overflow-x:visible;overflow-y:auto;max-height:46dvh;}
+.qr:empty{display:none;}
+.qr button{
+  flex-shrink:0;background:var(--surface);border:1.5px solid var(--grn);color:var(--grn);
+  padding:9px 16px;border-radius:999px;font-size:14px;font-weight:700;white-space:nowrap;
+  box-shadow:var(--shadow);
+}
+.qr.stack button{width:100%;white-space:normal;text-align:left;padding:12px 16px;line-height:1.5;}
+.qr button:active{background:var(--grn);color:#fff;}
+.qr button.sub{border-color:var(--line);color:var(--ink2);}
+.qr button .n{display:inline-block;min-width:20px;font-weight:800;opacity:.75;}
+
+/* ---------- 入力バー ---------- */
+.ibar{flex-shrink:0;background:var(--surface);border-top:1px solid var(--line);
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom));display:flex;gap:8px;align-items:center;}
+.ibar.hide{display:none;}
+.ibar input{flex:1;background:var(--surface2);border:1px solid var(--line);border-radius:999px;
+  padding:11px 16px;color:var(--ink);min-width:0;}
+.ibar input::placeholder{color:var(--ink3);}
+.ibar input:focus{outline:none;border-color:var(--grn);}
+.ib-send{width:44px;height:44px;border-radius:50%;background:var(--grn);color:#fff;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;}
+.ib-send:disabled{opacity:.35;}
+
+/* ---------- リッチメニュー ---------- */
+.rich{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);
+  transform:translateY(101%);transition:transform .24s ease;z-index:30;
+  padding-bottom:env(safe-area-inset-bottom);}
+.rich.on{transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){.rich{transition:none;}}
+.rich-g{display:grid;grid-template-columns:1fr 1fr;}
+.rich-g button{padding:20px 10px;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);
+  display:flex;flex-direction:column;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:var(--ink2);}
+.rich-g button:nth-child(2n){border-right:none;}
+.rich-g button:active{background:var(--surface2);}
+.rich-g .ic{font-size:23px;}
+.rich-g button:disabled{opacity:.34;}
+.rich-cl{width:100%;padding:12px;font-size:13px;font-weight:700;color:var(--ink3);}
+.scrim{position:absolute;inset:0;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;
+  transition:opacity .24s;z-index:25;}
+.scrim.on{opacity:1;pointer-events:auto;}
+
+/* ---------- 詳細レポート（全画面シート） ---------- */
+.sheet{position:fixed;inset:0;background:var(--bg);z-index:60;display:flex;flex-direction:column;
+  max-width:480px;margin:0 auto;transform:translateY(100%);transition:transform .28s ease;}
+.sheet.on{transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){.sheet{transition:none;}}
+.sheet-hd{flex-shrink:0;background:var(--surface);border-bottom:1px solid var(--line);
+  padding:max(8px,env(safe-area-inset-top)) 12px 8px;display:flex;align-items:center;gap:10px;}
+.sheet-hd .t{flex:1;font-size:15px;font-weight:700;}
+.sheet-bd{flex:1;overflow-y:auto;padding:16px 16px 40px;-webkit-overflow-scrolling:touch;}
+
+/* ---------- レポート本文 ---------- */
+.rep-hero{background:var(--surface);border-radius:16px;padding:22px 18px;text-align:center;box-shadow:var(--shadow);}
+.rep-lbl{font-size:10.5px;letter-spacing:2.4px;color:var(--ink3);font-weight:700;}
+.rep-num{font-size:62px;font-weight:800;line-height:1;color:var(--grn);margin:6px 0 2px;}
+.rep-name{font-size:20px;font-weight:800;}
+.rep-en{font-size:11px;letter-spacing:2px;color:var(--ink3);font-weight:700;margin-top:3px;}
+.rep-catch{font-size:13.5px;color:var(--ink2);line-height:1.85;margin-top:11px;}
+.chips{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:13px;}
+.chip{font-size:11px;font-weight:700;padding:5px 11px;border-radius:999px;background:var(--surface2);
+  border:1px solid var(--line);color:var(--ink2);}
+.chip b{color:var(--grn);}
+
+h3.sub{font-size:14px;font-weight:800;margin:24px 0 10px;display:flex;align-items:center;gap:8px;scroll-margin-top:70px;}
+h3.sub::before{content:'';width:4px;height:15px;border-radius:2px;background:var(--grn);flex-shrink:0;}
+h2.ttl{font-size:19px;font-weight:800;line-height:1.45;margin-bottom:13px;}
+.eyebrow{font-size:10px;font-weight:800;letter-spacing:2.4px;color:var(--grn);margin-top:30px;}
+.box{background:var(--surface);border-radius:14px;padding:16px;box-shadow:var(--shadow);}
+.muted{color:var(--ink2);font-size:13px;line-height:1.85;}
+.mini{font-size:11.5px;color:var(--ink3);line-height:1.8;}
+
+.conf{display:flex;align-items:flex-start;gap:10px;padding:13px 14px;border-radius:12px;margin-top:12px;
+  background:var(--grn-soft);border:1px solid rgba(6,199,85,.3);}
+.conf.mid{background:#fff6e5;border-color:#ffd591;}
+.conf.low{background:#feeceb;border-color:#f8bfb8;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .conf.mid{background:#332a15;border-color:#5c4a1e;}
+  :root:not([data-theme="light"]) .conf.low{background:#3a1f1c;border-color:#663230;}}
+:root[data-theme="dark"] .conf.mid{background:#332a15;border-color:#5c4a1e;}
+:root[data-theme="dark"] .conf.low{background:#3a1f1c;border-color:#663230;}
+.conf-i{font-size:18px;line-height:1.4;flex-shrink:0;}
+.conf-t{font-size:12.5px;font-weight:800;margin-bottom:2px;}
+.conf-d{font-size:11.5px;color:var(--ink2);line-height:1.7;}
+
+.chart{background:var(--surface);border-radius:14px;padding:10px 4px 4px;box-shadow:var(--shadow);}
+svg{display:block;width:100%;height:auto;}
+.rdr-ring{stroke:var(--line);}
+.rdr-ring.out{stroke:var(--ink3);stroke-opacity:.55;}
+.rdr-axis{stroke:var(--line2);}
+.rdr-lbl{fill:var(--ink3);font-weight:700;}
+
+.bars{display:flex;flex-direction:column;gap:9px;}
+.bar-row{display:flex;align-items:center;gap:10px;}
+.bar-lbl{width:104px;flex-shrink:0;font-size:11.5px;font-weight:700;color:var(--ink2);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-lbl b{color:var(--grn);font-size:13px;margin-right:4px;}
+.bar-track{flex:1;height:9px;background:var(--line2);border-radius:999px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:999px;background:var(--ink3);opacity:.55;width:0;
+  transition:width .8s cubic-bezier(.2,.8,.3,1);}
+.bar-row.top .bar-fill{background:var(--grn);opacity:1;}
+.bar-row.top .bar-lbl{color:var(--ink);}
+.bar-v{width:36px;text-align:right;font-size:12.5px;font-weight:700;color:var(--ink3);flex-shrink:0;
+  font-variant-numeric:tabular-nums;}
+.bar-row.top .bar-v{color:var(--grn);}
+
+.kv{display:grid;grid-template-columns:76px 1fr;gap:9px 12px;}
+.kv dt{font-size:11px;font-weight:800;color:var(--grn);padding-top:2px;}
+.kv dd{font-size:13px;line-height:1.75;}
+
+ul.list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+ul.list li{font-size:13px;line-height:1.75;padding-left:22px;position:relative;color:var(--ink2);}
+ul.list li::before{content:'✓';position:absolute;left:0;top:0;color:var(--grn);font-weight:800;font-size:12px;}
+ul.list.warn li::before{content:'!';color:var(--warn);}
+ul.list.talk li::before{content:'“';color:var(--grn);font-size:17px;top:2px;}
+
+.arrow{border-radius:12px;padding:13px 14px;background:var(--surface);box-shadow:var(--shadow);margin-bottom:10px;}
+.arrow-h{font-size:12px;font-weight:800;margin-bottom:6px;}
+.arrow.up .arrow-h{color:var(--grn);}
+.arrow.down .arrow-h{color:var(--warn);}
+.arrow p{font-size:12.5px;color:var(--ink2);line-height:1.8;}
+
+.gym{background:var(--surface);border-radius:14px;padding:16px;box-shadow:var(--shadow);border-left:4px solid var(--grn);}
+.gym-row{padding:11px 0;border-bottom:1px dashed var(--line);}
+.gym-row:last-child{border-bottom:none;padding-bottom:0;}
+.gym-row:first-child{padding-top:0;}
+.gym-k{font-size:11px;font-weight:800;color:var(--grn);margin-bottom:4px;}
+.gym-v{font-size:13px;line-height:1.8;}
+
+.coach{background:var(--surface);border-radius:14px;padding:16px;box-shadow:var(--shadow);border-left:4px solid var(--ink3);}
+.coach-h{font-size:12.5px;font-weight:800;margin-bottom:6px;}
+
+.inst-row{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+.inst-lbl{width:92px;flex-shrink:0;font-size:11.5px;font-weight:700;}
+.inst-track{flex:1;height:9px;background:var(--line2);border-radius:999px;overflow:hidden;}
+.inst-fill{height:100%;border-radius:999px;background:var(--grn);width:0;transition:width .8s;}
+.inst-v{width:36px;text-align:right;font-size:12.5px;font-weight:700;color:var(--ink3);font-variant-numeric:tabular-nums;}
+
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.cmp-col{background:var(--surface);border-radius:12px;padding:12px;box-shadow:var(--shadow);}
+.cmp-h{font-size:12.5px;font-weight:800;margin-bottom:8px;color:var(--grn);}
+.cmp-k{font-size:9.5px;color:var(--ink3);font-weight:700;margin-top:8px;}
+.cmp-v{font-size:11.5px;line-height:1.65;color:var(--ink2);}
+
+.act{display:flex;flex-direction:column;gap:9px;margin-top:26px;}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--grn);color:#fff;
+  padding:15px;border-radius:999px;font-size:15px;font-weight:800;width:100%;}
+.btn:active{background:var(--grn-d);}
+.btn:disabled{opacity:.5;}
+.btn-g{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--surface);
+  border:1.5px solid var(--line);color:var(--ink2);padding:13px;border-radius:999px;font-size:13.5px;font-weight:700;width:100%;}
+.btn-row{display:flex;gap:9px;}
+.btn-row>*{flex:1;}
+
+.send-box{background:var(--surface);border-radius:14px;padding:16px;box-shadow:var(--shadow);
+  border-left:4px solid var(--grn);margin-top:26px;}
+.send-t{font-size:13.5px;font-weight:800;margin-bottom:5px;}
+.send-d{font-size:12.5px;color:var(--ink2);line-height:1.8;margin-bottom:13px;}
+.send-st{font-size:12.5px;font-weight:700;line-height:1.7;margin-top:11px;padding:11px 13px;border-radius:11px;display:none;}
+.send-st.on{display:block;}
+.send-st.wait{background:#fff6e5;color:#8a5a00;}
+.send-st.done{background:var(--grn-soft);color:var(--grn-d);}
+.send-st.ng{background:#feeceb;color:#b3271a;}
+
+.foot{margin-top:26px;text-align:center;}
+.foot p{font-size:10.5px;color:var(--ink3);line-height:1.9;}
+
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(14px);z-index:100;
+  background:rgba(17,20,24,.94);color:#fff;font-size:12.5px;font-weight:700;padding:11px 20px;
+  border-radius:999px;opacity:0;transition:.26s;pointer-events:none;max-width:88vw;text-align:center;}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
+
+.hide{display:none !important;}
+.pdf-head{display:none;}
+</style>
+<style media="print" id="printcss">
+@page{margin:12mm 10mm;}
+body{background:#fff;color:#111;font-size:12px;}
+.app,.chat-hdr,.qr,.ibar,.rich,.scrim,.chat,.toast,.act,.send-box,.card-ft,.no-print{display:none !important;}
+.sheet{position:static;transform:none;max-width:none;height:auto;display:block;background:#fff;}
+.sheet-hd{display:none !important;}
+.sheet-bd{overflow:visible;padding:0;}
+.pdf-head{display:block !important;border-bottom:2px solid #06c755;padding-bottom:8px;margin-bottom:16px;}
+.pdf-brand{font-size:15px;font-weight:800;color:#111;}
+.pdf-meta{font-size:11px;color:#555;margin-top:4px;}
+.pdf-meta span{margin-right:14px;}
+.box,.chart,.gym,.coach,.arrow,.cmp-col,.rep-hero,.conf{background:#fff !important;box-shadow:none !important;
+  border:1px solid #ccc !important;break-inside:avoid;page-break-inside:avoid;}
+.muted,.mini,.gym-v,.arrow p,ul.list li,.kv dd,.bar-lbl,.cmp-v,.rep-catch,.conf-d,.foot p,.chip{color:#333 !important;}
+.rep-lbl,.rep-en,.cmp-k,.bar-v,.inst-v,.inst-lbl{color:#666 !important;}
+.rep-name,h2.ttl,h3.sub,.conf-t,.cmp-h,.coach-h,.arrow-h,.kv dt,.eyebrow,.gym-k{color:#111 !important;}
+.rep-num,.chip b{color:#05893d !important;}
+.bar-track,.inst-track{background:#e8e8e8 !important;}
+.bar-fill{background:#bbb !important;opacity:1 !important;}
+.bar-row.top .bar-fill,.inst-fill{background:#06c755 !important;}
+.rdr-ring{stroke:#ccc !important;} .rdr-ring.out{stroke:#999 !important;}
+.rdr-axis{stroke:#ddd !important;} .rdr-lbl{fill:#555 !important;}
+.chart svg{max-width:300px;margin:0 auto;}
+h3.sub::before,.gym{border-color:#06c755 !important;}
+h3.sub,h2.ttl{break-after:avoid;page-break-after:avoid;}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <header class="chat-hdr">
+    <button class="hdr-btn" id="btnHome" aria-label="最初に戻る">‹</button>
+    <div class="hdr-ava" id="brandMark">◆</div>
+    <div class="hdr-nm">
+      <div class="hdr-name" id="brandName">エニアグラム診断</div>
+      <div class="hdr-sub" id="brandSub">事業を選んでください</div>
+    </div>
+    <button class="hdr-btn" id="btnRich" aria-label="メニュー">☰</button>
+  </header>
+
+  <div class="pbar"><div class="pbar-f" id="pbarF"></div></div>
+
+  <main class="chat" id="chat" role="log" aria-live="polite"></main>
+
+  <div class="qr" id="qr"></div>
+
+  <div class="ibar hide" id="ibar">
+    <input id="ibText" type="text" autocomplete="off" placeholder="メッセージを入力">
+    <button class="ib-send" id="ibSend" aria-label="送信">➤</button>
+  </div>
+
+  <div class="scrim" id="scrim"></div>
+  <nav class="rich" id="rich" aria-label="メニュー">
+    <div class="rich-g">
+      <button id="rmGuide"><span class="ic">💡</span>使い方</button>
+      <button id="rmOrg"><span class="ic">🏢</span>事業を切り替える</button>
+      <button id="rmReport"><span class="ic">📄</span>結果を見る</button>
+      <button id="rmPrint"><span class="ic">🖨</span>保存・印刷</button>
+      <button id="rmSend"><span class="ic">📮</span>結果を送る</button>
+      <button id="rmRestart"><span class="ic">🔄</span>もう一度</button>
+    </div>
+    <button class="rich-cl" id="rmClose">閉じる</button>
+  </nav>
+</div>
+
+<section class="sheet" id="sheet" aria-label="診断結果レポート">
+  <div class="sheet-hd">
+    <div class="t">診断結果レポート</div>
+    <button class="hdr-btn" id="sheetClose" aria-label="閉じる">✕</button>
+  </div>
+  <div class="sheet-bd" id="resBody"></div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==========================================================
+   エニアグラム診断  /  LINE公式アカウント風トークUI
+   ========================================================== */
+
+/* ---------- 設問（各タイプ10問・動機ベース） ---------- */
+var QT = {
+1:[ "物事には「正しいやり方」があり、それに従うべきだと感じる",
+    "自分のミスに対して、他人に対するよりずっと厳しく自分を責めてしまう",
+    "頭の中に「もっとちゃんとやれ」と指摘してくる声が、いつもある",
+    "だらしなさや手抜きを見ると、強い苛立ちを覚える",
+    "楽しむ前に、やるべきことを片づけないと気が済まない",
+    "不完全なもの・ずれているものを見ると、つい直したくなる",
+    "怒りを表に出すのは未熟なことだと感じ、抑え込むことが多い",
+    "公平さやルールが守られていないと、見過ごすことができない",
+    "良心に反することをすると、後々まで罪悪感が残る",
+    "終わったことを「もっとうまくやれたはずだ」と振り返ってしまう"],
+2:[ "人が困っていると、頼まれる前に手を差し伸べている",
+    "自分の用事より、人からの頼みごとを優先してしまう",
+    "「あなたが必要だ」と言われると、強く満たされる",
+    "人を助けるのは得意なのに、自分が助けを求めるのは苦手だ",
+    "相手が今なにを求めているか、自然と察してしまう",
+    "尽くしたのに感謝が返ってこないと、思った以上に傷つく",
+    "人から嫌われるかもしれないと考えると、落ち着かなくなる",
+    "自分の欲求を後回しにしすぎて、何がしたいのか分からなくなる",
+    "相手によって、自分の見せ方を無意識に変えている",
+    "誰かの人生に良い影響を与えられたと感じると、大きな喜びがある"],
+3:[ "目標を立てて達成していくことが、何よりの原動力になる",
+    "人から自分がどう評価されているかを、常に意識している",
+    "うまくいっていない姿を、人に見せたくない",
+    "効率の悪いやり方には我慢できず、最短ルートを探してしまう",
+    "立ち止まって感情を味わうより、次の行動に移る方が楽だ",
+    "その場に応じて「できる自分」を演じ分けることができる",
+    "忙しく成果を出している時が、いちばん自分らしいと感じる",
+    "結果が出ていないと、自分に価値がないように思えてくる",
+    "つい人と自分を比べて、勝ち負けで測ってしまう",
+    "目標のためなら、休息や感情は後回しにできる"],
+4:[ "自分はどこか人と違っていて、周りに馴染みきれない感覚がある",
+    "ありふれたものより、深く美しいもの・本物に強く惹かれる",
+    "感情の波が大きく、落ち込みと高揚を行き来する",
+    "人が持っていて自分にはないものを、うらやましく感じやすい",
+    "平凡な毎日より、意味のある人生を生きたいと切実に思う",
+    "自分の内面を理解してもらえないと、深い孤独を感じる",
+    "悲しみや切なさの中に、むしろ心地よさを感じることがある",
+    "自分らしさを失う選択なら、たとえ有利でも選びたくない",
+    "過去の出来事や、失ったものに心が向かうことが多い",
+    "表面的な会話より、本音で深く語り合いたい"],
+5:[ "人と長く一緒にいると消耗し、一人の時間で回復する",
+    "行動する前に、十分な知識と準備を揃えておきたい",
+    "感情を求められる場面より、分析し理解する方が得意だ",
+    "自分の時間・エネルギー・領域に踏み込まれたくない",
+    "質問されると、答える前に頭の中で組み立ててから話す",
+    "少ないもので生きられるようにして、人に依存せずにいたい",
+    "興味のある分野は、人より深く掘り下げたくなる",
+    "その場では感情が動かず、後から一人になって味わうことが多い",
+    "予定を詰め込まれると、それだけで負担に感じる",
+    "分かっていないまま人前に立つことに、強い抵抗がある"],
+6:[ "物事を決める前に、最悪のケースを想定してしまう",
+    "信頼できる人やグループには、とことん誠実でいたい",
+    "「大丈夫」と言われても、自分で確認しないと不安が残る",
+    "決断するとき、人の意見を聞いて安心したくなる",
+    "権威や立場が上の人に、従いたい気持ちと反発する気持ちの両方がある",
+    "不安があるからこそ、準備や備えを怠らない",
+    "「この人は本当に信用できるか」と、相手を試すようなことがある",
+    "うまくいっている時ほど、落とし穴がないか気になってしまう",
+    "仲間や大切なものを守るためなら、普段より強くなれる",
+    "決めた後も「あれで良かったのか」と考え直すことが多い"],
+7:[ "面白そうな計画を考えている時が、いちばんワクワクする",
+    "一つに縛られるより、いつでも選択肢を残しておきたい",
+    "退屈や停滞に耐えられず、すぐ次の刺激を探してしまう",
+    "嫌なことがあっても、良い面に切り替えるのが早い",
+    "同時にいくつものことを進めているのが好きだ",
+    "制限されたり、逃げ道がない状況が苦しい",
+    "深刻な話が続くと、冗談を言って空気を変えたくなる",
+    "始めるのは得意だが、最後まで終わらせるのは苦手だ",
+    "先に楽しい予定があると、それを支えに日々を乗り切れる",
+    "ただ我慢し続けることに、あまり意味を感じない"],
+8:[ "物事の主導権を自分が握っていないと、落ち着かない",
+    "自分の弱いところを人に見せることに、強い抵抗がある",
+    "理不尽なことには、はっきりと立ち向かう",
+    "遠回しな言い方より、率直にぶつかってくる人の方が信頼できる",
+    "自分の仲間や大切な人は、自分が守るという感覚が強い",
+    "話が進まない時は、自分が決断を下すことになりがちだ",
+    "エネルギーが強い・圧があると、人から言われることがある",
+    "その場の力関係（誰が主導権を持っているか）に、すぐ気づく",
+    "中途半端にやるくらいなら、徹底的にやりたい",
+    "人に支配されたり、細かく指図されるのが我慢ならない"],
+9:[ "対立や、ぴりぴりした空気が何より苦手だ",
+    "自分の意見より、相手の意見に合わせてしまうことが多い",
+    "「どちらでもいい」と、本当にそう思うことが多い",
+    "大事なことほど、先延ばしにしてしまう",
+    "「一緒にいると落ち着く」と言われることがある",
+    "どちらの言い分も分かってしまい、決められなくなる",
+    "波風を立てないために、不満を飲み込むことがある",
+    "急かされると、かえって動けなくなってしまう",
+    "決まったルーティンや、いつもの習慣に安心を感じる",
+    "自分が本当は何をしたいのか、はっきりしないことがある"]
+};
+
+/* ---------- 本能サブタイプ設問（各4問） ---------- */
+var QI = {
+sp:[ "体調・睡眠・食事など、自分のコンディションの管理が常に気になる",
+     "お金や住まいなど、生活の基盤が安定していないと落ち着かない",
+     "身の回りの快適さ（温度・寝具・道具）に、こだわりがある方だ",
+     "将来に備えて、蓄えや保険を確保しておきたい"],
+so:[ "自分が集団の中でどう位置づけられているかが気になる",
+     "人とのつながりや、所属している場を何より大切にする",
+     "誰かの役に立ち、認めてもらえる場所があると安心する",
+     "その場の空気や、人間関係の力学を敏感に感じ取る"],
+sx:[ "広く浅い関係より、特定の相手と深くつながりたい",
+     "惹かれた対象には、強い熱量で一気に没入する",
+     "強い刺激や、感情が激しく動く体験を求めてしまう",
+     "相手に強い印象を残したい、意識されたいと思う"]
+};
+
+/* ---------- タイプ詳細データ ---------- */
+var TYPES = {
+1:{name:"改革する人",en:"THE REFORMER",catch:"正しさへの情熱。基準を掲げ、世界を少しでも良くしようとする人。",
+  center:"本能",centerDesc:"怒り",
+  want:"正しくありたい／誠実で完全でありたい",fear:"欠陥がある・堕落していると思われること",
+  passion:"怒り（本人は「正すべき指摘」と感じている）",virtue:"平静さ",
+  strengths:["高い倫理観と責任感。任せたことは必ずやり遂げる","細部への注意力があり、品質を落とさない","自制心が強く、正しいと決めた習慣を継続できる","公平で、えこひいきをしない"],
+  pitfalls:["自分にも他人にも基準が高すぎて、疲弊する","「0か100か」で判断し、少しの失敗で全部を投げ出す","楽しむこと・休むことに罪悪感がある","怒りを抑え込み、批判や皮肉として漏れ出す"],
+  gw:{n:7,t:"7の健全さを取り込む。「遊び」「余白」「未完成のまま進む」ことを自分に許すと、緊張がほどけ、驚くほど視野が広がります。"},
+  sd:{n:4,t:"4の不健全さが出る。「自分だけが正しくやっているのに報われない」という孤独感と自己憐憫に沈み、感情の波が大きくなります。"},
+  wings:{a:{k:"1w9",n:"理想主義者",t:"9の穏やかさが加わり、冷静で客観的。感情的にならず、静かに基準を守る。距離を置いて全体を見るタイプ。"},
+         b:{k:"1w2",n:"擁護者",t:"2の対人性が加わり、人に働きかける改革者。教える・正す・世話を焼くことに情熱を注ぐ、面倒見のよいタイプ。"}},
+  gym:{style:"フォーム・回数・重量が明確に定義されたプログラム。「正しいやり方」を理解できると、驚異的な継続力を発揮します。",
+    motiv:"チェックリストと記録。ルールが明快であるほど強い。",
+    risk:"完璧にできない日があると「もう台無しだ」と一気に崩れる、オールオアナッシング型の離脱。",
+    food:"厳格に守れる一方、一度の逸脱で自己嫌悪に陥り、その反動で崩れやすい。",
+    hint:"最初に「80点の日」の基準を決めておくこと。完璧を守るためではなく、続けるために基準を2段階持ちます。"},
+  trainer:{talk:["今日の70点は、サボりではなく計画のうちです","できていない1割より、できている9割を見ましょう","このメニューの根拠を説明しますね"],
+    ng:["「まあ適当でいいよ」（軽く扱われたと感じ、信頼を失います）","人前でのフォーム指摘（羞恥心が強く出ます。個別に伝えてください）"],
+    goal:"達成基準を数値で明確に。ただし必ず「これだけできればOK」という最低ラインをセットで設定します。"}},
+
+2:{name:"人を助ける人",en:"THE HELPER",catch:"人の必要に応える人。与えることで、自分の居場所をつくる。",
+  center:"感情",centerDesc:"恥",
+  want:"愛されたい／必要とされたい",fear:"必要とされず、愛されないこと",
+  passion:"高慢（自分は与える側だ、という無自覚な優位）",virtue:"謙虚さ",
+  strengths:["共感力が高く、相手の必要をすぐに察知できる","温かく、人を安心させる力がある","面倒見がよく、人間関係を育てるのがうまい","惜しみなく与えられる寛大さ"],
+  pitfalls:["自分の欲求が分からなくなるほど、後回しにする","見返りへの期待が裏切られると、強い怒りに変わる","相手にとって「必要な存在」であろうと踏み込みすぎる","No が言えず、抱え込んで潰れる"],
+  gw:{n:4,t:"4の健全さを取り込む。人のためではなく「自分の本当の気持ち」に向き合えるようになると、与えることが取引ではなく純粋な喜びに変わります。"},
+  sd:{n:8,t:"8の不健全さが出る。「こんなにしてあげたのに」と支配的・攻撃的になり、感情をぶつけてしまいます。"},
+  wings:{a:{k:"2w1",n:"奉仕者",t:"1の使命感が加わり、「やるべきだから助ける」責任型。誠実で、奉仕に倫理的な意味を見出す。"},
+         b:{k:"2w3",n:"ホスト",t:"3の社交性が加わり、人を惹きつける魅力型。場を明るくし、人脈を広げるのが得意。"}},
+  gym:{style:"人とのつながりで続くタイプ。トレーナーとの信頼関係そのものが最大の燃料になります。グループレッスンも有効。",
+    motiv:"「誰かのために健康でいる」という文脈。ただし自分軸への転換も必要。",
+    risk:"家族・仕事・人の世話を優先して、自分の予約を後回しにし、いつのまにか来なくなる。",
+    food:"人と食事を合わせる場面で崩れやすい。断れないことが最大の壁。",
+    hint:"「自分を整えることが、周りを支える力になる」と目的を再定義する。自分のための時間を、先に予定表に確保します。"},
+  trainer:{talk:["あなたが元気でいることが、周りにとって一番の支えになります","今日は誰のためでもなく、自分のために来ましたね","無理なときは断ってくれて大丈夫ですよ"],
+    ng:["事務的・機械的な対応（関係が切れたと感じ、モチベーションが急落します）","感謝を伝えないまま指導だけする"],
+    goal:"人を巻き込む目標設定（家族と歩く等）＋「自分のための時間」を明文化してセットに。"}},
+
+3:{name:"達成する人",en:"THE ACHIEVER",catch:"結果で語る人。前に進み続けることで、自分の価値を証明する。",
+  center:"感情",centerDesc:"恥",
+  want:"価値ある存在でありたい／成功を認められたい",fear:"無価値だと思われること・失敗して見捨てられること",
+  passion:"欺瞞（成果のために自分を演出し、本当の感情を見失う）",virtue:"誠実さ",
+  strengths:["目標達成力が圧倒的。決めたら結果まで持っていく","効率がよく、要領を掴むのが速い","自信があり、周囲を巻き込んで動かす推進力がある","適応力が高く、場に合わせて能力を発揮できる"],
+  pitfalls:["結果が出ないと、自分の存在価値まで否定してしまう","立ち止まれず、燃え尽きるまで走る","本音や弱さを見せられず、孤独になりやすい","人と比べて、勝ち負けで自分を測る"],
+  gw:{n:6,t:"6の健全さを取り込む。成果ではなく「仲間への誠実さ」「協力」に価値を置けるようになると、走る理由が自分の内側から生まれます。"},
+  sd:{n:9,t:"9の不健全さが出る。頑張れなくなり、無気力に。何もしていない自分を直視できず、ぼんやりと時間を潰してしまいます。"},
+  wings:{a:{k:"3w2",n:"魅了する人",t:"2の対人性が加わり、人を惹きつけるカリスマ型。人望と成果を同時に取りにいく。"},
+         b:{k:"3w4",n:"プロフェッショナル",t:"4の内面性が加わり、質と独自性にこだわる専門家型。ただ勝つのではなく「良いもの」で認められたい。"}},
+  gym:{style:"数値・記録・PB更新。ビフォーアフター。競争性のある環境で最も伸びます。目に見える指標が原動力。",
+    motiv:"目標の可視化と達成の実感。順位や記録更新は効果絶大。",
+    risk:"結果を急ぎすぎてオーバーワーク・怪我。そして停滞期（プラトー）に入ると、価値を感じられず一気に離脱する。",
+    food:"効率重視で極端な制限に走り、リバウンドを繰り返しやすい。",
+    hint:"体重以外の「過程の指標」（出席率・睡眠・挙上重量）を必ず持つこと。結果が止まっても続く仕組みを作ります。"},
+  trainer:{talk:["今週の勝ちポイントは体重じゃなく「出席率10割」です","停滞期はこの時期に必ず来ます。想定内です","今日は休むという判断ができたのが、成長です"],
+    ng:["人前で失敗を強調する（強い恥を感じ、来なくなります）","根拠のない精神論だけの励まし"],
+    goal:"短期マイルストーンを複数設定し、停滞期の存在を最初に共有しておく。"}},
+
+4:{name:"個性的な人",en:"THE INDIVIDUALIST",catch:"深さを求める人。自分だけの意味を生きようとする。",
+  center:"感情",centerDesc:"恥",
+  want:"自分自身でありたい／唯一無二の意味を持ちたい",fear:"平凡で、取るに足らない存在であること",
+  passion:"妬み（自分に欠けているものを、人の中に見てしまう）",virtue:"平常心",
+  strengths:["感受性が豊かで、人の痛みを深く理解できる","独自の感性と創造性がある","本音で向き合える誠実さ。表面的な関係で終わらせない","苦しい状況にも意味を見出す力"],
+  pitfalls:["気分の波が大きく、行動が安定しない","人と比べて「自分にはない」と落ち込みやすい","感情に浸りすぎて、行動が止まる","特別でない自分を認められず、日常を軽んじる"],
+  gw:{n:1,t:"1の健全さを取り込む。感情に関係なく「決めたことを淡々とやる」規律を持てたとき、才能がはじめて形になります。"},
+  sd:{n:2,t:"2の不健全さが出る。人にしがみつき、承認を過剰に求め、相手の反応に一喜一憂してしまいます。"},
+  wings:{a:{k:"4w3",n:"貴族",t:"3の推進力が加わり、自分の世界観を外に発信する表現者型。洗練を求め、成果にもこだわる。"},
+         b:{k:"4w5",n:"ボヘミアン",t:"5の探究心が加わり、内面世界を深く掘る芸術家型。独自性が強く、孤高になりやすい。"}},
+  gym:{style:"画一的なメニューより、自分のために組まれた特別感。空間・音楽・世界観への共感が継続に直結します。",
+    motiv:"「なりたい自分の像」との接続。数値より、意味とストーリー。",
+    risk:"気分の波でムラが大きい。人と比べて落ち込み、「自分には向いていない」と物語化して離脱する。",
+    food:"感情と食が強く結びつき、落ち込むと過食・拒食に振れやすい。",
+    hint:"「気分が乗らない日用の最小メニュー」を先に用意する。やる気ではなく、仕組みで乗り切ります。"},
+  trainer:{talk:["調子が乗らない日も想定して、このメニューを作りました","あなたの体質・骨格に合わせるとこうなります","今の気分はどうですか？そこから今日の強度を決めましょう"],
+    ng:["「みんなこうしてますよ」（没個性化され、一気に冷めます）","感情を軽く扱う・急かす"],
+    goal:"数値目標の前に「どうなりたいか」を一緒に言語化する。意味づけが定まれば継続力は跳ね上がります。"}},
+
+5:{name:"調べる人",en:"THE INVESTIGATOR",catch:"理解することで安心する人。自分の世界を守り、深く掘る。",
+  center:"思考",centerDesc:"恐れ",
+  want:"有能でありたい／理解し、自分の力で立ちたい",fear:"無力で、消耗させられ、侵食されること",
+  passion:"強欲（時間・エネルギー・知識を出し惜しみして蓄える）",virtue:"無執着",
+  strengths:["客観的で、感情に流されない分析力","一つのことを人より深く掘り下げられる","冷静沈着。危機の場面でも取り乱さない","独立心が強く、自分で完結できる"],
+  pitfalls:["準備・情報収集で満足し、行動が遅れる","人との関わりを削り、孤立しやすい","感情を切り離しすぎて、体の声に気づかない","「まだ分かっていない」を理由に始められない"],
+  gw:{n:8,t:"8の健全さを取り込む。頭で完結せず「まず体で動く」勇気を持てたとき、知識が現実を動かす力に変わります。"},
+  sd:{n:7,t:"7の不健全さが出る。集中が散り、次々と新しい情報に飛びつき、落ち着きなく浅い刺激を追ってしまいます。"},
+  wings:{a:{k:"5w4",n:"独創家",t:"4の感性が加わり、独自の世界観を持つ探究者。知性と芸術性が同居する。"},
+         b:{k:"5w6",n:"問題解決者",t:"6の実務性が加わり、専門知識を現実の課題解決に使う実践派。堅実で、信頼を積み上げる。"}},
+  gym:{style:"理論とデータ。なぜこの種目なのか、仕組みが腹落ちすると自走します。一人で黙々と取り組める環境が最適。",
+    motiv:"エビデンスと数値。自分でログを設計させると強い。",
+    risk:"調べることで満足して実行に移らない。人が多い時間帯や過度な干渉で消耗し、足が遠のく。",
+    food:"知識は完璧なのに、実践が続かないというギャップが起きやすい。",
+    hint:"「調べる時間」に上限を決め、最小限の実行ルール（3種目だけ等）に落とし込むこと。"},
+  trainer:{talk:["理由はこうです。まずはこの3種目だけで十分です","数値はこちらで記録しておきます。見返せるようにしますね","今日は質問がなければ、黙々といきましょう"],
+    ng:["過度にハイテンションな励まし・急かす声かけ（消耗させます）","根拠を示さない指示"],
+    goal:"学習欲を活かし、記録フォーマットを本人に設計してもらう。理解＝継続の燃料になります。"}},
+
+6:{name:"忠実な人",en:"THE LOYALIST",catch:"備える人。不安を力に変え、仲間を守り抜く。",
+  center:"思考",centerDesc:"恐れ",
+  want:"安全でありたい／信頼できる支えが欲しい",fear:"支えを失い、独りで対処できなくなること",
+  passion:"恐れ（最悪を想定し続ける習性）",virtue:"勇気",
+  strengths:["責任感が強く、約束を守り抜く","リスク察知能力が高く、備えを怠らない","仲間思いで、信頼した相手には徹底的に忠実","誠実で、地に足がついた判断ができる"],
+  pitfalls:["決断に時間がかかり、決めた後も迷い続ける","考えすぎて不安を増幅させる","人を信じたいのに疑ってしまい、試すような行動をとる","うまくいっている時ほど不安になる"],
+  gw:{n:9,t:"9の健全さを取り込む。「大丈夫かどうか」を手放し、今この瞬間に落ち着けるようになると、不安が静かな安心に変わります。"},
+  sd:{n:3,t:"3の不健全さが出る。不安を打ち消すために働きすぎ、成果を追って自分を追い込みます。"},
+  wings:{a:{k:"6w5",n:"守護者",t:"5の分析力が加わり、慎重で思慮深い。情報を固めてから動く堅実型。"},
+         b:{k:"6w7",n:"バディ",t:"7の陽気さが加わり、人懐こく行動的。不安を人と分かち合いながら前へ進む。"}},
+  gym:{style:"手順が明確で、いつでも確認できる環境。信頼できるトレーナーが一人つけば、最も長く続くタイプです。",
+    motiv:"安心。不安を先回りして潰してもらえることが最大の動機づけ。",
+    risk:"「本当にこれで合っているのか」と不安になり、方針をころころ変える。情報過多で迷子になる。",
+    food:"心配のあまり調べすぎ、極端な情報に振り回されやすい。",
+    hint:"情報源を1つに絞る合意をする。「迷ったらこの人に聞く」を決めるだけで、継続率が大きく変わります。"},
+  trainer:{talk:["不安なところ、先に全部潰しておきましょう","この種目が効く理由と、危ないケースを両方お伝えします","何かあればいつでも聞いてください。それが普通です"],
+    ng:["曖昧な説明、根拠のない「大丈夫です」（かえって不安が増します）","担当や方針をころころ変える"],
+    goal:"想定される不安と、その対処法をセットで書き出す。「もしこうなったら、こうする」を用意しておく。"}},
+
+7:{name:"熱中する人",en:"THE ENTHUSIAST",catch:"可能性に生きる人。楽しさで、世界を明るくする。",
+  center:"思考",centerDesc:"恐れ",
+  want:"満たされたい／自由に、可能性を味わい尽くしたい",fear:"苦痛や退屈に閉じ込められること",
+  passion:"暴食（刺激・体験・選択肢を求め続ける）",virtue:"節制",
+  strengths:["発想力が豊かで、次々にアイデアが出る","切り替えが早く、逆境でも明るさを失わない","好奇心が強く、行動範囲が広い","場を楽しくする力があり、人を巻き込める"],
+  pitfalls:["飽きっぽく、始めたものを終わらせられない","地味な反復や、深掘りが苦手","痛みや向き合うべき問題から目を逸らす","選択肢を残しすぎて、何も決まらない"],
+  gw:{n:5,t:"5の健全さを取り込む。一つのことに腰を据えて深く関わったとき、はじめて本当の充実が手に入ります。"},
+  sd:{n:1,t:"1の不健全さが出る。急に完璧主義的・批判的になり、自分にも人にも厳しく苛立ちます。"},
+  wings:{a:{k:"7w6",n:"エンターテイナー",t:"6の協調性が加わり、人と一緒に楽しむ社交型。責任感もあり、仲間を大切にする。"},
+         b:{k:"7w8",n:"現実主義者",t:"8の行動力が加わり、欲しいものを実際に掴みにいく実行型。パワフルでスピードがある。"}},
+  gym:{style:"バリエーションとゲーム性。飽きさせない工夫が全て。仲間とワイワイやれる環境で驚くほど続きます。",
+    motiv:"新しさ・楽しさ・選べること。イベント性のある目標が効く。",
+    risk:"飽きたら来なくなる。地味な基礎種目と停滞期に極端に弱い。",
+    food:"我慢型の食事管理が最も苦手。禁止されるほど反発します。",
+    hint:"「3つの中から今日のメニューを選ぶ」形式にする。制限ではなく、選択肢の中で設計するのがコツ。"},
+  trainer:{talk:["今日は3パターン用意しました。どれにします？","来月、記録会やりましょう。目標にしませんか","これ、たぶんまだやったことないやつです"],
+    ng:["「これを3ヶ月ずっと続けてください」（想像しただけで苦しくなります）","禁止事項を並べるだけの食事指導"],
+    goal:"短いスパンで区切り、変化とご褒美を設計に組み込む。ゴールは常に「楽しそう」であること。"}},
+
+8:{name:"挑戦する人",en:"THE CHALLENGER",catch:"力で道を切り拓く人。自分と仲間を、誰にも侵させない。",
+  center:"本能",centerDesc:"怒り",
+  want:"強くありたい／自分の人生を自分で決めたい",fear:"人に支配され、傷つけられること",
+  passion:"色欲（強さ・刺激・過剰さへの渇望）",virtue:"無垢さ",
+  strengths:["圧倒的な行動力と決断力","逆境に強く、責任を引き受ける","率直で裏表がない","仲間や弱い立場の人を全力で守る"],
+  pitfalls:["強引になり、周囲を萎縮させる","弱さを見せられず、限界まで抱え込む","怒りの表出が早く、関係を壊すことがある","休息を「弱さ」と見なして無視する"],
+  gw:{n:2,t:"2の健全さを取り込む。守るだけでなく、素直に人に心を開けたとき、本当の強さが手に入ります。"},
+  sd:{n:5,t:"5の不健全さが出る。人を遮断して引きこもり、警戒しながら一人で抱え込みます。"},
+  wings:{a:{k:"8w7",n:"独立独歩",t:"7の推進力が加わり、行動的でスピード感のある開拓型。次々と勝負を仕掛ける。"},
+         b:{k:"8w9",n:"守る者",t:"9の落ち着きが加わり、どっしりと構える重量級。普段は穏やかだが、いざという時に圧倒的。"}},
+  gym:{style:"高強度で限界に挑む設計。主導権を自分が握れる形にすると、爆発的に伸びます。",
+    motiv:"挑戦と勝負。「これができたら本物です」という提示が効く。",
+    risk:"オーバーワークと、痛みを我慢して続けることによる怪我。一方的な指図には強く反発する。",
+    food:"極端に振れやすく、やるときは完璧、崩れるときは一気。",
+    hint:"「休むことも強さ」と再定義する。回復を戦略として位置づけると、素直に受け入れられます。"},
+  trainer:{talk:["今日は追い込まない、が今日の課題です","AとB、どちらでいきますか","率直に言います。今の重量は関節に対して早いです"],
+    ng:["一方的な指示・子供扱い（即座に反発を招きます）","遠回しな言い方でごまかす"],
+    goal:"選択権を渡した上で、限界を提示する。「決めるのは本人」という形が最も機能します。"}},
+
+9:{name:"平和をもたらす人",en:"THE PEACEMAKER",catch:"調和を保つ人。そこにいるだけで、場が穏やかになる。",
+  center:"本能",centerDesc:"怒り",
+  want:"心の平安／調和した、波風のない状態",fear:"分離・喪失・対立に巻き込まれること",
+  passion:"怠惰（自分自身に関わることを後回しにする）",virtue:"行動",
+  strengths:["穏やかで、人を安心させる包容力","偏りなく、複数の立場を理解できる","粘り強く、一度習慣化すると崩れない","対立を和らげ、場をまとめる力"],
+  pitfalls:["自分の意見や欲求が分からなくなる","大事なことほど先延ばしにする","不満を溜め込み、突然限界がくる","流れに身を任せ、変化を起こせない"],
+  gw:{n:3,t:"3の健全さを取り込む。自分の目標に向けて主体的に動き出したとき、眠っていた力が一気に立ち上がります。"},
+  sd:{n:6,t:"6の不健全さが出る。不安と疑いが強まり、心配ばかりが増えて動けなくなります。"},
+  wings:{a:{k:"9w8",n:"仲裁者",t:"8の力強さが加わり、穏やかだが芯が強い。必要な場面ではしっかり主張する。"},
+         b:{k:"9w1",n:"夢見る人",t:"1の理想が加わり、静かな理想主義者。秩序を好み、正しさを穏やかに守る。"}},
+  gym:{style:"穏やかなペースで、ルーティン化。習慣にさえなれば、9タイプ中もっとも長く続きます。",
+    motiv:"考えなくていい状態。決めるストレスがないほど続く。",
+    risk:"そもそも始まらない・予約が先延ばしになる。強度が上がらず、変化が出ないまま停滞する。",
+    food:"気づかないうちに元の習慣に戻っている。無自覚な後退が起きやすい。",
+    hint:"曜日と時間を固定し、「考えずに行けば終わっている」状態にする。決定の回数を減らすほど続きます。"},
+  trainer:{talk:["考える前に、まず来てください。中身は僕が決めます","毎週火曜19時、固定にしましょう","今日は少しだけ強度を上げます。大丈夫です"],
+    ng:["急かす・強く詰める（かえって固まって動けなくなります）","選択肢を多く出しすぎる"],
+    goal:"小さく確実な習慣から。決定を代行し、選択肢は2つまでに絞る。予約は次回分をその場で確定させる。"}}
+};
+
+var CENTERS={
+  "本能":{types:[8,9,1],core:"怒り",desc:"体と本能で世界を捉え、「自分の領域が侵されていないか」に反応します。中心テーマは怒りの扱い方（8は外に出し、9は麻痺させ、1は抑え込む）。"},
+  "感情":{types:[2,3,4],core:"恥",desc:"人との関係とイメージで世界を捉え、「自分に価値があるか」に反応します。中心テーマは恥（2は与えて埋め、3は成果で覆い、4は深く味わう）。"},
+  "思考":{types:[5,6,7],core:"恐れ",desc:"頭と分析で世界を捉え、「安全が確保されているか」に反応します。中心テーマは恐れ（5は知識で備え、6は想定で備え、7は快で紛らわす）。"}
+};
+
+var INSTINCT={
+  sp:{n:"自己保存",en:"SELF-PRESERVATION",t:"身体・健康・お金・住環境といった「生存の土台」に注意が向きます。トレーニングでは体調管理や栄養へのこだわりが強く、生活を整える文脈で最も動きます。"},
+  so:{n:"社会的",en:"SOCIAL",t:"集団の中での立ち位置やつながりに注意が向きます。仲間がいる環境・グループ・コミュニティが継続の鍵。一人だと続きにくい傾向があります。"},
+  sx:{n:"一対一",en:"SEXUAL / ONE-TO-ONE",t:"特定の相手との深い結びつきや強い刺激に注意が向きます。信頼するトレーナーとのマンツーマン、そして強度の高い挑戦で最も燃えます。"}
+};
+
+var OPTS=[
+  {v:1,l:"まったく当てはまらない"},
+  {v:2,l:"あまり当てはまらない"},
+  {v:3,l:"どちらとも言えない"},
+  {v:4,l:"やや当てはまる"},
+  {v:5,l:"とても当てはまる"}
+];
+
+
+/* ---------- 事業ごとの表示設定 ----------
+   URLの ?org= で切り替える。
+     ジム   : /enneagram.html            （既定）
+     LAB    : /enneagram.html?org=lab
+     SOARS  : /enneagram.html?org=soars   */
+var BRANDS={
+  gym:{ name:"TRAINER'S GYM", sub:"エニアグラム診断", mark:"⚡", owner:"本部",
+        desc:"パーソナルジム／新規入会時に実施",
+        unitLabel:"店舗",
+        units:["駒沢大学店","高円寺店","江古田店","外苑前店","曙橋店","西荻窪店","幡ヶ谷店"],
+        cta:true,
+        ctaBody:"この診断結果をもとに、あなたのタイプに合わせてメニュー・声かけ・食事の進め方を設計します。",
+        line:"https://lin.ee/2Z1Luhr", site:"https://trainers-gym.com/" },
+  lab:{ name:"LAB", sub:"エニアグラム診断", mark:"🔬", owner:"本部",
+        desc:"生徒向け／自己理解と現場での活用",
+        unitLabel:"所属", units:[], cta:false },
+  soars:{ name:"SOARS", sub:"エニアグラム診断", mark:"✦", owner:"本部",
+        desc:"新規入会時に実施",
+        unitLabel:"店舗", units:[], cta:true,
+        ctaBody:"この診断結果をもとに、あなたのタイプに合わせて進め方を設計します。担当スタッフにお声がけください。",
+        line:"", site:"" }
+};
+
+/* 本部の宛先。メールアプリを開いて送る方式で使う（設定不要）。 */
+var HQ_MAIL="trainers.gym00@gmail.com";
+
+/* 結果PDFの自動送信先（Google Apps ScriptのウェブアプリURL）。
+   設定すると、PDFを添付して本部・担当者・本人へ自動送信できるようになる。
+   空のままでも、下記のメール送信・共有は使える。 */
+var SEND_ENDPOINT="";
+
+/* この入口がどの事業のものか。事業ごとに別ファイル・別URLで配る前提のため、
+   受診者に事業を選ばせることはしない（選ぶのは、渡す側の本部・スタッフ）。
+   URLに ?org= があればそれを優先する。 */
+var DEFAULT_ORG="gym";
+
+var ORG=(function(){
+  var m=/[?&]org=([a-z0-9_-]+)/i.exec(location.search);
+  var k=m?m[1].toLowerCase():"";
+  if(BRANDS[k])return k;
+  return BRANDS[DEFAULT_ORG]?DEFAULT_ORG:"gym";
+})();
+var BRAND=BRANDS[ORG];
+
+var LS_P='tg_enneagram_progress_v2', LS_R='tg_enneagram_result_v2';
+var person={name:"",unit:"",email:"",agree:false};
+var state={mode:'full',seq:[],idx:0,ans:{}};
+var lastRes=null;          /* 直近の採点結果 */
+var sender=null;           /* 送信者の表示（事業選択前は中立にするため） */
+var step='';               /* 現在の会話ステップ */
+
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function nowHM(){var d=new Date();return d.getHours()+':'+('0'+d.getMinutes()).slice(-2);}
+function fmtDate(d){d=d||new Date();return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('on');
+  clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('on');},2400);}
+
+/* ---------- トーク描画 ---------- */
+var chat=null, firstIn=true;
+
+function scrollDown(){ chat.scrollTop=chat.scrollHeight; }
+
+/* 相手（アカウント）の吹き出し */
+function say(html){
+  var who=sender||BRAND;
+  var r=document.createElement('div');
+  r.className='row in';
+  r.innerHTML='<div class="ava'+(firstIn?'':' ghost')+'">'+esc(who.mark)+'</div>'
+    +'<div class="bwrap">'+(firstIn?'<div class="who">'+esc(who.name)+'</div>':'')
+    +'<div class="bub">'+html+'</div></div>'
+    +'<div class="meta">'+nowHM()+'</div>';
+  chat.appendChild(r); firstIn=false; scrollDown();
+  return r;
+}
+
+/* 自分の吹き出し */
+function me(text){
+  var r=document.createElement('div');
+  r.className='row out';
+  r.innerHTML='<div class="bwrap"><div class="bub">'+esc(text)+'</div></div>'
+    +'<div class="meta"><span class="read">既読</span>'+nowHM()+'</div>';
+  chat.appendChild(r); firstIn=true; scrollDown();
+  return r;
+}
+
+/* カード（Flexメッセージ風） */
+function cardMsg(html){
+  var c=document.createElement('div');
+  c.className='card'; c.innerHTML=html;
+  chat.appendChild(c); firstIn=true; scrollDown();
+  return c;
+}
+
+function dayBar(text){
+  var d=document.createElement('div');
+  d.className='daybar'; d.innerHTML='<span>'+esc(text)+'</span>';
+  chat.appendChild(d); scrollDown();
+}
+
+/* 「入力中…」を挟んでから発話する */
+var TYPE_MS=430;
+function sayLater(html,delay){
+  return new Promise(function(res){
+    var r=document.createElement('div');
+    r.className='row in';
+    r.innerHTML='<div class="ava'+(firstIn?'':' ghost')+'">'+esc((sender||BRAND).mark)+'</div>'
+      +'<div class="bwrap"><div class="bub typing"><i></i><i></i><i></i></div></div>';
+    chat.appendChild(r); scrollDown();
+    setTimeout(function(){
+      r.remove();
+      res(say(html));
+    }, delay===undefined?TYPE_MS:delay);
+  });
+}
+
+/* ---------- クイックリプライ ---------- */
+function quick(items,stack){
+  var q=$('qr');
+  q.className='qr'+(stack?' stack':'');
+  q.innerHTML='';
+  items.forEach(function(it){
+    var b=document.createElement('button');
+    b.type='button';
+    b.innerHTML=it.html||esc(it.label);
+    if(it.sub)b.className='sub';
+    b.onclick=function(){ clearQuick(); it.on(it); };
+    q.appendChild(b);
+  });
+  scrollDown();
+}
+function clearQuick(){ $('qr').innerHTML=''; }
+
+/* ---------- 入力バー ---------- */
+function askText(placeholder,onDone,allowEmpty){
+  var bar=$('ibar'), inp=$('ibText');
+  bar.classList.remove('hide');
+  inp.value=''; inp.placeholder=placeholder;
+  function submit(){
+    var v=inp.value.trim();
+    if(!v&&!allowEmpty){ toast('入力してください'); inp.focus(); return; }
+    bar.classList.add('hide');
+    inp.onkeydown=null; $('ibSend').onclick=null;
+    onDone(v);
+  }
+  $('ibSend').onclick=submit;
+  inp.onkeydown=function(e){ if(e.key==='Enter'){ e.preventDefault(); submit(); } };
+}
+function hideInput(){ $('ibar').classList.add('hide'); }
+
+/* ---------- 進捗 ---------- */
+function progress(cur,total){
+  $('pbarF').style.width=(total?Math.round(cur/total*100):0)+'%';
+  $('brandSub').textContent = total ? ('質問 '+cur+' / '+total) : BRAND.sub;
+}
+
+/* ---------- 出題順 ---------- */
+function buildSeq(mode){
+  var rounds=(mode==='quick')?4:10, seq=[], r,i,t;
+  for(r=0;r<rounds;r++){
+    for(i=0;i<9;i++){
+      t=((r+i*4)%9)+1;          /* 4ずつ飛ばす（9と互いに素なので1周で全タイプを網羅） */
+      seq.push({k:'t'+t+'_'+r,kind:'type',t:t,q:QT[t][r]});
+    }
+  }
+  if(mode==='deep'){
+    var ord=['sp','so','sx'];
+    for(r=0;r<4;r++){
+      for(i=0;i<3;i++){
+        var g=ord[(r+i)%3];
+        seq.push({k:g+'_'+r,kind:'inst',g:g,q:QI[g][r]});
+      }
+    }
+  }
+  return seq;
+}
+
+/* ---------- 採点 ---------- */
+function score(){
+  var per=state.mode==='quick'?4:10, raw={},pct={},t,r,v,sum;
+  for(t=1;t<=9;t++){
+    sum=0;
+    for(r=0;r<per;r++){ v=state.ans['t'+t+'_'+r]; sum+=(typeof v==='number'?v:3); }
+    raw[t]=sum;
+    pct[t]=Math.round(((sum-per)/(per*4))*1000)/10;   /* 1〜5 → 0〜100% */
+  }
+  var order=[];
+  for(t=1;t<=9;t++) order.push({t:t,p:pct[t],raw:raw[t]});
+  order.sort(function(a,b){return b.p-a.p||a.t-b.t;});
+
+  var inst=null;
+  if(state.mode==='deep'){
+    inst={};
+    ['sp','so','sx'].forEach(function(g){
+      var s=0;
+      for(r=0;r<4;r++){ v=state.ans[g+'_'+r]; s+=(typeof v==='number'?v:3); }
+      inst[g]=Math.round(((s-4)/16)*1000)/10;
+    });
+  }
+  return {pct:pct,order:order,inst:inst,per:per};
+}
+
+function wingOf(t,pct){
+  var a=(t===1)?9:t-1, b=(t===9)?1:t+1, w=TYPES[t].wings;
+  return (pct[a]>=pct[b])?{n:a,d:w.a}:{n:b,d:w.b};
+}
+
+function save(){
+  try{localStorage.setItem(LS_P,JSON.stringify(
+    {mode:state.mode,idx:state.idx,ans:state.ans,person:person,org:ORG,ts:Date.now()}));}catch(e){}
+}
+
+/* ---------- レーダーチャート ---------- */
+function radar(pct){
+  var cx=170,cy=158,R=112,i,t,ang,x,y,rings='',axes='',labels='',pts=[];
+  for(i=1;i<=4;i++){
+    var rr=R*i/4,pp=[];
+    for(t=0;t<9;t++){
+      ang=-Math.PI/2+t*2*Math.PI/9;
+      pp.push((cx+rr*Math.cos(ang)).toFixed(1)+','+(cy+rr*Math.sin(ang)).toFixed(1));
+    }
+    rings+='<polygon class="rdr-ring'+(i===4?' out':'')+'" points="'+pp.join(' ')+'" fill="none" stroke-width="1"/>';
+  }
+  for(t=0;t<9;t++){
+    ang=-Math.PI/2+t*2*Math.PI/9;
+    x=cx+R*Math.cos(ang); y=cy+R*Math.sin(ang);
+    axes+='<line class="rdr-axis" x1="'+cx+'" y1="'+cy+'" x2="'+x.toFixed(1)+'" y2="'+y.toFixed(1)+'" stroke-width="1"/>';
+    var lx=cx+(R+20)*Math.cos(ang), ly=cy+(R+20)*Math.sin(ang);
+    labels+='<text class="rdr-lbl" x="'+lx.toFixed(1)+'" y="'+(ly+5).toFixed(1)+'" text-anchor="middle" font-size="15">'+(t+1)+'</text>';
+    var val=Math.max(0,Math.min(100,pct[t+1]))/100;
+    pts.push((cx+R*val*Math.cos(ang)).toFixed(1)+','+(cy+R*val*Math.sin(ang)).toFixed(1));
+  }
+  var dots='';
+  pts.forEach(function(p){var c=p.split(',');dots+='<circle class="rdr-dot" cx="'+c[0]+'" cy="'+c[1]+'" r="3" fill="#06c755"/>';});
+  return '<svg viewBox="0 0 340 330" role="img" aria-label="9タイプのスコア分布">'
+    +'<defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1">'
+    +'<stop offset="0%" stop-color="#06c755" stop-opacity=".42"/>'
+    +'<stop offset="100%" stop-color="#06c755" stop-opacity=".14"/></linearGradient></defs>'
+    +rings+axes+'<polygon points="'+pts.join(' ')+'" fill="url(#rg)" stroke="#06c755" stroke-width="2"/>'
+    +dots+labels+'</svg>';
+}
+
+/* ==========================================================
+   会話の流れ
+   ========================================================== */
+
+function applyBrand(){
+  $('brandName').textContent=BRAND.name;
+  $('brandSub').textContent=BRAND.sub;
+  $('brandMark').textContent=BRAND.mark;
+  document.title=BRAND.name+' エニアグラム診断';
+}
+
+/* ---------- ⓪ 事業を選ぶ ---------- */
+/* 結果は事業名つきで本部にメールされるため、取り違えないよう毎回ここで選ぶ。
+   URLで ?org= が指定されている場合はその事業に固定し、この画面は出さない。 */
+function pickOrg(){
+  step='org';
+  chat.innerHTML=''; firstIn=true;
+  lastRes=null;
+  progress(0,0);
+  $('brandName').textContent='エニアグラム診断';
+  $('brandSub').textContent='事業を選んでください';
+  $('brandMark').textContent='◆';
+  document.title='エニアグラム診断';
+  sender={name:'エニアグラム診断',mark:'◆'};
+  updateRich();
+  dayBar('今日');
+  say('<b>スタッフ用</b>\nこの端末で実施する事業を選び直します。\n選ぶと、その事業の入口として最初から始まります。');
+  quick(Object.keys(BRANDS).map(function(k){
+    return {html:'<b>'+esc(BRANDS[k].name)+'</b>　'+esc(BRANDS[k].desc),
+            on:function(){ chooseOrg(k); }};
+  }),true);
+}
+
+function chooseOrg(k){
+  ORG=k; BRAND=BRANDS[k];
+  sender=null;
+  applyBrand();
+  me(BRAND.name);
+  greet(!!loadProgress());
+}
+
+/* ---------- ① あいさつ＋使い方 ---------- */
+function greet(resumable){
+  step='greet';
+  progress(0,0);
+
+  say('はじめまして。<b>'+esc(BRAND.name)+' エニアグラム診断</b>です。\nあなたの性格タイプを、9つの中から見つけます。');
+
+  sayLater('<b>使い方はかんたんです。</b>\n\n'
+    +'<span class="em">①</span> 下に出てくるボタンをタップして答えるだけ\n'
+    +'<span class="em">②</span> 途中でやめても、次に開けば続きから\n'
+    +'<span class="em">③</span> 最後に結果が届きます（PDFで保存できます）', 700)
+  .then(function(){
+    return sayLater('答えるときのコツがひとつ。\n'
+      +'「<b>こうありたい自分</b>」ではなく、「<b>ついそうしてしまう自分</b>」で選んでください。\n'
+      +'考え込まず、直感で大丈夫です。', 800);
+  })
+  .then(function(){
+    if(resumable){ askResume(); }
+    else{ askName(); }
+  });
+}
+
+function askResume(){
+  step='resume';
+  var p=loadProgress();
+  sayLater('前回の続きが残っています。（'+(p.idx+1)+'問目から）\n続きから再開しますか？',600)
+  .then(function(){
+    quick([
+      {label:'続きから再開する', on:function(){ me('続きから再開する'); resumeQuiz(p); }},
+      {label:'最初からやり直す', sub:true, on:function(){ me('最初からやり直す'); clearProgress(); askName(); }}
+    ],true);
+  });
+}
+
+/* ---------- ② お名前 ---------- */
+function askName(){
+  step='name';
+  sayLater('それでは、はじめましょう。\nまず<b>お名前</b>を教えてください。',600).then(function(){
+    askText('お名前を入力',function(v){
+      person.name=v; me(v);
+      askUnit();
+    });
+  });
+}
+
+/* ---------- ③ 所属 ---------- */
+function askUnit(){
+  step='unit';
+  sayLater(esc(person.name)+'さん、ありがとうございます。\n'+esc(BRAND.unitLabel)+'を教えてください。',600)
+  .then(function(){
+    if(BRAND.units.length){
+      var items=BRAND.units.map(function(u){
+        return {label:u, on:function(){ person.unit=u; me(u); askMail(); }};
+      });
+      items.push({label:'その他・入力する', sub:true, on:function(){
+        askText(BRAND.unitLabel+'を入力',function(v){ person.unit=v; me(v||'（未入力）'); askMail(); },true);
+      }});
+      quick(items,true);
+    }else{
+      askText(BRAND.unitLabel+'を入力',function(v){ person.unit=v; me(v||'（未入力）'); askMail(); },true);
+    }
+  });
+}
+
+/* ---------- ④ メールアドレス ---------- */
+function askMail(){
+  step='mail';
+  sayLater('結果のPDFをお送りします。\n<b>メールアドレス</b>を入力してください。\n\n受け取らない場合は「スキップ」でも進めます。',600)
+  .then(function(){
+    quick([{label:'スキップする', sub:true, on:function(){ me('スキップする'); askAgree(); }}]);
+    askText('メールアドレスを入力',function(v){
+      if(v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){
+        toast('メールアドレスの形式を確認してください');
+        askMailRetry(); return;
+      }
+      person.email=v; me(v||'スキップする'); clearQuick(); askAgree();
+    },true);
+  });
+}
+function askMailRetry(){
+  askText('メールアドレスを入力',function(v){
+    if(v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ toast('メールアドレスの形式を確認してください'); askMailRetry(); return; }
+    person.email=v; me(v||'スキップする'); clearQuick(); askAgree();
+  },true);
+}
+
+/* ---------- ⑤ 共有への同意 ---------- */
+function askAgree(){
+  step='agree';
+  sayLater('最後に確認です。\n診断結果を<b>'+esc(BRAND.owner)+'および担当トレーナー</b>と共有してもよろしいですか？\n\n'
+    +'共有しない場合も診断は受けられます。その場合、結果はこの画面と印刷でのみご覧いただけます。',700)
+  .then(function(){
+    quick([
+      {label:'同意する', on:function(){ person.agree=true; me('同意する'); askMode(); }},
+      {label:'同意しない', sub:true, on:function(){ person.agree=false; me('同意しない'); askMode(); }}
+    ],true);
+  });
+}
+
+/* ---------- ⑥ ボリューム選択 ---------- */
+function askMode(){
+  step='mode';
+  sayLater('診断のボリュームを選んでください。',600).then(function(){
+    quick([
+      {html:'<b>クイック診断</b>　36問・約4分', on:function(){ me('クイック診断（36問）'); startQuiz('quick'); }},
+      {html:'<b>本格診断</b>　90問・約10分　おすすめ', on:function(){ me('本格診断（90問）'); startQuiz('full'); }},
+      {html:'<b>完全版</b>　102問・約12分', on:function(){ me('完全版（102問）'); startQuiz('deep'); }}
+    ],true);
+  });
+}
+
+/* ---------- ⑦ 出題 ---------- */
+var OPT_ICON=['','①','②','③','④','⑤'];
+
+function startQuiz(mode){
+  state.mode=mode; state.seq=buildSeq(mode); state.idx=0; state.ans={};
+  step='quiz';
+  sayLater('では、はじめます。全'+state.seq.length+'問です。\nいちばん近いものを選んでください。',700)
+  .then(askQ);
+}
+
+function resumeQuiz(p){
+  state.mode=p.mode||'full'; state.seq=buildSeq(state.mode);
+  state.idx=p.idx||0; state.ans=p.ans||{};
+  if(p.person)person=p.person;
+  step='quiz';
+  sayLater('おかえりなさい。'+(state.idx+1)+'問目から再開します。',600).then(askQ);
+}
+
+function askQ(){
+  var item=state.seq[state.idx];
+  if(!item){ finish(); return; }
+  progress(state.idx+1,state.seq.length);
+  var head='<b>Q'+(state.idx+1)+'.</b>　'+esc(item.q);
+  sayLater(head,300).then(function(){
+    quick(OPTS.map(function(o){
+      return {html:'<span class="n">'+OPT_ICON[o.v]+'</span> '+esc(o.l),
+              on:function(){ answer(o.v,o.l); }};
+    }),true);
+  });
+}
+
+function answer(v,label){
+  var item=state.seq[state.idx];
+  if(!item)return;
+  state.ans[item.k]=v;
+  me(label);
+  /* 保存は次の問題に進めてから。回答済みの問題を再開時に聞き直さないため */
+  if(state.idx<state.seq.length-1){ state.idx++; save(); askQ(); }
+  else{ finish(); }
+}
+
+/* ---------- ⑧ 結果 ---------- */
+function finish(){
+  var res=score();
+  lastRes=res;
+  progress(0,0);
+  step='result';
+  clearProgress();
+  try{
+    localStorage.setItem(LS_R,JSON.stringify(
+      {mode:state.mode,pct:res.pct,inst:res.inst,person:person,org:ORG,ts:Date.now()}));
+  }catch(e){}
+  showResult(res);
+}
+
+function showResult(res){
+  var t=res.order[0].t, T=TYPES[t], wing=wingOf(t,res.pct);
+  renderReport(res);
+
+  sayLater('お疲れさまでした。結果が出ました。',600).then(function(){
+    return sayLater('あなたの基本タイプは <b class="em">タイプ'+t+'　'+esc(T.name)+'</b> です。',700);
+  }).then(function(){
+    cardMsg(
+      '<div class="card-hd"><div class="k">YOUR BASIC TYPE</div>'
+      +'<div class="n">'+t+'<small>'+esc(T.name)+'</small></div></div>'
+      +'<div class="card-bd"><p>'+esc(T.catch)+'</p>'
+      +'<div class="card-kv"><span>ウィング '+wing.d.k+'</span>'
+      +'<span>'+T.center+'センター</span><span>一致度 '+res.order[0].p+'%</span></div></div>'
+      +'<div class="card-ft"><button id="cardReport">詳しい結果を見る</button></div>'
+    );
+    $('cardReport').onclick=openSheet;
+    return sayLater('「詳しい結果を見る」を押すと、あなたに向いているトレーニングの続け方まで確認できます。',800);
+  }).then(function(){
+    var items=[{label:'詳しい結果を見る', on:function(){ me('詳しい結果を見る'); openSheet(); }}];
+    if(SEND_ENDPOINT&&person.agree){
+      items.push({label:'結果を送ってもらう', on:function(){ me('結果を送ってもらう'); openSheet(); setTimeout(doSend,350); }});
+    }
+    items.push({label:'もう一度診断する', sub:true, on:function(){ me('もう一度診断する'); restart(); }});
+    quick(items,true);
+    updateRich();
+  });
+}
+
+/* ---------- リッチメニュー ---------- */
+function toggleRich(on){
+  $('rich').classList.toggle('on',on);
+  $('scrim').classList.toggle('on',on);
+}
+function updateRich(){
+  var done=!!lastRes;
+  $('rmReport').disabled=!done;
+  $('rmPrint').disabled=!done;
+  $('rmSend').disabled=!(done&&person.agree);
+  $('rmOrg').disabled=false;
+}
+
+function restart(){
+  clearProgress();
+  lastRes=null; person={name:"",unit:"",email:"",agree:false};
+  state={mode:'full',seq:[],idx:0,ans:{}};
+  updateRich();
+  chat.innerHTML=''; firstIn=true; dayBar('今日');
+  greet(false);
+}
+
+/* 診断の途中で事業を切り替えると、結果が別の事業に混ざるため確認する */
+function switchOrg(){
+  if(step==='quiz'){
+    say('診断の途中です。事業を切り替えると、<b>いまの回答は破棄</b>されて最初からになります。');
+    quick([
+      {label:'切り替える', on:function(){ me('切り替える'); clearProgress(); pickOrg(); }},
+      {label:'このまま続ける', sub:true, on:function(){ me('このまま続ける'); askQ(); }}
+    ],true);
+    return;
+  }
+  pickOrg();
+}
+
+function loadProgress(){
+  try{
+    var p=JSON.parse(localStorage.getItem(LS_P)||'null');
+    if(p&&p.org===ORG&&p.idx>0&&p.ans)return p;
+  }catch(e){}
+  return null;
+}
+function clearProgress(){ try{localStorage.removeItem(LS_P);}catch(e){} }
+
+/* ==========================================================
+   詳細レポート
+   ========================================================== */
+
+function openSheet(){ $('sheet').classList.add('on'); $('resBody').scrollTop=0; }
+function closeSheet(){ $('sheet').classList.remove('on'); }
+
+function renderReport(res){
+  var o=res.order, top=o[0], t=top.t, T=TYPES[t], pct=res.pct;
+  var gap=Math.round((o[0].p-o[1].p)*10)/10;
+  var wing=wingOf(t,pct), C=CENTERS[T.center];
+  var h='';
+
+  /* PDF・印刷時のみ出る受診者ヘッダー */
+  h+='<div class="pdf-head"><div class="pdf-brand">'+esc(BRAND.name)+'　エニアグラム診断 結果レポート</div>'
+   + '<div class="pdf-meta"><span>お名前：'+esc(person.name||'—')+'</span>'
+   + (person.unit?'<span>'+esc(BRAND.unitLabel)+'：'+esc(person.unit)+'</span>':'')
+   + '<span>診断日：'+fmtDate()+'</span>'
+   + '<span>設問数：'+(state.mode==='quick'?36:(state.mode==='deep'?102:90))+'問</span></div></div>';
+
+  h+='<div class="rep-hero"><div class="rep-lbl">YOUR BASIC TYPE</div>'
+   + '<div class="rep-num">'+t+'</div><div class="rep-name">'+esc(T.name)+'</div>'
+   + '<div class="rep-en">'+T.en+'</div><p class="rep-catch">'+esc(T.catch)+'</p>'
+   + '<div class="chips"><span class="chip">ウィング <b>'+wing.d.k+'</b></span>'
+   + '<span class="chip">'+T.center+'センター</span>'
+   + '<span class="chip">一致度 <b>'+top.p+'%</b></span></div></div>';
+
+  var cf = gap>=8 ? {c:'',i:'◎',t:'判定の確度：高い',d:'2位のタイプと'+gap+'ポイント差。タイプ'+t+'である可能性が高いです。'}
+        : gap>=4 ? {c:'mid',i:'○',t:'判定の確度：中程度',d:'2位のタイプ'+o[1].t+'とは'+gap+'ポイント差。下の「候補タイプの見分け方」も確認してください。'}
+        : {c:'low',i:'△',t:'判定の確度：要確認',d:'1位と2位（タイプ'+o[1].t+'）が'+gap+'ポイント差と拮抗しています。両方の説明を読み、「恐れ」の項目がより刺さる方を選んでください。'};
+  h+='<div class="conf '+cf.c+'"><div class="conf-i">'+cf.i+'</div><div><div class="conf-t">'+cf.t+'</div>'
+   + '<div class="conf-d">'+cf.d+'</div></div></div>';
+
+  h+='<h3 class="sub">9タイプ スコア分布</h3><div class="chart">'+radar(pct)+'</div>';
+
+  h+='<h3 class="sub">全タイプのスコア</h3><div class="bars">';
+  o.forEach(function(x,i){
+    h+='<div class="bar-row'+(i<3?' top':'')+'"><div class="bar-lbl"><b>'+x.t+'</b>'+esc(TYPES[x.t].name)+'</div>'
+     + '<div class="bar-track"><div class="bar-fill" data-w="'+Math.max(2,x.p)+'"></div></div>'
+     + '<div class="bar-v">'+x.p+'</div></div>';
+  });
+  h+='</div>';
+
+  if(gap<8){
+    var A=TYPES[o[0].t], B=TYPES[o[1].t];
+    h+='<h3 class="sub">候補タイプの見分け方</h3>'
+     + '<p class="mini" style="margin-bottom:10px">エニアグラムは行動ではなく<b>「恐れ」と「欲求」</b>で決まります。'
+     + '似た行動をしていても、その奥の動機が違えばタイプは違います。より深く刺さる方が、あなたの本来のタイプです。</p>'
+     + '<div class="cmp">'
+     + '<div class="cmp-col"><div class="cmp-h">タイプ'+o[0].t+' '+esc(A.name)+'</div>'
+     + '<div class="cmp-k">根源的な欲求</div><div class="cmp-v">'+esc(A.want)+'</div>'
+     + '<div class="cmp-k">根源的な恐れ</div><div class="cmp-v">'+esc(A.fear)+'</div></div>'
+     + '<div class="cmp-col"><div class="cmp-h">タイプ'+o[1].t+' '+esc(B.name)+'</div>'
+     + '<div class="cmp-k">根源的な欲求</div><div class="cmp-v">'+esc(B.want)+'</div>'
+     + '<div class="cmp-k">根源的な恐れ</div><div class="cmp-v">'+esc(B.fear)+'</div></div></div>';
+  }
+
+  h+='<h3 class="sub">タイプ'+t+' の核にあるもの</h3><div class="box"><dl class="kv">'
+   + '<dt>根源的欲求</dt><dd>'+esc(T.want)+'</dd><dt>根源的恐れ</dt><dd>'+esc(T.fear)+'</dd>'
+   + '<dt>囚われ</dt><dd>'+esc(T.passion)+'</dd><dt>向かう徳</dt><dd>'+esc(T.virtue)+'</dd></dl></div>';
+
+  h+='<h3 class="sub">強み</h3><div class="box"><ul class="list">';
+  T.strengths.forEach(function(s){h+='<li>'+esc(s)+'</li>';});
+  h+='</ul></div><h3 class="sub">つまずきやすいところ</h3><div class="box"><ul class="list warn">';
+  T.pitfalls.forEach(function(s){h+='<li>'+esc(s)+'</li>';});
+  h+='</ul></div>';
+
+  h+='<h3 class="sub">ウィング：'+wing.d.k+'（'+esc(wing.d.n)+'）</h3><div class="box">'
+   + '<p class="muted">'+esc(wing.d.t)+'</p><p class="mini" style="margin-top:10px">'
+   + '※ ウィングは基本タイプの両隣（タイプ'+((t===1)?9:t-1)+'と'+((t===9)?1:t+1)+'）のうち、影響が強い方です。</p></div>';
+
+  h+='<h3 class="sub">'+T.center+'センター（'+C.core+'の中心）</h3><div class="box">'
+   + '<p class="muted">'+esc(C.desc)+'</p>'
+   + '<p class="mini" style="margin-top:10px">同じセンターの仲間：タイプ'+C.types.join('・')+'</p></div>';
+
+  h+='<h3 class="sub">成長とストレスの方向</h3>'
+   + '<div class="arrow up"><div class="arrow-h">▲ 成長の方向　'+t+' → '+T.gw.n+'</div><p>'+esc(T.gw.t)+'</p></div>'
+   + '<div class="arrow down"><div class="arrow-h">▼ ストレスの方向　'+t+' → '+T.sd.n+'</div><p>'+esc(T.sd.t)+'</p></div>';
+
+  if(res.inst){
+    var ig=['sp','so','sx'].sort(function(a,b){return res.inst[b]-res.inst[a];});
+    var main=INSTINCT[ig[0]];
+    h+='<h3 class="sub">本能サブタイプ：'+main.n+'</h3><div class="box">';
+    ig.forEach(function(g){
+      h+='<div class="inst-row"><div class="inst-lbl">'+INSTINCT[g].n+'</div>'
+       + '<div class="inst-track"><div class="inst-fill" data-w="'+Math.max(2,res.inst[g])+'"></div></div>'
+       + '<div class="inst-v">'+res.inst[g]+'</div></div>';
+    });
+    h+='<p class="muted" style="margin-top:13px">'+esc(main.t)+'</p>'
+     + '<p class="mini" style="margin-top:8px">あなたの型は <b>タイプ'+t+' ・ '+main.n+'</b>。基本タイプに、この本能が重なった形で現れます。</p></div>';
+  }
+
+  h+='<div class="eyebrow">TRAINING APPLICATION</div>'
+   + '<h2 class="ttl">タイプ'+t+' の「続くトレーニング」設計図</h2><div class="gym">'
+   + '<div class="gym-row"><div class="gym-k">◎ 向いているスタイル</div><div class="gym-v">'+esc(T.gym.style)+'</div></div>'
+   + '<div class="gym-row"><div class="gym-k">◎ 効くモチベーション</div><div class="gym-v">'+esc(T.gym.motiv)+'</div></div>'
+   + '<div class="gym-row"><div class="gym-k">▲ 挫折パターン</div><div class="gym-v">'+esc(T.gym.risk)+'</div></div>'
+   + '<div class="gym-row"><div class="gym-k">▲ 食事管理の傾向</div><div class="gym-v">'+esc(T.gym.food)+'</div></div>'
+   + '<div class="gym-row"><div class="gym-k">★ 継続のカギ</div><div class="gym-v">'+esc(T.gym.hint)+'</div></div></div>';
+
+  h+='<h3 class="sub">トレーナー向け：指導のポイント</h3><div class="coach">'
+   + '<div class="coach-h">効く声かけ</div><ul class="list talk">';
+  T.trainer.talk.forEach(function(s){h+='<li>'+esc(s)+'</li>';});
+  h+='</ul><div class="coach-h" style="margin-top:14px">避けたい対応</div><ul class="list warn">';
+  T.trainer.ng.forEach(function(s){h+='<li>'+esc(s)+'</li>';});
+  h+='</ul><div class="coach-h" style="margin-top:14px">目標設定のコツ</div>'
+   + '<p class="muted">'+esc(T.trainer.goal)+'</p></div>';
+
+  h+='<div class="send-box no-print"><div class="send-t">結果を送る</div>';
+  if(person.agree){
+    if(SEND_ENDPOINT){
+      var dest=[BRAND.owner];
+      if(person.unit)dest.push(person.unit+'の担当者');
+      if(person.email)dest.push('ご本人（'+person.email+'）');
+      h+='<p class="send-d">PDFにして '+esc(dest.join('・'))+' に自動で送ります。</p>'
+       + '<button class="btn" id="btnSend">PDFを送信する</button>'
+       + '<div class="send-st" id="sendSt"></div>'
+       + '<p class="send-d" style="margin:13px 0 0">うまくいかないときは、下のどちらかでも送れます。</p>';
+    }else{
+      h+='<p class="send-d">下のボタンから、'+esc(BRAND.owner)+'（'+esc(HQ_MAIL)+'）に結果を送れます。</p>';
+    }
+    h+='<div class="btn-row" style="margin-top:10px">'
+     + '<button class="btn-g" id="btnMailto">メールで送る</button>'
+     + '<button class="btn-g" id="btnShare">LINEなどで送る</button></div>'
+     + '<p class="send-d" style="margin:11px 0 0">※ この2つは本文のみです。PDFが必要な場合は「保存・印刷」で保存して添付してください。</p>';
+  }else{
+    h+='<p class="send-d" style="margin:0">共有に同意していないため、送信は行いません。'
+     + '「保存・印刷」からPDFを保存して、必要な相手にご自身でお渡しください。</p>';
+  }
+  h+='</div>';
+
+  h+='<div class="act no-print"><div class="btn-row">'
+   + '<button class="btn-g" id="btnCopy">結果をコピー</button>'
+   + '<button class="btn-g" id="btnPrint">保存・印刷</button></div>';
+  if(BRAND.cta&&BRAND.line){
+    h+='<a class="btn" href="'+BRAND.line+'" target="_blank" rel="noopener">LINEで無料カウンセリング予約</a>';
+  }
+  h+='</div>';
+
+  h+='<div class="foot"><p>※ 本診断は自己理解とコーチングのためのツールであり、医学的・心理学的な診断ではありません。<br>'
+   + '結果は「今の自己認識」を映すものです。時期や状況によって変動することがあります。</p></div>';
+
+  $('resBody').innerHTML=h;
+
+  setTimeout(function(){
+    var f=document.querySelectorAll('.bar-fill,.inst-fill');
+    for(var i=0;i<f.length;i++){ f[i].style.width=f[i].dataset.w+'%'; }
+  },80);
+
+  $('btnPrint').onclick=function(){ window.print(); };
+  $('btnCopy').onclick=function(){ copyText(summaryText(res,t,wing)); };
+  if($('btnSend')){ $('btnSend').onclick=doSend; }
+  if($('btnMailto')){ $('btnMailto').onclick=function(){ sendByMail(res,t,wing); }; }
+  if($('btnShare')){ $('btnShare').onclick=function(){ shareResult(res,t,wing); }; }
+}
+
+/* ---------- 送信 ---------- */
+function buildPdfHtml(){
+  var css=$('basecss').textContent+'\n'+$('printcss').textContent;
+  return '<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">'
+    + '<title>'+esc(BRAND.name)+' エニアグラム診断 '+esc(person.name)+'</title>'
+    + '<style>'+css+'</style></head><body><div class="sheet"><div class="sheet-bd">'
+    + $('resBody').innerHTML
+    + '</div></div></body></html>';
+}
+
+function doSend(){
+  if(!lastRes||!SEND_ENDPOINT)return;
+  var res=lastRes, t=res.order[0].t, wing=wingOf(t,res.pct);
+  var btn=$('btnSend'), st=$('sendSt');
+  if(!btn||!st)return;
+  function show(cls,msg){ st.className='send-st on '+cls; st.innerHTML=msg; }
+  btn.disabled=true;
+  show('wait','送信しています…');
+
+  fetch(SEND_ENDPOINT,{
+    method:'POST',
+    /* text/plain にすることでプリフライトを避ける（Apps Script側は生のBodyを読む） */
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      org:ORG, brand:BRAND.name,
+      name:person.name, unit:person.unit, email:person.email,
+      type:t, typeName:TYPES[t].name, wing:wing.d.k, center:TYPES[t].center,
+      mode:state.mode, questions:(state.mode==='quick'?36:(state.mode==='deep'?102:90)),
+      scores:res.pct, instinct:res.inst||null,
+      date:fmtDate(), summary:summaryText(res,t,wing),
+      html:buildPdfHtml()
+    })
+  }).then(function(r){return r.json();}).then(function(j){
+    if(!j||!j.ok) throw new Error((j&&j.error)||'不明なエラー');
+    show('done','送信しました。'+esc(BRAND.owner)+'に結果PDFを共有済みです。'
+      +(person.email?'<br>ご本人（'+esc(person.email)+'）にも同じPDFをお送りしました。':''));
+    toast('結果を送信しました');
+  }).catch(function(err){
+    show('ng','送信できませんでした（'+esc(String(err.message||err))+'）。<br>'
+      +'「保存・印刷」からPDFを保存して、お手数ですが手動で共有してください。');
+    btn.disabled=false;
+  });
+}
+
+/* メールアプリを開いて送る。サーバー不要で、その場ですぐ使える。 */
+function mailSubject(t){
+  return '【'+BRAND.name+(person.unit?'／'+person.unit:'')+'】'
+    + (person.name||'匿名')+' さん：タイプ'+t+' '+TYPES[t].name;
+}
+function sendByMail(res,t,wing){
+  var to=HQ_MAIL;
+  if(person.email) to+=','+person.email;
+  var url='mailto:'+encodeURIComponent(to)
+    + '?subject='+encodeURIComponent(mailSubject(t))
+    + '&body='+encodeURIComponent(summaryText(res,t,wing));
+  location.href=url;
+  toast('メールアプリを開きます');
+}
+
+/* 端末の共有メニューを開く（LINE・メールなどに渡せる） */
+function shareResult(res,t,wing){
+  var txt=summaryText(res,t,wing);
+  if(navigator.share){
+    navigator.share({title:mailSubject(t),text:txt}).catch(function(){});
+  }else{
+    copyText(txt);
+    toast('結果をコピーしました。貼り付けて送ってください');
+  }
+}
+
+function summaryText(res,t,wing){
+  var T=TYPES[t], L=[];
+  L.push('【エニアグラム診断結果／'+BRAND.name+'】');
+  L.push('お名前：'+(person.name||'—')+(person.unit?'　'+BRAND.unitLabel+'：'+person.unit:''));
+  L.push('診断日：'+fmtDate());
+  L.push('基本タイプ：'+t+' '+T.name+'（'+T.en+'）');
+  L.push('ウィング：'+wing.d.k+' '+wing.d.n);
+  L.push('センター：'+T.center+'（'+CENTERS[T.center].core+'）');
+  if(res.inst){
+    var ig=['sp','so','sx'].sort(function(a,b){return res.inst[b]-res.inst[a];});
+    L.push('本能サブタイプ：'+INSTINCT[ig[0]].n);
+  }
+  L.push('');
+  L.push('■ スコア');
+  res.order.forEach(function(x){ L.push('  タイプ'+x.t+' '+TYPES[x.t].name+'：'+x.p+'%'); });
+  L.push('');
+  L.push('■ 根源的欲求：'+T.want);
+  L.push('■ 根源的恐れ：'+T.fear);
+  L.push('');
+  L.push('■ 向いているスタイル');   L.push('  '+T.gym.style);
+  L.push('■ 挫折パターン');         L.push('  '+T.gym.risk);
+  L.push('■ 継続のカギ');           L.push('  '+T.gym.hint);
+  L.push('');
+  L.push('■ 指導のポイント（目標設定）'); L.push('  '+T.trainer.goal);
+  return L.join('\n');
+}
+
+function copyText(txt){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){toast('結果をコピーしました');},function(){fallbackCopy(txt);});
+  }else{ fallbackCopy(txt); }
+}
+function fallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); toast('結果をコピーしました'); }
+  catch(e){ toast('コピーできませんでした'); }
+  document.body.removeChild(ta);
+}
+
+/* ==========================================================
+   起動
+   ========================================================== */
+chat=$('chat');
+applyBrand();
+
+$('btnRich').onclick=function(){ toggleRich(!$('rich').classList.contains('on')); };
+$('rmClose').onclick=function(){ toggleRich(false); };
+$('scrim').onclick=function(){ toggleRich(false); };
+$('sheetClose').onclick=closeSheet;
+$('btnHome').onclick=function(){
+  if($('sheet').classList.contains('on')){ closeSheet(); return; }
+  toggleRich(false);
+};
+
+$('rmGuide').onclick=function(){
+  toggleRich(false);
+  say('<b>使い方</b>\n\n'
+    +'<span class="em">①</span> 画面の下に出るボタンをタップして答えます\n'
+    +'<span class="em">②</span> 途中でやめても、次に開けば続きから再開できます\n'
+    +'<span class="em">③</span> 終わると結果が届きます。「詳しい結果を見る」で全文を確認できます\n'
+    +'<span class="em">④</span> 「保存・印刷」からPDFとして保存・印刷できます\n\n'
+    +'答えるコツは、「こうありたい自分」ではなく「ついそうしてしまう自分」で選ぶことです。');
+};
+$('rmOrg').onclick=function(){ toggleRich(false); switchOrg(); };
+$('rmPrint').onclick=function(){ toggleRich(false); if(lastRes){ openSheet(); setTimeout(function(){window.print();},400); } };
+$('rmReport').onclick=function(){ toggleRich(false); if(lastRes)openSheet(); };
+$('rmSend').onclick=function(){
+  toggleRich(false);
+  if(!lastRes)return;
+  openSheet();
+  /* 自動送信が設定済みならそれを実行し、未設定なら送信欄まで案内する */
+  setTimeout(function(){
+    if(SEND_ENDPOINT&&person.agree&&$('btnSend')){ doSend(); }
+    else if($('btnMailto')){ $('btnMailto').scrollIntoView({block:'center'}); }
+  },380);
+};
+$('rmRestart').onclick=function(){ toggleRich(false); restart(); };
+
+updateRich();
+applyBrand();
+chat.innerHTML=''; firstIn=true; dayBar('今日');
+greet(!!loadProgress());
+
+</script>
+</body>
+</html>

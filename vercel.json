@@ -1,5 +1,35 @@
 {
   "version": 2,
-  "builds": [{"src": "*.html", "use": "@vercel/static"}],
-  "routes": [{"src": "/(.*)", "dest": "/$1"}]
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/e",
+      "dest": "/enneagram.html"
+    },
+    {
+      "src": "/enneagram",
+      "dest": "/enneagram.html"
+    },
+    {
+      "src": "/gym",
+      "dest": "/enneagram.html?org=gym"
+    },
+    {
+      "src": "/lab",
+      "dest": "/enneagram.html?org=lab"
+    },
+    {
+      "src": "/soars",
+      "dest": "/enneagram.html?org=soars"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
 }
