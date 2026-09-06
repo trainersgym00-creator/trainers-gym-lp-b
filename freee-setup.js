@@ -5,36 +5,94 @@
 // 使い方: node freee-setup.js
 // ============================================================
 const fs = require('fs');
+const os = require('os');
+const path = require('path');
 const readline = require('readline');
 const { execFileSync } = require('child_process');
 
 const REPO = 'trainersgym00-creator/trainers-gym-lp-b';
 const REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob';
 const AUTH_BASE = 'https://accounts.secure.freee.co.jp/public_api';
+const TOOLS_DIR = path.join(__dirname, '.tools');
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 const ask = (q) => new Promise(resolve => rl.question(q, a => resolve(a.trim())));
 const die = (msg) => { console.error(`\n❌ ${msg}\n`); rl.close(); process.exit(1); };
 
+// gh のパス（PATH上のもの、なければダウンロードしたもの）
+let GH = 'gh';
+
 function sh(cmd, args) {
   return execFileSync(cmd, args, { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] }).trim();
+}
+
+// gh が使えるか確認し、無ければ公式バイナリをこのフォルダに落として使う
+// （Homebrew も管理者パスワードも不要）
+async function ensureGh() {
+  for (const candidate of ['gh', path.join(TOOLS_DIR, 'bin', 'gh')]) {
+    try { sh(candidate, ['--version']); GH = candidate; return; } catch { /* 次を試す */ }
+  }
+
+  console.log('GitHubのコマンド(gh)が無いので、自動でダウンロードします...');
+  const arch = os.arch() === 'arm64' ? 'arm64' : 'amd64';
+  const suffix = `macOS_${arch}.zip`;
+
+  // 最新版を探す。取得できない時は動作確認済みのバージョンにフォールバック
+  const PINNED = '2.100.0';
+  let downloadUrl = null;
+  try {
+    const relRes = await fetch('https://api.github.com/repos/cli/cli/releases/latest', {
+      headers: { 'Accept': 'application/vnd.github+json', 'User-Agent': 'freee-setup' },
+    });
+    if (relRes.ok) {
+      const asset = (await relRes.json()).assets?.find(a => a.name.endsWith(suffix));
+      if (asset) downloadUrl = asset.browser_download_url;
+    }
+  } catch { /* フォールバックへ */ }
+  if (!downloadUrl) {
+    downloadUrl = `https://github.com/cli/cli/releases/download/v${PINNED}/gh_${PINNED}_macOS_${arch}.zip`;
+  }
+
+  fs.mkdirSync(TOOLS_DIR, { recursive: true });
+  const zipPath = path.join(TOOLS_DIR, 'gh.zip');
+  const dl = await fetch(downloadUrl);
+  if (!dl.ok) die(`ghのダウンロードに失敗しました (${dl.status})。ネット接続を確認してください。`);
+  fs.writeFileSync(zipPath, Buffer.from(await dl.arrayBuffer()));
+
+  sh('unzip', ['-oq', zipPath, '-d', TOOLS_DIR]);
+  // 展開先は gh_<version>_macOS_<arch>/bin/gh
+  const extracted = fs.readdirSync(TOOLS_DIR).find(d => d.startsWith('gh_') && fs.existsSync(path.join(TOOLS_DIR, d, 'bin', 'gh')));
+  if (!extracted) die('ghの展開に失敗しました。');
+  const binDir = path.join(TOOLS_DIR, 'bin');
+  fs.mkdirSync(binDir, { recursive: true });
+  fs.copyFileSync(path.join(TOOLS_DIR, extracted, 'bin', 'gh'), path.join(binDir, 'gh'));
+  fs.chmodSync(path.join(binDir, 'gh'), 0o755);
+  fs.rmSync(zipPath, { force: true });
+
+  GH = path.join(binDir, 'gh');
+  sh(GH, ['--version']); // 動作確認
+  console.log('✅ ghの準備ができました\n');
 }
 
 (async () => {
   console.log('\n===== freee自動仕訳 セットアップ =====\n');
 
-  // --- 1. gh コマンドの確認 ---
+  // --- 1. GitHubの準備（必要ならghを自動取得＆ログイン）---
+  await ensureGh();
   try {
-    sh('gh', ['--version']);
+    sh(GH, ['auth', 'status']);
+    console.log('✅ GitHubログイン済み\n');
   } catch {
-    die('GitHubのコマンド(gh)が入っていません。\n   ターミナルで次を実行してから、もう一度やり直してください:\n\n   brew install gh');
+    console.log('--- GitHubへのログインが必要です ---');
+    console.log('ブラウザが開くので、表示されるコードを貼り付けて許可してください。\n');
+    try {
+      execFileSync(GH, ['auth', 'login', '--hostname', 'github.com', '--git-protocol', 'https', '--web'], { stdio: 'inherit' });
+    } catch {
+      die('GitHubへのログインに失敗しました。もう一度 node freee-setup.js を実行してください。');
+    }
+    try { sh(GH, ['auth', 'status']); } catch { die('GitHubへのログインが完了していません。もう一度実行してください。'); }
+    console.log('\n✅ GitHubログイン完了\n');
   }
-  try {
-    sh('gh', ['auth', 'status']);
-  } catch {
-    die('GitHubにログインしていません。\n   ターミナルで次を実行し、ブラウザで許可してから、もう一度やり直してください:\n\n   gh auth login');
-  }
-  console.log('✅ GitHubの準備OK\n');
 
   // --- 2. freeeのIDとSecretを入力 ---
   console.log('freeeのアプリ画面に表示されている値を貼り付けてください。\n');
@@ -99,7 +157,7 @@ function sh(cmd, args) {
   };
   for (const [name, value] of Object.entries(secrets)) {
     try {
-      execFileSync('gh', ['secret', 'set', name, '--repo', REPO, '--body', value], { stdio: ['pipe', 'pipe', 'pipe'] });
+      execFileSync(GH, ['secret', 'set', name, '--repo', REPO, '--body', value], { stdio: ['pipe', 'pipe', 'pipe'] });
       console.log(`   ✅ ${name}`);
     } catch (e) {
       die(`${name} の登録に失敗しました。\n   ${e.stderr?.toString() || e.message}`);
@@ -107,7 +165,7 @@ function sh(cmd, args) {
   }
 
   // --- 6. 確認 ---
-  const list = sh('gh', ['secret', 'list', '--repo', REPO]);
+  const list = sh(GH, ['secret', 'list', '--repo', REPO]);
   const registered = ['FREEE_CLIENT_ID', 'FREEE_CLIENT_SECRET', 'FREEE_REFRESH_TOKEN', 'FREEE_COMPANY_ID']
     .filter(n => new RegExp(`^${n}\\s`, 'm').test(list));
 
