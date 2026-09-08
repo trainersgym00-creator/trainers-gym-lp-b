@@ -237,7 +237,8 @@ footer a{text-decoration:underline;}
     <div class="hero-badges">
       <span class="hb">2026年10月5日 開講</span>
       <span class="hb">6ヶ月間</span>
-      <span class="hb red">定員8名・残り3名</span>
+      <span class="hb red">定員8名・先着順</span>
+      <span class="hb red">9月28日 申込締切</span>
     </div>
     <a class="cta js-reserve" href="#cv">無料オンライン個別説明会に申し込む<small>毎日開催 / Zoom30分 / 無理な勧誘は一切ありません</small></a>
     <p class="hero-note">LP限定キャンペーンコードで受講料 <b>60,000円OFF</b>(ページ下部に記載)</p>
@@ -246,7 +247,7 @@ footer a{text-decoration:underline;}
 
 <!-- 02 お知らせ -->
 <div class="news">
-  <b>【毎日開催中】</b>オンライン個別説明会 受付中。ご都合の良い日時をお選びいただけます(所要30分・カメラオフOK)。
+  <b>【申込締切 9月28日(月)】</b>オンライン個別説明会は毎日開催中。ご都合の良い日時をお選びいただけます(所要30分・カメラオフOK)。
 </div>
 
 <!-- 03 共感 -->
@@ -397,7 +398,8 @@ footer a{text-decoration:underline;}
     <tr><th>時間</th><td>13:30〜16:30</td></tr>
     <tr><th>期間</th><td>6ヶ月</td></tr>
     <tr><th>会場</th><td>九州医療スポーツ専門学校<!-- TODO: 住所・アクセスを追記 --></td></tr>
-    <tr><th>定員</th><td>8名 <span class="seat">残り3名</span></td></tr>
+    <tr><th>定員</th><td>8名(先着順・定員になり次第締切)<!-- 申込が入り次第「残り◯名」の実数表示に切替 --></td></tr>
+    <tr><th>申込締切</th><td><span class="seat">2026年9月28日(月)</span></td></tr>
   </table>
 </section>
 
@@ -439,8 +441,8 @@ footer a{text-decoration:underline;}
 
 <!-- 13 最終CTA -->
 <section class="sec-final">
-  <h2 class="rv">定員8名、<span class="seat">残り3名</span>。<br>枠が埋まり次第、<br>募集を終了します。</h2>
-  <p>2026年10月5日開講/九州医療スポーツ専門学校</p>
+  <h2 class="rv">定員8名・先着順。<br>申込締切は<span class="seat">9月28日(月)</span>です。</h2>
+  <p>締切まで残り<b id="cdDays" style="color:#ffd7dc;font-size:16px;">--</b>日/2026年10月5日開講・九州医療スポーツ専門学校</p>
   <a class="cta js-reserve" href="#cv">無料オンライン個別説明会に申し込む<small>毎日開催 / Zoom30分</small></a>
 </section>
 
@@ -478,6 +480,15 @@ if(LINE_URL){var l=document.querySelector('.cta-sub');if(l){l.href=LINE_URL;l.ta
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
   },{threshold:0.12});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+
+// 申込締切カウントダウン(9/28 23:59 JST)
+(function(){
+  var el=document.getElementById('cdDays');
+  if(!el)return;
+  var deadline=new Date('2026-09-28T23:59:59+09:00').getTime();
+  var d=Math.max(0,Math.ceil((deadline-Date.now())/86400000));
+  el.textContent=d;
 })();
 
 // CTAクリック計測(GTM dataLayer)
